@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Web Geliştirme Eğitimi Dersleri, 003 , 26 Aralık 2007, Çarşamba</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta http-equiv="Content-Style-Type" content="text/css"/>
+			<meta name="author" content="Uğur 'vigo' Özyılmazel"/>
+			<meta name="keywords" content="html xhtml css javascript web php database mysql svn development code coding programming"/>
+			<meta name="description" content="Web uygulama / geliştirme ile ilgili eğitim. File / Folder yapısı, Block-Level / In-Line elementler, Tasarım / HTML ve Mizampaj&rsquo;ın ayrılması, Gerekli Tool&rsquo;lar, D.O.M&rsquo;a minimal bakış, ID / CLASS nedir? , Absolute / Relative Path, CSS&rsquo;e giriş."/>
+			<meta name="copyright" content="2007 - Uğur Özyılmazel"/>
+			<meta name="date" content="2007-12-26T09:00:00+02:00"/>
+			<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+			<meta http-equiv="Last-Modified" content="Thu, 03 Jan 2008 21:50:46 GMT"/>
+			<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+			<meta http-equiv="Pragma" content="no-cache"/>
+			<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	</head>
+	<body>
+		<div id="canvas">
+			<div id="info">
+				<h1>Web Geliştirme Eğitimi Dersleri, 003</h1>
+				<h2>26 Aralık 2007, Çarşamba</h2>
+			</div>
+
+			<div class="row">
+				<h3>Folder / File Yapısı</h3>
+				<p>Amacımız, dosya isimleri, dizin isimleri, dosya türlerini düzgün ve anlaşılır bir şekilde oluşturmak. Style-sheet&rsquo;leri ( <em>CSS</em> ), Javascript&rsquo;leri, resimleri, html&rsquo;leri ve varsa diğer script dosyalarını ( <em>asp, php vs...</em> ) düzenli bir şekilde saklamak.</p>
+				<ol class="code">
+					<li><strong>css</strong></li>
+					<li><span class="tab">&nbsp;</span>default.css</li>
+					<li><strong>files</strong></li>
+					<li><strong>images</strong></li>
+					<li><span class="tab">&nbsp;</span><strong>backgrounds</strong></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>body.gif</li>
+					<li><span class="tab">&nbsp;</span><strong>clip-arts</strong></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>clown-01.gif</li>
+					<li><span class="tab">&nbsp;</span><strong>icons</strong></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>loading.gif</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>warning.gif</li>
+					<li><strong>js</strong></li>
+					<li><span class="tab">&nbsp;</span>default.js</li>
+					<li><strong>pages</strong></li>
+					<li><span class="tab">&nbsp;</span><strong>about</strong></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>index.html</li>
+					<li><span class="tab">&nbsp;</span><strong>news</strong></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>index.html</li>
+					<li>index.html</li>
+				</ol>
+			</div>
+			
+			<div class="row">
+				<h3>&ldquo;BLOCK-LEVEL&rdquo; Elementler</h3>
+				<p>İçinde bulunduğu elemente göre boyunu otomatik olarak <strong>100%</strong> yapan ( <em>width</em> ) elementler.</p>
+				<div class="flt">
+					<ol>
+						<li>address</li>
+						<li>blockquote ( <em>içine <strong>p</strong></em>  )</li>
+						<li>center</li>
+						<li>div</li>
+						<li>dl</li>
+						<li>dt</li>
+						<li>dd</li>
+						<li>fieldset ( <em>içinde <strong>legend</strong></em> )</li>
+						<li>form</li>
+						<li>p</li>
+					</ol>
+				</div>
+				<div class="flt">
+					<ol start="11">
+							<li>pre</li>
+							<li>h1</li>
+							<li>h2</li>
+							<li>h3</li>
+							<li>h4</li>
+							<li>h5</li>
+							<li>h6</li>
+							<li>table ( <em>içinde <strong>thead</strong> , <strong>tbody</strong> , <strong>td</strong> , <strong>tfoot</strong> , <strong>th</strong> , <strong>tr</strong> , <strong>col</strong> , <strong>colgroup</strong> , <strong>caption</strong></em> )</li>
+							<li>ul ( <em>içine <strong>li</strong></em> )</li>
+							<li>ol ( <em>içine <strong>li</strong></em> )</li>
+					</ol>
+				</div>
+			</div>
+			
+			<div class="row">
+				<h3>&ldquo;IN-LINE&rdquo; Elementler</h3>
+				<p><strong>width</strong>&rsquo;i olmayan, bulunduğu yeri bozmayan elementler.</p>
+				<div class="flt">
+					<ol>
+						<li>a</li>
+						<li>abbr</li>
+						<li>acronym</li>
+						<li>bdo ( <em>ltr , rtl</em> )</li>
+						<li>big</li>
+						<li>button</li>
+						<li>code</li>
+						<li>cite</li>
+						<li>del</li>
+						<li>dfn</li>
+						<li>em ( <em><strong>i</strong> yerine</em> )</li>
+					</ol>
+				</div>
+				<div class="flt">
+					<ol start="12">
+						<li><s>font</s> ( <em><strong>kullanmıyoruz!</strong></em> )</li>
+						<li>iframe</li>
+						<li>img ( <em><strong>area</strong>  , <strong>map</strong> ile birlikte</em> )</li>
+						<li>ins</li>
+						<li>input</li>
+						<li>kbd</li>
+						<li>label</li>
+						<li>object ( <em><strong>param</strong> ile</em> )</li>
+						<li>q</li>
+						<li>s ( <em>yada <strong>strike</strong></em> )</li>
+						<li>samp</li>
+					</ol>
+				</div>
+				<div class="flt">
+					<ol start="23">
+						<li>select ( <em>içinde <strong>option</strong> , <strong>optgroup</strong></em> )</li>
+						<li>small</li>
+						<li>span</li>
+						<li>sub</li>
+						<li>sup</li>
+						<li>strong ( <em><strong>b</strong> yerine</em> )</li>
+						<li>textarea</li>
+						<li>tt</li>
+						<li>u</li>
+						<li>var</li>
+					</ol>
+				</div>
+				<div class="flt">
+					<h4>IN-LINE İçinde BLOCK-LEVEL Olamaz!</h4>
+					<ol class="code" onmouseover="this.style.textDecoration='line-through';" onmouseout="this.style.textDecoration='none';">
+						<li><span class="h">&lt;span&gt;</span></li>
+						<li><span class="tab">&nbsp;</span><span class="h">&lt;div&gt;</span>Test<span class="h">&lt;/div&gt;</span></li>
+						<li><span class="h">&lt;/span&gt;</span></li>
+					</ol>
+				</div>
+			</div>
+			
+			<div class="row">
+				<h3>Tasarım ( Design ) , HTML ( Code ) ve Mizampaj ( Layout ) Ayrılması</h3>
+				<ul>
+					<li>CSS&rsquo;ler ayrı dosyalardan include edilecek!</li>
+					<li>Javascript&rsquo;ler ayrı dosyalardan include edilecek!</li>
+					<li>Sunucu tarafındaki yazılım ( <em>asp, php, .net vs...</em> ) sadece &ldquo;pure / plain&rdquo; ( <em>düz</em> ) html üretecek.</li>
+					<li><strong>IN-LINE</strong> CSS yada Javascript&ldquo;’&rdquo;den kaçınılacak!</li>
+					<li>Tüm projede, kod ( <em>html yada dinamik</em> ) ve tasarım ( <em>CSS</em> ) ayrı ayrı duracak!</li>
+				</ul>
+			</div>
+			<div class="row">
+				<h3>Gerekli Yazılımlar</h3>
+				<p>Web Development ( <em>Web Geliştirme</em> ) için başvuracağımız faydalı yazılımlar.</p>
+				<ul>
+					<li><a target="_blank" href="http://www.mozilla.com/en-US/firefox/">Firefox</a></li>
+					<li><a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/249">HTML Validator Eklentisi</a></li>
+					<li><a target="_blank" href="http://www.getfirebug.com/">Firebug Eklentisi</a></li>
+					<li><a target="_blank" href="http://chrispederick.com/work/web-developer/">Web Developer Eklentisi</a></li>
+				</ul>
+			</div>
+			
+			<div class="row">
+				<h3>D.O.M : &ldquo;Document Object Modelling&rdquo; - Minimal Bakış</h3>
+				<ul>
+					<li>HTML aslında <strong>XML NODE</strong>&rsquo;lardan oluşur.</li>
+					<li><strong>NODE</strong>&rsquo;lar birbiriyle organik bir şekilde bağlıdır. ( <em>firstChild, lastChild, parent, child, sibling gibi...</em> )</li>
+					<li>Javascript ile <strong>document.element</strong> nesnesinden istediğimiz her elemente ulaşabilir, modifiye edebilir, yeni elementler oluşturabilir / yok edebiliriz.</li>
+				</ul>
+				<p>Koleksiyonlar ( <em>Objeler</em> )</p>
+				<ul>
+					<li>document.<strong>images</strong></li>
+					<li>document.<strong>forms</strong></li>
+					<li>document.<strong>links</strong></li>
+					<li>document.<strong>anchors</strong></li>
+					<li>document.<strong>styleSheets</strong></li>
+					<li>document.<strong>plugins</strong></li>
+					<li>document.<strong>applets</strong></li>
+				</ul>
+				<h4>document.FORM_NAME.FORM_ELEMENT_NAME</h4>
+				Html :
+				<ol class="code">
+					<li><span class="h">&lt;form</span> <span class="ha">name</span>="<span class="hv">testForm</span>" <span class="ha">action</span>="<span class="hv">#</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;input</span> <span class="ha">type</span>="<span class="hv">text</span>" <span class="ha">name</span>="<span class="hv">user_name</span>"<span class="h">/&gt;</span></li>
+					<li><span class="h">&lt;/form&gt;</span></li>
+				</ol>
+				Javascript :
+				<ol class="code">
+					<li><span class="h">var</span> formObject = <span class="ha">document</span>.testForm;</li>
+					<li><span class="h">alert</span>( formObject.user_name.<span class="hv">value</span> );</li>
+				</ol>
+				<p>Detaylı bilgiler ileriki derslerde...</p>
+			</div>
+			
+			<div class="row">
+				<h3>ID ve CLASS Tanımı</h3>
+				<ul>
+					<li><strong>id</strong>, unique ( <em>tekil</em> ) olan elementler için kullanılır. Aynı <strong>id&rsquo;ye sahip birden fazla element OLAMAZ!</strong></li>
+					<li><strong>class</strong> birden fazla olandır. Birbirlerinden özellikleri miras alabilirler. ( <em>inheritance</em> )</li>
+				</ul>
+				<ol class="code">
+					<li><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">boxes</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">class</span>="<span class="hv">box</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="h">&lt;p&gt;</span>Kutu 1<span class="h">&lt;/p&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;/div&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">class</span>="<span class="hv">box</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="h">&lt;p&gt;</span>Kutu 1<span class="h">&lt;/p&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;/div&gt;</span></li>
+					<li><span class="h">&lt;/div&gt;</span></li>
+				</ol>
+			</div>
+			
+			<div class="row">
+				<h3>PATH Tanımlamaları</h3>
+				<h4>ABSOLUTE</h4>
+				<p>Sunucu üzerinden çalışan uygulamalar için kullanılır. <strong>/</strong> = Root anlamındadır.</p>
+				<ol class="code">
+					<li><span class="h">&lt;a</span> <span class="ha">href</span>="<span class="hv">/</span>"<span class="h">&gt;</span>Ana Sayfa<span class="h">&lt;/a&gt;</span> <span class="cco">&lt;!-- Path = root --&gt;</span></li>
+					<li><span class="h">&lt;a</span> <span class="ha">href</span>="<span class="hv">/about-us/</span>"<span class="h">&gt;</span>Hakkımızda<span class="h">&lt;/a&gt;</span> <span class="cco">&lt;!-- Path = root&rsquo;un altındaki <strong>about-us</strong> dizini --&gt;</span></li>
+					<li><span class="h">&lt;img</span> <span class="ha">src</span>="<span class="hv">/photos/private/vigo.jpg</span>" <span class="ha">alt</span>="<span class="hv">Resim</span>"<span class="h">/&gt;</span> <span class="cco">&lt;!-- Path = root&rsquo;un altındaki <strong>photos</strong>&rsquo;un altındaki <strong>private</strong>&rsquo;ın altındaki vigo.jpg dosyası --&gt;</span></li>
+				</ol>
+				<h4>RELATIVE</h4>
+				<p>
+					Göreceli tanımlama. Genelde lokal çalışmalarda kullanılır. İstenirse sunucu tarafında da kullanılabilir.
+					Özellikle UNIX / LINUX tabanlı web uygulamalarında ( <em>php, perl gibi</em> ) path tanımlamaları hep <strong>relative</strong>&rsquo;dir
+				</p>
+				<p><strong>.</strong> : Bulunduğumuz path. ( <em>nokta</em> )</p>
+				<p><strong>..</strong> : Parent ( <em>bir üst</em> ) path. ( <em>yan yana iki nokta</em> )</p>
+				<ol class="code">
+					<li><span class="h">&lt;a</span> <span class="ha">href</span>="<span class="hv">.</span>"<span class="h">&gt;</span>Ana Sayfa<span class="h">&lt;/a&gt;</span> <span class="cco">&lt;!-- Path = Bulunduğu yer --&gt;</span></li>
+					<li><span class="h">&lt;a</span> <span class="ha">href</span>="<span class="hv">../about-us/</span>"<span class="h">&gt;</span>Hakkımızda<span class="h">&lt;/a&gt;</span> <span class="cco">&lt;!-- Path = Bulunduğu yer&rsquo;in üstündeki ( parent&rsquo;daki ) <strong>about-us</strong> dizini --&gt;</span></li>
+					<li><span class="h">&lt;img</span> <span class="ha">src</span>="<span class="hv">../photos/private/vigo.jpg</span>" <span class="ha">alt</span>="<span class="hv">Resim</span>"<span class="h">/&gt;</span> <span class="cco">&lt;!-- Path = Parent&rsquo;daki <strong>photos</strong>&rsquo;un altındaki <strong>private</strong>&rsquo;ın altındaki vigo.jpg dosyası --&gt;</span></li>
+				</ol>
+				<p>** İlgili örnek yaptık!</p>
+			</div>
+
+			<div class="row">
+				<h3>İlk Sayfamız! ve CSS&rsquo;e Giriş</h3>
+				<p>shorthand&rsquo;ler;</p>
+				<h4>background:</h4>
+				<ul>
+					<li>background-color:</li>
+					<li>background-image:</li>
+					<li>background-repeat:</li>
+					<li>background-attachment:</li>
+					<li>background-position:</li>
+				</ul>
+			</div>
+
+			<div id="nav">
+				Tercihler : <span><a href="../index.html">İndeks</a> </span><span><a href="../002/index.html">&lt; Önceki</a> </span><a href="../004/index.html">Sonraki &gt;</a>
+			</div>
+			<div id="footer">
+				<span>&copy; 2007</span><span>Uğur &ldquo;vigo&rdquo; Özyılmazel</span><span>vigo@bilgi.edu.tr</span>http://ugur.ozyilmazel.com
+			</div>
+		</div>
+	</body>
+</html>

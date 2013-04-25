@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #007</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #007</h1>
+			<h2>27 Mart 2008, Perşembe</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../006/index.html">&lt; Önceki ( 006 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../008/index.html">Sonraki ( 008 ) &gt;</a></span>
+		</div>
+		
+		<div class="block">
+			<h4>Public / Private değişkenler</h4>
+			<div class="float">
+				<p>
+					Değişkenleri <em>var</em> ( yani variable&rsquo;ın kısaltması ) ile deklare ediyorduk. Public / Private olma durumu
+					değişkenin fonksiyon içinde / dışında tanımlanması ile ilgili bir konudur. Global bir değişkene ihtiyacımız varsa,
+					yani bu değişkeni ister fonksiyon / class içi, yada dışında kullanmak istiyorsak, bu değişkeni <strong>PUBLIC</strong>
+					değişken olarak tanımlamamız gerekir.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myStrVariable</strong> = 'Merhaba';</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myStrVariable</strong> ); <span class="cmt">// Merhaba</span></li>
+					<li>fncTest(); <span class="cmt">// Merhaba</span></li>
+					<li>&nbsp;</li>
+					<li><span class="jsr">function</span> fncTest()</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myStrVariable</strong> );</li>
+					<li>}</li>
+				</ol>
+				<p>
+					İlk satırda deklara edilen <strong>myStrVariable</strong> artık <strong>PUBLIC</strong> bir değişken olmuş,
+					<strong>fncTest();</strong> fonksiyonunda çağrılan <strong>myStrVariable</strong> değişkeni de aynı değişken olmuştur.
+					Eğer aşağıdaki gibi bir şey olsaydı;
+				</p>
+			</div>
+			<div class="float">
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myStrVariable</strong> = 'Merhaba';</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myStrVariable</strong> ); <span class="cmt">// Merhaba</span></li>
+					<li>fncTest(); <span class="cmt">// Günaydın</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myStrVariable</strong> ); <span class="cmt">// Merhaba</span></li>
+					<li>&nbsp;</li>
+					<li><span class="jsr">function</span> fncTest()</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> <strong>myStrVariable</strong> = 'Günaydın';</li>
+					<li><span class="cmt">// myStrVariable artık sadece bu fonksiyon içerisinde 'Günaydın' olarak tanımlandı, yani PRIVATE oldu!!!</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myStrVariable</strong> );</li>
+					<li>}</li>
+				</ol>
+				<p>
+					<strong>myStrVariable</strong> fonksiyon içerisinde yeniden tanımlandı ve artık o fonksiyona ait <strong>PRIVATE</strong>
+					bir değişken oldu. 4.satırda tekrar <strong>myStrVariable</strong> değişkenini alert ettirdiğimizde, görüldüğü gibi
+					eski değer aktif oldu, yani fonksiyon dışında olduğumuz için artık <strong>PUBLIC</strong> olan değer aktif hale geldi...
+				</p>
+			</div>
+		</div>
+		
+		<div class="block">
+			<h4>String Metodları</h4>
+			<div class="syn">
+				anchor , big , blink , bold , charAt , charCodeAt , concat , fixed , fontcolor , fontsize , fromCharCode , indexOf , italics , lastIndexOf , link , match , replace , search , slice , small , split , strike , sub , substr , substring , sup , toLowerCase , toUpperCase , toString , valueOf
+			</div>
+			
+		</div>
+		
+		<div class="block">
+			<div class="float">
+				<h4>String.charAt ( metod )</h4>
+				<p>String içinde, verilen index&rsquo;deki karakteri döndürür.</p>
+				<div class="syn">
+					<p>strChar = <em>Sting</em>.<strong>charAt</strong>( <small>[intIndex]</small> )</p>
+					<dl>
+						<dt>intIndex</dt>
+						<dd>Kaçıncı karakter</dd>
+					</dl>
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">charAt</span>( 0 ) ); <span class="cmt">// M</span></li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>String.charCodeAt ( metod )</h4>
+				<p>String içinde, verilen index&rsquo;deki karakter kodu&rsquo;nu döndürür.</p>
+				<div class="syn">
+					<p>intCharCode = <em>Sting</em>.<strong>charCodeAt</strong>( <small>[intIndex]</small> )</p>
+					<dl>
+						<dt>intIndex</dt>
+						<dd>Kaçıncı karakter</dd>
+					</dl>
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">charCodeAt</span>( 0 ) ); <span class="cmt">// 77</span></li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="block">
+			<div class="float">
+				<h4>String.bold() ( metod )</h4>
+				<p>
+					Eski bir yöntemdir. String&rsquo;i <strong>&lt;b&gt;</strong> tag&rsquo;i ile wrap eder.
+					<em>prototype</em> ile bunu XHTML&rsquo;e uygun hale getirebiliriz.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">bold</span>() ); <span class="cmt">// &lt;b&gt;Merhaba Dünya&lt;/b&gt;</span></li>
+				</ol>
+				<ol class="code">
+					<li><span class="jsc">String</span>.<em>prototype</em>.<span class="jso">bold</span> = <span class="jsr">function</span> ()</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">return</span> '&lt;strong&gt;' + <span class="jsr">this</span> + '&lt;\/strong&gt;';</li>
+					<li>}</li>
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">bold</span>() ); <span class="cmt">// &lt;strong&gt;Merhaba Dünya&lt;/strong&gt;</span></li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>String.indexOf ( metod )</h4>
+				<p>
+					Parametre olarak geçilen <strong>String</strong>&rsquo;in, ilgili string içindeki ilk bulunduğu karakter indeksini döndürür.
+					Yani <strong>String</strong> içinde bir kelime aramak için kullanılır. Eğer yoksa <strong>-1</strong> döner. Soldan sağa
+					çalışır. İlk bulunan karakterin indeksi döner.
+				</p>
+				<div class="syn">
+					<p>intFindIndex = <em>String</em>.<strong>indexOf</strong>( <small>[strString] [,intStartIndex]</small> )</p>
+					<dl>
+						<dt>strString</dt>
+						<dd>Aranılan kelime</dd>
+					</dl>
+					<dl>
+						<dt>intStartIndex</dt>
+						<dd>( Opsiyonel ) Eğer belirtilirse, <strong>belirtilen karakter indeksinden itibaren</strong> anlamına gelir.</dd>
+					</dl>
+				</div>
+				
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">indexOf</span>( 'Dünya' ) ); <span class="cmt">// 8</span></li>
+				</ol>
+				<p>
+					Browser objelerinden <strong>navigator</strong>&rsquo;i kullanarak, kullanıcının OPERA browser&rsquo;ını kullandığını anlayalım.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> myBrowser = <span class="jsc">navigator</span>.<span class="jso">userAgent</span>;</li>
+					<li><span class="jsr">var</span> isIndex = myBrowser.<span class="jso">indexOf</span>( 'Opera' , 0 );</li>
+					<li><span class="jsr">if</span>( isIndex > -1 )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Sen Operacısın!' );</li>
+					<li>}</li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="block">
+			<div class="float">
+				<h4>String.lastIndexOf ( metod )</h4>
+				<p><strong>indexOf</strong>&rsquo;un tersidir. Sağdan sola çalışır. En sondan başa doğru yakaladığı indeksi döner.</p>
+				<div class="syn">
+					<p>intFindIndex = <em>String</em>.<strong>lastIndexOf</strong>( <small>[strString] [,intStartIndex]</small> )</p>
+					<dl>
+						<dt>strString</dt>
+						<dd>Aranılan kelime</dd>
+					</dl>
+					<dl>
+						<dt>intStartIndex</dt>
+						<dd>( Opsiyonel ) Eğer belirtilirse, <strong>belirtilen karakter indeksinden itibaren</strong> anlamına gelir.</dd>
+					</dl>
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> strTest = 'Opera Opera bu ne lan? Opera';</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( strTest.<span class="jso">indexOf</span>( 'Opera' ) ); // soldan sağa - 0</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( strTest.<span class="jso">lastIndexOf</span>( 'Opera' ) ); //sağdan sola - 23</li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>String.split() ( metod )</h4>
+				<p>
+					<strong>String</strong>&rsquo;i <strong>Array</strong>&rsquo;e dönüştürmemizi sağlar.
+				</p>
+				<div class="syn">
+					<p>aryArray = <em>String</em>.<strong>split</strong>( <small>[strSeparator] , [intLimit]</small> )</p>
+					<dl>
+						<dt>strSeparator</dt>
+						<dd>Ayraç. Yani string içinde delimiter olarak neye bakılsın</dd>
+					</dl>
+					<dl>
+						<dt>intLimit</dt>
+						<dd>( Opsiyonel ) Limitlemek için kullanılır. Büyük bir string var, dönecek array belki 500 elementli olacak. Bunu sınırlamak için kullanılır.</dd>
+					</dl>
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> myText = 'Ali,Veli,Selami';</li>
+					<li><span class="jsr">var</span> myArray = myText.<span class="jso">split</span>( ',' );</li>
+					<li><span class="jsr">for</span>( var i = 0; i < myArray.<span class="jso">length</span>; i++ )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( myArray[ i ] );</li>
+					<li>}</li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="block">
+			<div class="float">
+				<h4>String.slice ( metod )</h4>
+				<p>String&rsquo;in belli bir bölümünü almak için kullanılır.</p>
+				<div class="syn">
+					<p>strSection = <em>String</em>.<strong>slice</strong>( <small>[intStart] , [intEnd]</small> ) </p>
+					<dl>
+						<dt>intStart</dt>
+						<dd>Başlangıç noktası</dd>
+					</dl>
+					<dl>
+						<dt>intEnd</dt>
+						<dd>( Opsiyonel ) Bitiş noktası.</dd>
+					</dl>
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">slice</span>( 0 , 5 ) ); <span class="cmt">// Merha</span></li>
+					<li><span class="cmt">// yani 0.karekterden 5.karaktere</span></li>
+				</ol>
+				<div class="warning">
+					Eğer bitiş <strong>negatif sayı</strong> olarak geçilirse, son&rsquo;dan, geçilen rakam kadar eksiltme olur!
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">slice</span>( 0 , -1 ) ); <span class="cmt">// Merhaba Düny</span></li>
+				</ol>
+			</div>
+
+			<div class="float">
+				<h4>String.substr ( metod )</h4>
+				<p>String içinden, başlangıç noktasından, belirlenen adet kadar karakter almaya yarar.</p>
+				<div class="syn">
+					<p>strSection = <strong>String</strong>.<strong>substr</strong>( [intStart] , [intLength ])</p>
+					<dl>
+						<dt>intStart</dt>
+						<dd>Başlangıç karekteri</dd>
+					</dl>
+					<dl>
+						<dt>intLength</dt>
+						<dd>( Opsiyonel ) Uzunlunk</dd>
+					</dl>
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">substr</span>( 0 , 7 ) ); <span class="cmt">// Merhaba</span></li>
+					<li><span class="cmt">Yani, 0.karaterden itibaren 7 karakter oku</span></li>
+					<li>&nbsp;</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">substr</span>( 8 , 7 ) ); <span class="cmt">// Dünya</span></li>
+					<li><span class="cmt">Yani, 8.karaterden itibaren 7 karakter oku</span></li>
+				</ol>
+				
+				<h4>String.substring ( metod )</h4>
+				<p>String içinden bir bölüm almak için kullanılır. Başlangıç ve Bitiş zorunludur.</p>
+				<div class="syn">
+					<p><em>strVariable</em>.<strong>substring</strong>( <small>[intStart] , [intEnd]</small> )</p>
+					<dl>
+						<dt>intStart</dt>
+						<dd>0 indeksli başlangıç noktası</dd>
+					</dl>
+					<dl>
+						<dt>intEnd</dt>
+						<dd>0 indeksli bitiş noktası</dd>
+					</dl>
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">substring</span>( 0 , 3 ) ); <span class="cmt">// Mer</span></li>
+				</ol>				
+			</div>
+		</div>
+
+		<div class="block">
+			<div class="float">
+				<h4>String.toLowerCase ( metod )</h4>
+				<p>Adından da anlaşılacağı gibi, String&rsquo;i küçük harfe çevirir.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">toLowerCase</span>() ); <span class="cmt">// merhaba dünya</span></li>
+				</ol>				
+
+				<h4>String.toUpperCase ( metod )</h4>
+				<p>Adından da anlaşılacağı gibi, String&rsquo;i büyük harfe çevirir.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>myString</strong> = 'Merhaba Dünya'; <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong>.<span class="jso">toLowerCase</span>() ); <span class="cmt">// MERHABA DÜNYA</span></li>
+				</ol>				
+
+			</div>
+			<div class="float">
+				<h4>Kendi metodumuz : toCapitalize</h4>
+				<p>
+					<strong>prototype</strong> yöntemi ile, Javascript Engine&rsquo;de olmayan, kendi metodumuzu yazabiliriz. Bu metod,
+					kelimelerin ilk harfini büyük yapar. Eğer parametre olarak <strong>true</strong> geçersek, sadece ilk kelimeyi büyük
+					harf yapar.
+				</p>
+				<a target="_blank" href="ornek/ornek_toCapitalise.html">Source Download</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

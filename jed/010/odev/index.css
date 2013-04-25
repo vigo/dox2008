@@ -1,0 +1,182 @@
+body
+{
+	color: #000;
+	background: #fff;
+	margin: 0px;
+	padding: 0px;
+	font: normal normal normal .75em/1.5em 'Lucida Grande' , 'Lucida Sans Unicode' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+}
+
+form , p
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+div
+{
+	overflow: hidden;
+}
+
+a:link , a:active , a:visited
+{
+	background: transparent;
+	color: #007;
+	text-decoration: underline;
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+h1 , h2 , h3 , h4 , h5 , h6
+{
+	font-weight: normal;
+	margin: 0px 0px 1px 0px;
+	padding: 0px;
+	line-height: 1.3em;
+}
+
+h1
+{
+	font-size: 3em;
+}
+
+h2
+{
+	font-size: 2.8em;
+}
+
+h3
+{
+	font-size: 2.6em;
+}
+
+h4
+{
+	font-size: 2.4em;
+}
+
+h5
+{
+	font-size: 2.2em;
+}
+
+h6
+{
+	font-size: 2em;
+}
+
+#canvas
+{
+	width: 768px;
+	margin: 0px auto;
+}
+
+input , select , textarea , button
+{
+	font: normal normal normal 0.8em 'Lucida Grande' , 'Lucida Sans Unicode' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------ */
+
+dl
+{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	overflow: hidden;
+}
+
+dt , dd
+{
+	margin: 0px;
+	padding: 0px;
+	display: inline;
+	float: left;
+	margin-right: 1px;
+}
+
+dd
+{
+}
+
+dl:hover
+{
+	background-color: #eee;
+}
+
+#products
+{
+	margin-bottom: 20px;
+}
+
+.head
+{
+	font-weight: bold;
+	border-bottom: 2px solid #000;
+}
+
+.counter
+{
+	width: 30px;
+	text-align: center;
+}
+
+.title
+{
+	width: 380px;
+}
+
+.price
+{
+	width: 100px;
+}
+
+.aright
+{
+	text-align: right;
+}
+
+.single_button
+{
+	width: 40px;
+	text-align: center;
+}
+
+#final_total
+{
+	font-weight: bold;
+}
+
+.row
+{
+	border-bottom: 1px dotted #000;
+}
+
+#extras
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #ff9;
+	padding: 10px;
+	border: 1px solid #ff5;
+}
+
+.gradient_on
+{
+	background-color: #ffd;
+}
+
+strike
+{
+	font-weight: normal;
+	font-style: italic;
+}
+
+.discount
+{
+	background: transparent;
+	color: #00f;
+}

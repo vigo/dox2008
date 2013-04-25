@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #010</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #010</h1>
+			<h2>1 Nisan 2008, Salı</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../009/index.html">&lt; Önceki ( 009 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../011/index.html">Sonraki ( 011 ) &gt;</a></span>
+		</div>
+
+		<div class="block">
+			<h4>Kendi prototip kütüphanemiz!</h4>
+			<div class="float">
+				<p>
+					<em>prototype</em> özelliği ile, javascript core-engine içinde bulunan <em>String</em> objesine yepyeni bir özellik
+					katalım. Bu sayede, veri tipi <em>String</em> olan objelerde, <em>reverseString</em> diye ekstra bir metod oluşsun.
+					Bu metod, yazdığımız metni terse çevirsin. Yani &ldquo;Merhaba&rdquo; yazısı &ldquo;abahreM&rdquo; haline dönsün.
+				</p>
+				<ol class="code">
+					<li><span class="jsc">String</span>.<span class="jso">prototype</span>.<span class="prot">reverseString</span> = <span class="jsr">function</span>()</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> <em>strReverseString</em> = '';</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">for</span>( <span class="jsr">var</span> i = 0; i <<span class="jsr">this</span>.<span class="jso">length</span> ; i++ )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><em>strReverseString</em>+= <span class="jsr">this</span>.<span class="jso">charAt</span>( <span class="jsr">this</span>.<span class="jso">length</span> - ( i + 1 ) );</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">return</span> <em>strReverseString</em>;</li>
+					<li>}</li>
+					<li>&nbsp;</li>
+					<li><span class="jsr">var</span> <em>myText</em> = 'Merhaba';</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myText</em> ); // <span class="cmt">abahreM</span></li>
+				</ol>
+				<p>
+					<em>this</em> ile ifade edilen şey <em>String</em>&rsquo;in kendisi oluyor.
+				</p>
+			</div>
+			
+			<div class="float">
+				<p>
+					Şimdide başka bir prototipe bakalım.
+				</p>
+				<ol class="code">
+					<li><span class="jsc">Number</span>.<span class="jso">prototype</span>.<span class="prot">setDigits</span> = <span class="jsr">function</span> ( numDigitCount )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> numNumber = <span class="jsr">this</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> strNumber = numNumber.<span class="jso">toString</span>();</li>
+					<li><span class="tab">&nbsp;</span>if( strNumber.<span class="jso">length</span> >= numDigitCount )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> strNumber*1;</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> strExtraDigits = '';</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">for</span>( <span class="jsr">var</span> i = strNumber.<span class="jso">length</span>; i < numDigitCount; i++ )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>strExtraDigits+= '0';</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">return</span> strExtraDigits + strNumber;</li>
+					<li>}</li>
+					<li>&nbsp;</li>
+					<li><span class="jsr">var</span> myNumber = 3;</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( myYear.<span class="prot">setDigits</span>( 5 ) ); // <span class="cmt">00003</span></li>
+				</ol>
+				<p>Diğer örnekleri <a target="_blank" href="odev/webteam-prototype.js">bu linkten</a> görebilirsiniz.</p>
+			</div>
+		</div>
+		
+		<div class="block">
+			<h4>Ödev : Mini Alış-Veriş</h4>
+			<p>
+				Amacımız, javascript tabanlı bir veritabanı simülasyonu. Ürünlerimiz var. Alış-Veriş Sepeti&rsquo;miz var.
+				Dinamik olarak ( run-time ) Ürünlerimize yeni ürün ekleme / silme, sepete ürün ekleme / silme, 2.000 ytl
+				ve üzerinde alış-veriş yapanlara %20 indirim... Sıralama işleri;
+			</p>
+			<ul>
+				<li>Ürün adına göre ( A - Z / Z - A )</li>
+				<li>Ürün fiyatına göre ( A - Z / Z - A )</li>
+				<li>Sepet içindeki ürün adına göre ( A - Z / Z - A )</li>
+				<li>Sepet içindeki ürün fiyatına göre ( A - Z / Z - A )</li>
+			</ul>
+			<p>
+				Demo amaçlı kendi prototype kütüphanemizi kullandık. Ödevi görmek için <a target="_blank" href="odev/index.html">tıklayın</a>.
+			</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+body
+{
+	margin: 0px;
+	padding: 0px;
+	background-color: #fff;
+	color: #000;
+	font: normal normal normal .85em/1.5em 'Arial' , Sans-Serif;
+}
+
+p , form
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+div
+{
+	overflow: hidden;
+}
+
+
+h1 , h2 , h3 , h4 , h5 , h6
+{
+	font-weight: normal;
+	margin: 0px 0px 1px 0px;
+	padding: 0px;
+	line-height: 1.3em;
+	letter-spacing: -0.03em;
+}
+
+a
+{
+	text-decoration: none;
+	font-weight: bold;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+a:link
+{
+	background-color: #007;
+	color: #fff;
+}
+
+a:active
+{
+	background: transparent;
+	color: #0f0;
+}
+
+a:visited
+{
+	background-color: #eee;
+	color: #777;
+}
+
+a:hover
+{
+	background: transparent;
+	color: #007;
+}
+
+em
+{
+	background: transparent;
+	color: #777;
+	font-style: normal;
+	font-family: 'Courier New';
+	font-size: 12px;
+}
+
+#canvas
+{
+	width: 97.9%;
+	margin: 1%;
+}
+
+#heading
+{
+
+}
+
+#heading h1
+{
+	font-size: 3em;
+	font-weight: bold;
+}
+#heading h2
+{
+	font-size: 2.4em;
+	font-weight: bold;
+	background: transparent;
+	color: #777;
+}
+
+#courses
+{
+	margin-top: 10px;
+}
+
+#courses h1
+{
+	font-size: 2.2em;
+	font-weight: bold;
+	background: transparent;
+	color: #aaa;
+	margin-bottom: 0px;
+}
+
+#courses ul
+{
+	width: 40%;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	/*display: inline;*/
+	float: left;
+	margin-right: 20px;
+}
+
+#courses ul li
+{
+	padding: 20px;
+	margin-bottom: 10px;
+	border: 1px solid #eee;
+	height: 94px;
+}
+
+#courses ul li:hover
+{
+	background-color: #ffd;
+}
+
+#courses ul li h1
+{
+	font-size: 1.6em;
+	font-weight: bold;
+	background: transparent;
+	color: #559;
+	margin-bottom: 4px;
+}
+
+#courses ul li h1 span
+{
+	border-right: 2px dotted #559;
+	margin-right: 10px;
+	padding-right: 10px;
+}
+
+#navbar
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+h3
+{
+	font-size: 2.2em;
+	border-left: 5px solid #ccc;
+	font-weight: bold;
+	padding: 5px 0px 5px 10px;
+	background-color: #eee;
+	color: #559;
+	margin-bottom: 10px;
+}
+
+div.block
+{
+	width: 100%;
+}
+
+div.block .float
+{
+	display: inline;
+	float: left;
+	width: 49%;
+	margin-right: 1%;
+}
+
+div.block p
+{
+	margin-bottom: 10px;
+}
+
+div.block ul
+{
+	list-style-type: square;
+	margin: 10px 0px 10px 30px;
+	padding: 0px;
+	font-size: 12px;
+}
+
+div.block ul li
+{
+	border-bottom: 1px dotted #eee;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+div.pic
+{
+	text-align: center;
+	background: transparent;
+	color: #070;
+	margin-bottom: 30px;
+	border: 1px dotted #555;
+}
+
+div.pic p
+{
+
+}
+
+div.pic img
+{
+	padding: 10px;
+	margin-top: 10px;
+	border: 1px solid #eee;
+}
+
+h4
+{
+	border-left: 5px solid #aad;
+	background-color: #ccf;
+	color: #00d;
+	font-size: 1.8em;
+	font-weight: bold;
+	padding: 2px 10px 2px 10px;
+	margin-bottom: 10px;
+}
+
+ol.code
+{
+	font-family: 'Courier New';
+	font-size: 12px;
+	border: 1px dotted #000;
+	margin: 0px 0px 10px 0px;
+	padding: 25px 25px 25px 40px;
+}
+
+ol.code li
+{
+	background-color: #eee;
+	border-bottom: 1px solid #ddd;
+	line-height: 1.5em;
+}
+
+span.jsr
+{
+	background: transparent;
+	color: #00f;
+}
+
+span.jsc
+{
+	background: transparent;
+	color: #f00;
+}
+
+span.jso
+{
+	background: transparent;
+	color: #007;
+	font-weight: bold;
+}
+
+span.cmt
+{
+	background: transparent;
+	color: #0a0;
+}
+
+span.tab
+{
+	margin-left: 20px;
+}
+
+span.prot
+{
+	background: transparent;
+	color: #f80;
+}
+
+ol.code li strong.fb
+{
+	background: transparent;
+	color: #0cd;
+}
+
+div.warning
+{
+	background-color: #f00;
+	padding: 10px;
+	color: #fff;
+	border: 3px solid #500;
+	text-align: center;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	margin-bottom: 10px;
+}
+
+div.warning strong
+{
+	background: transparent;
+	color: #ff0;
+}
+
+div.syn
+{
+	padding: 10px;
+	border: 1px dotted #000;
+	background-color: #ddd;
+	color: #000;
+	margin-bottom: 10px;
+}
+
+div.syn em
+{
+	font-style: italic;
+	font-family: 'Arial';
+}
+
+div.syn dl
+{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	overflow: hidden;
+	font-size: 11px;
+	border-bottom: 1px dotted #aaa;
+}
+
+div.syn dl dt
+{
+	margin: 0px;
+	padding: 0px;
+	width: 20%;
+	float: left;
+}
+
+div.syn dl dd
+{
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 70%;
+	border-left: 1px dotted #aaa;
+	padding-left: 10px;
+}

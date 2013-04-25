@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #011</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #011</h1>
+			<h2>2 Nisan 2008, Çarşamba</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../010/index.html">&lt; Önceki ( 010 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../012/index.html">Sonraki ( 012 ) &gt;</a></span>
+		</div>
+
+		<div class="block">
+			<h4>try / catch</h4>
+			<div class="float">
+				<ol class="code">
+					<li><span class="jsr">try</span></li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">document</span>.<span class="jsr">getElementById</span>( 'results' ).<span class="jso">innerHTML</span> = 'vigo';</li>
+					<li>}</li>
+					<li><span class="jsr">catch</span>( <span class="jsc">e</span> )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><strong class="fb">console</strong>.<span class="jso">dir</span>( <span class="jsc">e</span> );</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> <em>strErrorMessage</em> = ''</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>+ 'Tür : ' + <span class="jsc">e</span>.<span class="jso">name</span> + "\n"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>+ 'Hata Mesajı : "' + <span class="jsc">e</span>.<span class="jso">message</span> + '"' + "\n"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>+ 'Dosya : ' + <span class="jsc">e</span>.<span class="jso">fileName</span> + ' , Satır : ' + <span class="jsc">e</span>.<span class="jso">lineNumber</span> + "\n"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>+ '';</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>strErrorMessage</em> );</li>
+					<li>}</li>
+					<li><span class="jsr">finally</span></li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'hata oldu, yakaladım, işime baktım...' );</li>
+					<li>}</li>
+				</ol>
+			</div>
+			<div class="float">
+				<p><strong>3.satırda</strong>, olmayan bir objeye erişmek istiyoruz.<em>id</em>&rsquo;si <strong>results</strong> olan bir DIV olabilir? yada herhangi bir HTML nesnesi.</p>
+				<p>
+					Böyle bir element olmadığı için <em>try{ koşul ... }</em> adından da anlaşılacağı gibi {} içinde kalan kısımdaki koşulu <strong>deneyecek!</strong>
+					Eğer koşul hatalı ise yani <strong>FALSE</strong> ise, <em>catch()</em> devreye girecek. <em>catch( <strong>e</strong> )</em>
+					yani <strong>e</strong> aslında javascript engine&rsquo;ninin RAISE ettiği bir <strong>event</strong>&rsquo;dir. Yani
+					hata oluştuğu zaman <strong>execption</strong> yaratılır. Bu bize <strong>e</strong> objesi olarak döner.
+				</p>
+				<p><strong>7.satırda</strong> firebug console&rsquo;a bakınca <strong>e</strong>&rsquo;ye ait property&rsquo;leri görürüz.</p>
+				<p><em>finally{}</em> ise <em>catch( e ){}</em> işleminden sonra çalışır.</p>
+				<p>Sonuç olarak <em>try{}</em> ile işlem yapılmaya çalışır. <em>catch( e ){}</em> ile hata yakalanır ve son olarak gerekiyorsa <em>finally{}</em> ile son bir işlem daha yapılır.</p>
+			</div>
+		</div>
+		<div class="block">
+			<h4>D.O.M numaraları</h4>
+			<div class="float">
+				<p>İlk derslerimizde, D.O.M&rsquo;dan bahsetmiştik. <strong>D</strong>ocument <strong>O</strong>bject <strong>M</strong>odelling. ( <a target="_blank" href="../001/files/html-dom.gif">Şema</a> )</p>
+				<p>D.O.M içersinde herşey <strong>OBJECT</strong>&rsquo;lerden oluşur. <strong>document</strong> altında;</p>
+				<ul>
+					<li>forms</li>
+					<li>images</li>
+					<li>frames</li>
+					<li>links</li>
+					<li>scripts</li>
+					<li>styleSheets</li>
+				</ul>
+				<p>gibi <strong>objeler</strong> bunulur. Bunlara <strong>koleksiyon</strong> da denir. ( <a target="_blank" href="http://developer.mozilla.org/en/docs/DOM:document">Mozilla / document</a> )</p>
+				<p>Koleksiyon dışında da objelere çeşitli metodlarla erişebiliriz. Bunlardan en iyi bildiğimi <em>getElementById</em> dir. Adından da anlaşılacağı gibi, <strong>ID&rsquo;si ... olan element</strong> e erişmek için kullanılır.</p>
+				<p>Aşağıdaki kod&rsquo;a bakalım :</p>
+				<ol class="code">
+					<li><span class="jsr">&lt;div</span> <span class="jsc">id</span>="<em>canvas</em>"<span class="jsr">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;ul</span> <span class="jsc">id</span>="<em>deneme</em>"<span class="jsr">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">&lt;li&gt;</span>satır 1<span class="jsr">&lt;/li&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">&lt;li&gt;</span>satır 2<span class="jsr">&lt;/li&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">&lt;li&gt;</span>satır 3<span class="jsr">&lt;/li&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;/ul&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;button</span> <span class="jsc">onclick</span>="<em>add_style( 'borderBottom' , '1px solid #000' );</em>"<span class="jsr">&gt;</span>LI border-bottom<span class="jsr">&lt;/button&gt;</span></li>
+					<li><span class="jsr">&lt;/div&gt;</span></li>
+				</ol>
+				<ol class="code">
+					<li><span class="jsr">function</span> add_style( cssProp , cssValue )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> <em>myUL</em> = <span class="jsc">document</span>.<span class="jsr">getElementById</span>( 'deneme' );</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">for</span>( <span class="jsr">var</span> i = 0; i < <em>myUL</em>.<span class="jsc">childNodes</span>.<span class="jso">length</span>; i++ )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">if</span>( <em>myUL</em>.<span class="jsc">childNodes</span>[ i ].<span class="jso">nodeType</span> == 1 )</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">var</span> myLI = <em>myUL</em>.<span class="jsc">childNodes</span>[ i ];</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>myLI.<span class="jsc">style</span>[ cssProp ] = cssValue;</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li>}</li>
+				</ol>
+				<p>Örneği indirmek için <a target="_blank" href="files/ders11-ornek.html">tıklayın</a>.</p>
+			</div>
+			<div class="float">
+				<div class="pic">
+					<p><img src="files/ul_dom.gif" alt="UL Objesi"/></p>
+					<p>UL objesine ait metodlar ve özellikler...</p>
+				</div>
+				<p><a target="_blank" href="http://www.getfirebug.com/">Firebug</a> console bize <strong>UL</strong> objesine ait her türlü bilgiyi verir. Tüm metodları, özellileri, node&rsquo;ları vs vs vs...</p>
+				<p>
+					Button&rsquo;a tıkladığımız zaman <em>add_style</em> fonksiyonuna 2 parametre geçeriz. Daha önceki derslerimizde, CSS özelliklerini 
+					işlerken, herhangi bir objeye <em>border</em> stili vermek için; <em><strong>border-bottom</strong>: 1px solid #000;</em> 
+					şeklinde bir ifade kullanırız. CSS&rsquo;deki her property&rsquo;nin javascript&rsquo;de de karşılığı bulunmaktadır. 
+					Hatırlanması kolay olsun diye; eğer <em><strong>border-bottom</strong>:</em> gerekiyorsa javascript karşışığı :
+					<em>style.borderBottom</em> eğer <em><strong>padding-top</strong>:</em> ise <em>style.paddingTop</em> gibi kullanılır. 
+					Her CSS özelliğinin bu şekilde bir JAVASCRIPT karşılığı vardır.
+				</p>
+				<p>Amacımız, ID&rsquo;si &ldquo;deneme&rdquo; olan UL&rsquo;ye ait tüm LI&rsquo;lerin <em>border-bottom:</em> CSS&rsquo;ini modifiye etmek.</p>
+				<p>3.satırda gereken UL&rsquo;ye erişiyoruz. Browser farklarından dolayı, <em>myUL.<strong>childNodes</strong>.length</em> her browser&rsquo;da ( <em>aslında özellikle internet explorer&rsquo;da</em> ) farklı gelebilir. Bu durumu önlemek için, sadece <em>nodeType</em>&rsquo;ı 1 olanları alıyoruz.</p>
+				<p><em>myLI</em>&rsquo;de artık ilgili <em>LI</em> var. 9.satırda da istediğimiz özelliği ve değerini <em>style</em> objesine yerleştiriyoruz.</p>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

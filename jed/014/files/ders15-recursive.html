@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Ders 15 : Recursive Fonksiyon</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta http-equiv="Content-Language" content="tr,en"/>
+	<meta name="robots" content="all"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<style type="text/css" media="screen">
+		body
+		{
+			color: #000;
+			background: #fff;
+			margin: 0px;
+			padding: 0px;
+			font: normal normal normal 12px/16px 'Lucida Grande' , 'Lucida Console' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+		}
+		
+		form , p
+		{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		div
+		{
+			overflow: hidden;
+		}
+
+		a:link , a:active , a:visited
+		{
+			background: transparent;
+			color: #007;
+			text-decoration: underline;
+		}
+
+		a:hover
+		{
+			text-decoration: none;
+		}
+
+		h1 , h2 , h3 , h4 , h5 , h6
+		{
+			font-weight: normal;
+			margin: 0px;
+			padding: 0px;
+			line-height: 1.3em;
+		}
+
+		h1 { font-size: 40px; }
+		h2 { font-size: 36px; }
+		h3 { font-size: 32px; }
+		h4 { font-size: 28px; }
+		h5 { font-size: 24px; }
+		h6 { font-size: 20px; }
+		
+		#canvas
+		{
+			width: 768px;
+			margin: 0px auto;
+		}
+		
+		p 
+		{
+			margin-top: 20px;
+		}
+
+		input , select , textarea , button
+		{
+			font: normal normal normal 0.8em 'Lucida Grande' , 'Lucida Sans Unicode' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+		}
+
+		ul
+		{
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		ul li
+		{
+			/*margin-bottom: 2px;
+			padding-bottom: 2px;*/
+		}
+
+		ul.inside
+		{
+			padding-left: 25px;
+		}
+
+		ul li small
+		{
+			float: right;
+			background-color: #eee;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="canvas">
+		<script type="text/javascript">
+		//<![CDATA[
+			
+			
+			function getKeys( obj )
+			{
+				var arr = [];
+				for( var key in obj  )
+				{
+					arr.push( key );
+				}
+				return arr;
+			}
+
+			function getValues( obj )
+			{
+				var arr = [];
+				for( var key in obj  )
+				{
+					arr.push( obj[ key ] );
+				}
+				return arr;
+			}
+			
+			
+			var Menu = {
+				'Ev Eşyaları' : {
+					'Beyaz Eşya' : {
+						 'Arçelik' : ""
+						,'Beko' : ""
+					}
+					,
+					'Mobilya' : {
+						'Oturma Grubu' : {
+							 'Bellona' : ""
+							,'Çilek' : ""
+						}
+					}
+				}
+				,
+				'Elektronik' : {
+					'Bilgisayar' : {
+						 'HP' : ""
+						,'Dell' : ""
+						,'Acer' : ""
+					}
+					,
+					'Televizyon' : {
+						'Toshiba' : {
+							 'LCD' : ""
+							,'Plazma' : ""
+						}	
+						,
+						'Sony' : ""
+					}
+				}
+			};
+
+			var fix_chars = {
+				 ' ' : "_"
+				,'ç' : "c"
+				,'ğ' : "g"
+				,'ı' : "i"
+				,'ö' : "o"
+				,'ş' : "s"
+				,'ü' : "u"
+				,'Ç' : "C"
+				,'Ğ' : "G"
+				,'İ' : "I"
+				,'Ö' : "O"
+				,'Ş' : "S"
+				,'Ü' : "U"
+			}
+				
+			function print_menu( objMenu , strParent , strCssClass )
+			{
+				if( strCssClass.length > 0 )
+				{
+					strCssClass = ' class="' + strCssClass + '"';
+				}
+				document.write( '<ul' + strCssClass + '>' );
+				strCssClass = '';
+				for( var key in objMenu )
+				{
+					document.write( '<li>' );
+						var strUrl = strParent + key + '/';
+						strUrl = fix_links( strUrl );
+						document.write( '<small>( ' + strUrl + ' )<\/small><a target="_blank" href="http://www.myshop.com' + strUrl + '">' + key + '<\/a>' );
+						if( typeof( objMenu[ key ] ) == 'object' )
+						{
+							print_menu( objMenu[ key ] , strUrl , 'inside' );
+						}
+
+					document.write( '<\/li>' );
+				}
+				document.write( '<\/ul>' );
+			}
+			
+			function fix_links( str )
+			{
+				for( var strSearch in fix_chars )
+				{
+					var oreg = new RegExp( strSearch , 'g' );
+					str = str.replace( oreg , fix_chars[ strSearch ] );
+				}
+				return str;
+			}
+			
+			print_menu( Menu , '/' , '' );
+
+		//]]>
+		</script>
+		<div>
+			<script type="text/javascript">
+			//<![CDATA[
+			
+				document.write( '<p><strong>Ana Kategoriler<\/strong> : ' + getKeys( Menu ) + '<\/p>' );
+				document.write( '<p><strong>Ev Eşyaları<\/strong> : ' + getKeys( Menu[ 'Ev Eşyaları' ] ) + '<\/p>' );
+				document.write( '<p><strong>Ev Eşyaları / Beyaz Eşya<\/strong> : ' + getKeys( Menu[ 'Ev Eşyaları' ][ 'Beyaz Eşya' ] ) + '<\/p>' );
+			
+			//]]>
+			</script>
+		</div>
+	</div>
+</body>
+</html>

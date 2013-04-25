@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #004</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #004</h1>
+			<h2>20 Mart 2008, Perşembe</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../003/index.html">&lt; Önceki ( 003 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../005/index.html">Sonraki ( 005 ) &gt;</a></span>
+		</div>
+		
+		<h4>Run-Time Javascript</h4>
+		<div class="block">
+			<p>
+				Javascript, <strong>Client-Side</strong>, yani istemci yarafında çalışan bir dil olduğu için,
+				genelde, sayfa yüklendikten sonra gerekli fonksiyonları tetikleriz. ( <em>&lt;body onload="myfunction();"&gt;</em> )
+				Bazen de diğer <em>event</em>&rsquo;leri kullanırız. ( <em>onclick , onmouseover</em> gibi )
+				Eğer istersek, sayfanın yüklenmesini beklemeden javascript&rsquo;i <strong>run-time</strong> embed edebiliriz.
+			</p>
+			<ol class="code">
+				<li><span class="jsr">&lt;body&gt;</span></li>
+				<li><span class="tab">&nbsp;</span><span class="jsr">&lt;div&gt;</span></li>
+				<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">&lt;script</span> <span class="jsc">type</span>="<em>text/javascript</em>"<span class="jsr">&gt;</span></li>
+				<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="cmt">//&lt;![CDATA[</span></li>
+				<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsc">document</span>.<span class="jsr">write</span>( 'Merhaba' );</li>
+				<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="cmt">//]]&gt;</span></li>
+				<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">&lt;/script&gt;</span></li>
+				<li><span class="tab">&nbsp;</span><span class="jsr">&lt;/div&gt;</span></li>
+				<li><span class="jsr">&lt;/body&gt;</span></li>
+			</ol>
+			<p>Sayfa yüklenirken, <strong>run-time</strong> javascript kod&rsquo;u execute edilecektir.</p>
+		</div>
+
+		<h4>Array</h4>
+		<div class="block">
+			<p>
+				Amacımız, userID&rsquo;yi kullanıcıdan alıp, ilgili array&rsquo;in içinden gereken bilgiyi okumak.
+				Eğer kullanıcı olmayan bir <strong>index</strong> girerse bunu kontrol etmek.
+			</p>
+			<ol class="code">
+				<li><span class="jsr">var</span> aryUserNames = <span class="jsc">Array</span>( 'vigo' , 'perper' , 'burak' , 'iso' , 'derek' );</li>
+				<li><span class="jsr">var</span> aryUserEmails = <span class="jsc">Array</span>( 'vigo@bilgi.edu.tr' , 'perper@hede.com' , 'burak@ddd.com' , 'iso@dedec.com' , 'derek@xx.com' );</li>	
+				<li><span class="jsr">var</span> askUserID = <span class="jsc">window</span>.<span class="jsr">prompt</span>( 'User Index ?' , '0' );</li>
+				<li><span class="jsr">if</span>( askUserID )</li>
+				<li>{</li>
+				<li><span class="tab">&nbsp;</span>getUserInfo( <em>askUserID</em> );</li>
+				<li>}</li>
+				<li>&nbsp;</li>
+				<li><span class="jsr">function</span> <strong>getUserInfo</strong>( <em>intUserIndex</em> )</li>
+				<li>{</li>
+				<li><span class="tab">&nbsp;</span>intUserIndex*= 1; <span class="cmt">// string'i numerik'e çevirdik!!!</span></li>
+				<li><span class="tab">&nbsp;</span></li>
+				<li><span class="tab">&nbsp;</span><span class="jsr">if</span>( aryUserNames.<span class="jso">length</span> >= intUserIndex )</li>
+				<li><span class="tab">&nbsp;</span>{</li>
+				<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Hatalı index!!!' );</li>
+				<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span>;</li>
+				<li><span class="tab">&nbsp;</span>}</li>
+				<li><span class="tab">&nbsp;</span><span class="jsr">var</span> strUserName = aryUserNames[ intUserIndex ];</li>
+				<li><span class="tab">&nbsp;</span><span class="jsr">var</span> strUserEmail = aryUserEmails[ intUserIndex ];</li>
+				<li><span class="tab">&nbsp;</span><span class="jsr">var</span> strOut = 'Kullanıcı Adı : ' + strUserName + '\nKullanıcı E-Mail : ' + strUserEmail;</li>
+				<li>&nbsp;</li>
+				<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( strOut );</li>
+				<li>}</li>
+			</ol>
+		</div>
+		
+		<h4>Array ve Date() Nesnesi</h4>
+		<div class="block">
+			<p>
+				Amacımız, client&rsquo;in tarih/saat bilgisine göre hangi günde olduğumuzu bulmak. Bunun için <strong>Date()</strong>
+				nesnesini kullanıyoruz. Pek çok metod&rsquo;u olan <strong>Date()</strong> ile ilgili bilgileri dökümandan bulabilirsiniz.
+			</p>
+			<div class="syn">
+				<p><strong>Metodlar</strong></p>
+				<p>getDate , getDay , getFullYear , getHours , getMilliseconds , getMinutes , getMonth , getSeconds , getTime , getTimezoneOffset , getUTCDate , getUTCDay , getUTCFullYear , getUTCHours , getUTCMilliseconds , getUTCMinutes , getUTCMonth , getUTCSeconds , getVarDate , getYear , setDate , setFullYear , setHours , setMilliseconds , setMinutes , setMonth , setSeconds , setTime , setUTCDate , setUTCFullYear , setUTCHours , setUTCMilliseconds , setUTCMinutes , setUTCMonth , setUTCSeconds , setYear , toGMTString , toLocaleString , toUTCString , toString , valueOf , parse , UTC</p>
+			</div>
+			<p>
+				Genel standart olarak, haftanın günü&rsquo;nü istediğimiz zaman javascript bize ilk gün <strong>PAZAR</strong> olacak
+				şekilde <strong>SIFIR</strong> ( 0 ) indeksli bir değer döner. Yani eğer günlerden <strong>PAZAR</strong> ise bize <strong>0</strong>
+				döner. Türkçe / Türkiye için düşündüğümüzde, haftanın ilk günü <strong>PAZARTESİ</strong> olduğu için sorunla karşılaşırız.
+				Bu sorunun 2 çözümü vardır;
+			</p>
+			<ol>
+				<li>Ya kendi array&rsquo;imizi <strong>Pazar</strong>&rsquo;dan başlatırız,</li>
+				<li>Ya da kontrol yapmamız gerekir.</li>
+			</ol>
+			<p>Aşağıdaki kod, kontrol yapma metoduyla hazırlanmıştır.</p>
+			<ol class="code">
+				<li><span class="jsr">var</span> aryDayNames = <span class="jsc">Array</span>( 'Pazartesi' , 'Salı' , 'Çarşamba' , 'Perşembe' , 'Cuma' , 'Cumartesi' , 'Pazar' );</li>
+				<li><span class="jsr">var</span> objToday = <span class="jso">new</span> <span class="jsc">Date()</span>;</li>
+				<li><span class="jsr">var</span> intTodaysWeekDay = objToday.<span class="jso">getUTCDay()</span>;</li>
+				<li><span class="jsr">if</span>( intTodaysWeekDay == 0 )</li>
+				<li>{</li>
+				<li><span class="tab">&nbsp;</span>intTodaysWeekDay = 6;</li>
+				<li>}</li>
+				<li><span class="jsr">else</span></li>
+				<li>{</li>
+				<li><span class="tab">&nbsp;</span>intTodaysWeekDay--;</li>
+				<li>}</li>
+				<li><span class="jsr">var</span> strDayName = aryDayNames[ intTodaysWeekDay ];</li>
+				<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>strDayName</em> );</li>
+			</ol>
+			<p>Eğer ilk yöntemi kullansaydık;</p>
+			<ol class="code">
+				<li><span class="jsr">var</span> aryDayNames = <span class="jsc">Array</span>( 'Pazar' , 'Pazartesi' , 'Salı' , 'Çarşamba' , 'Perşembe' , 'Cuma' , 'Cumartesi' );</li>
+				<li><span class="jsr">var</span> objToday = <span class="jso">new</span> <span class="jsc">Date()</span>;</li>
+				<li><span class="jsr">var</span> intTodaysWeekDay = objToday.<span class="jso">getUTCDay()</span>;</li>
+				<li><span class="jsr">var</span> strDayName = aryDayNames[ intTodaysWeekDay ];</li>
+				<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>strDayName</em> );</li>
+			</ol>
+		</div>
+
+		<h4>Ay, Yıl, Saat, Dakika, Saniye</h4>
+		<div class="block">
+			<ol class="code">
+				<li><span class="jsr">var</span> aryDayNames = <span class="jsc">Array</span>( 'Pazar' , 'Pazartesi' , 'Salı' , 'Çarşamba' , 'Perşembe' , 'Cuma' , 'Cumartesi' );</li>
+				<li><span class="jsr">var</span> aryMonthNames = <span class="jsc">Array</span>( 'Ocak' , 'Şubat' , 'Mart' , 'Nisan' , 'Mayıs' , 'Haziran' , 'Temmuz' , 'Ağustos' , 'Eylül' , 'Ekim' , 'Kasım' , 'Aralık' );</li>
+				<li><span class="jsr">var</span> objToday = <span class="jso">new</span> <span class="jsc">Date()</span>;</li>
+				<li><span class="jsr">var</span> intTodaysWeekDay = objToday.<span class="jso">getUTCDay()</span>;</li>
+				<li><span class="jsr">var</span> intTodaysMonth = objToday.<span class="jso">getUTCMonth()</span>;</li>
+				<li><span class="jsr">var</span> intTodaysYear = objToday.<span class="jso">getUTCFullYear(</span>);	</li>
+				<li><span class="jsr">var</span> intTodaysDate = objToday.<span class="jso">getUTCDate()</span>;</li>
+				<li><span class="jsr">var</span> intTodaysHour = objToday.<span class="jso">getHours()</span>;</li>
+				<li><span class="jsr">var</span> intTodaysMinute = objToday.<span class="jso">getMinutes()</span>;</li>
+				<li><span class="jsr">var</span> intTodaysSecond = objToday.<span class="jso">getSeconds()</span>;</li>
+				<li><span class="jsr">var</span> strDayName = aryDayNames[ <em>intTodaysWeekDay</em> ];</li>
+				<li><span class="jsr">var</span> strMonthName = aryMonthNames[ <em>intTodaysMonth</em> ];</li>
+				<li><span class="jsc">document</span>.<span class="jsr">write</span>( intTodaysDate + ' - ' , strMonthName + ' - ' + intTodaysYear + ', ' + strDayName + ' ' + intTodaysHour + ':' + intTodaysMinute + ':' + intTodaysSecond );</li>
+			</ol>
+		</div>
+
+	</div>
+</body>
+</html>

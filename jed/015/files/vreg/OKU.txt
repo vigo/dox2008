@@ -1,0 +1,41 @@
+[ -------------------------------------------------------------------------- ]
+                                                                              
+                 vReg Javascript Regular Expression Tool!                     
+                     http://ugur.ozyilmazel.com/vreg/                         
+                            ©  Uğur Özyılmazel                                
+  __________________________________________________________________________  
+  Nedir ?                                                                     
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯  
+  Basit bir “Regular Expression” aracıdır. Javascript içindir. Kendi patern-  
+  lerinizi üretmek, test etmek hatta saklayıp kaydetmek için kullanabilirsi-  
+  niz. ( Tabi bu kayıt işini kendiniz elle yapacaksınız ).                    
+                                                                              
+  Tamamen Html ve Javascript dilleri ile yazılmıştır. Kullanımı ücretsizdir!  
+  Hatta kendiniz de gönül rahatlığıyle kurcalayabilir, değişiklikler yapa-    
+  bilirsiniz. Tavsiyem Firefox gibi modern tarayıcılar ( Mozilla tabanlı!! )  
+  kullanmanız.                                                                
+                                                                              
+  Orijinal sürüm 2 dil destekliyor. İngilizce ve Türkçe. Türkçe için :        
+  “index_tr.html” dosyasına tıklayıp çalıştırın. Farklı bir dil eklemek için  
+  yapmanız gereken, “js/locale.js” dosyasından bir kopya alın. Eğer Almanca   
+  yapmak istiyorsanız, kopyasını aldığınız bu dosyayı : “js/locale_de.js”     
+  adıyla kaydedip, “index.html” dosyasındaki 21.satırı :                      
+                                                                              
+  <script type="text/javascript" src="js/locale_de.js"></script>              
+                                                                              
+  şeklinde değiştirin. Hazırladığınız diğer dilleri bana da yollarsanız se-   
+  vinirim. Sizden gelenleri sürüm paketine eklemekten mutluluk duyarım!       
+                                                                              
+  __________________________________________________________________________  
+  Bana Ulaşın                                                                 
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯  
+  Herhangi bir hata yada takıldığınız bir konu olursa, benim irtibata geçe-   
+  bilirsiniz : ugur@ozyilmazel.com                                            
+                                                                              
+  __________________________________________________________________________  
+  Tarihçesi                                                                   
+  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯  
+  4.2.1 - ( Nisan 28, 2008 ) ...............................................  
+     * İlk sürüm!!!  :)                                                       
+                                                                              
+[ -------------------------------------------------------------------------- ]

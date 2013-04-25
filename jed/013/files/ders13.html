@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Ders 13 : Tabbed Menü ve Sayfa</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="Content-Style-Type" content="text/css"/>
+		<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+		<meta http-equiv="Content-Language" content="tr,en"/>
+		<meta name="robots" content="all"/>
+		<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+		<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+		<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+		<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+		<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+		<meta http-equiv="Pragma" content="no-cache"/>
+		<style type="text/css" media="screen">
+			body
+			{
+				color: #000;
+				background: #fff;
+				margin: 0px;
+				padding: 0px;
+				font: normal normal normal 12px/16px 'Lucida Grande' , 'Lucida Console' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+			}
+			
+			form , p
+			{
+				margin: 0px;
+				padding: 0px;
+			}
+
+			div
+			{
+				overflow: hidden;
+			}
+
+			a:link , a:active , a:visited
+			{
+				background: transparent;
+				color: #007;
+				text-decoration: underline;
+			}
+
+			a:hover
+			{
+				text-decoration: none;
+			}
+
+			h1 , h2 , h3 , h4 , h5 , h6
+			{
+				font-weight: normal;
+				margin: 0px;
+				padding: 0px;
+				line-height: 1.3em;
+			}
+
+			h1 { font-size: 40px; }
+			h2 { font-size: 36px; }
+			h3 { font-size: 32px; }
+			h4 { font-size: 28px; }
+			h5 { font-size: 24px; }
+			h6 { font-size: 20px; }
+			
+			#canvas
+			{
+				width: 768px;
+				margin: 0px auto;
+			}
+
+			input , select , textarea , button
+			{
+				font: normal normal normal 0.8em 'Lucida Grande' , 'Lucida Sans Unicode' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+			}
+
+			ul#menu
+			{
+				width: 100%;
+				overflow: hidden;
+				list-style: none;
+				margin: 0px;
+				padding: 0px;
+				background-color: #fff;
+				border-bottom: 1px solid #000;
+				margin-top: 20px;
+			}
+
+			ul#menu li
+			{
+				display: inline;
+				float: left;
+				padding: 10px;
+				border-left: 1px solid #fff;
+				border-top: 1px solid #fff;
+				border-right: 1px solid #fff;
+			}
+
+			ul#menu li.current
+			{
+				background-color: #eee;
+				border-left: 1px solid #000;
+				border-top: 1px solid #000;
+				border-right: 1px solid #000;
+			}
+			
+			div.text
+			{
+				background-color: #eee;
+				padding: 20px;
+				border-left: 1px solid #000;
+				border-bottom: 1px solid #000;
+				border-right: 1px solid #000;
+			}
+
+		</style>
+		<script type="text/javascript">
+		//<![CDATA[
+
+			var myPages = {
+				menu : []
+				,
+				contents : []
+				,
+				addPageItem : function ( pageID , htmlContent )
+				{
+					this.contents.push( { 'page_id' : pageID , 'html_content' : htmlContent } );
+				}
+				,
+				addMenuItem : function ( pageID , menuTitle )
+				{
+					this.menu.push( { 'page_id' : pageID , 'title' : menuTitle } );
+				}
+				,
+				publish : function ( pageID )
+				{
+					var strMenuOut = '<ul id="menu">';
+					for( var index in this.menu )
+					{
+						var strMenuPageID = this.menu[ index ][ 'page_id' ];
+						var strMenuTitle = this.menu[ index ][ 'title' ];
+						var li_css = ' class="current"';
+
+						if( pageID != strMenuPageID )
+						{
+							li_css = '';
+							strMenuTitle = '<a href="javascript:void(0);" onclick="myPages.publish( \''
+								+ strMenuPageID + '\' );return false;">'
+								+ strMenuTitle + '</a>';
+						}
+
+						strMenuOut+= '<li' + li_css + '>' + strMenuTitle + '<\/li>';
+					}
+					strMenuOut+= '<\/ul>';
+					
+					var strContentOut = '';
+					for( var index in this.contents )
+					{
+						var strPageID = this.contents[ index ][ 'page_id' ];
+						var strHTMLContent = this.contents[ index ][ 'html_content' ];
+						if( strPageID == pageID )
+						{
+							strContentOut = '<div class="text">' + strHTMLContent + '<\/div>';
+						}
+					}
+					document.getElementById( 'canvas' ).innerHTML = strMenuOut + strContentOut;
+				}
+			};
+			
+			window.onload = function ()
+			{
+				myPages.addMenuItem( 'SAYFA1' , 'Ana Sayfa' );
+				myPages.addMenuItem( 'SAYFA2' , 'Hakkımızda' );
+				myPages.addMenuItem( 'SAYFA3' , 'İletişim' );
+
+				myPages.addPageItem( 'SAYFA1' , '<h1>Merhaba!<\/h1><p>Ana Sayfa yazısı...<\/p>' );
+				myPages.addPageItem( 'SAYFA2' , '<h1>Biz Kimiz?<\/h1><p>Hakkımızda yazısı...<\/p>' );
+				myPages.addPageItem( 'SAYFA3' , '<h1>Adreslerimiz<\/h1><p>Telefon : 123 456<\/p>' );
+
+				myPages.publish( 'SAYFA1' );
+			}
+
+		//]]>
+		</script>
+</head>
+<body>
+	<div id="canvas">
+	</div>
+</body>
+</html>

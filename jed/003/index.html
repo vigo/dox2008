@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #003</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #003</h1>
+			<h2>22 Şubat 2008, Cuma</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../002/index.html">&lt; Önceki ( 002 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../004/index.html">Sonraki ( 004 ) &gt;</a></span>
+		</div>
+
+		<h3>Array&rsquo;e Giriş</h3>
+		<div class="block">
+			<div class="float">
+				<h4>Basit Array</h4>
+				<p>
+					0 indeksli şekilde ard arda sıralanmış dizidir. Tür olarak ( <em>typeof</em> ) <strong>object</strong>&rsquo;dir.
+					<em>length</em> yani uzunluğu / boyu vardır.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> userList = <span class="jsr">new</span> <span class="jsc">Array</span>();</li>
+					<li>userList[ 0 ] = 'ali';</li>
+					<li>userList[ 1 ] = 'veli';</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( userList ); <span class="cmt">// ali,veli</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( userList.<span class="jso">length</span> ); <span class="cmt">// 2</span></li>
+				</ol>
+				<p>yada;</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> userList = <span class="jsc">Array</span>( 'ali' , 'veli' );</li>
+					<li><span class="jsr">for</span>( var i = 0; i < <strong>userList.<span class="jso">length</span></strong>; i++ )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( userList[ i ] );</li>
+					<li>}</li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>Mini Ödev</h4>
+				<p>4 sayı var, 1 ve 2.sayıları birbiriyle topla, 3 ve 4.sayıları birbiri ile çarp, sonuç olarak iki işlemin sonucunu topla..( a + b ) + ( c * d )</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> numbers = <span class="jso">Array</span>( 1,2,3,4 );</li>
+					<li><span class="jsr">var</span> calc1 = ( numbers[ 0 ] + numbers[ 1 ] );</li>
+					<li><span class="jsr">var</span> calc2 = ( numbers[ 2 ] + numbers[ 3 ] );</li>
+					<li><span class="jsr">var</span> result =  calc1 * calc2;</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Önce ' + numbers[ 0 ] + ' ile ' + numbers[ 1 ] + ' toplandı. Sonra ' + numbers[ 2 ] + ' ile ' + numbers[ 3 ] + ' çarpıldı. Sonuç : ' + result );</li>
+					<li></li>
+				</ol>
+				<p>Kullanıcı adına göre yaşını söyle</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> askUser = <span class="jsc">window</span>.<span class="jsr">prompt</span>( 'Kullanıcı Adı?' , '' );</li>
+					<li><span class="jsr">var</span> msg;</li>
+					<li><span class="jsr">switch</span>( askUser )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">case</span> 'vigo' :</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>msg = 'Vigo 36 yaşında...';</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">break</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">case</span> 'perper' :</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>msg = 'Perper 26 yaşında...';</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">break</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">default:</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>msg = 'Tanımsız kullanıcı';</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">break</span>;</li>
+					<li>}</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( msg );</li>
+				</ol>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

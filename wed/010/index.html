@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Web Geliştirme Eğitimi Dersleri, 010 , 4 Şubat 2008, Pazartesi</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta http-equiv="Content-Style-Type" content="text/css"/>
+			<meta name="author" content="Uğur 'vigo' Özyılmazel"/>
+			<meta name="keywords" content="html xhtml css javascript web php database mysql svn development code coding programming"/>
+			<meta name="description" content="Web uygulama / geliştirme ile ilgili eğitim. Genel özet, css by-pass ( overloading ) , centering, Semantik Yapı, Web 2.0 , Kullanmadığımız Tag&rsquo;ler"/>
+			<meta name="copyright" content="2007 - Uğur Özyılmazel"/>
+			<meta name="date" content="2008-01-04T09:00:00+02:00"/>
+			<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+			<meta http-equiv="Last-Modified" content="Thu, 03 Jan 2008 21:50:46 GMT"/>
+			<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+			<meta http-equiv="Pragma" content="no-cache"/>
+			<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	</head>
+	<body>
+		<div id="canvas">
+			<div id="info">
+				<h1>Web Geliştirme Eğitimi Dersleri, 010</h1>
+				<h2>4 Şubat 2008, Pazartesi</h2>
+			</div>
+			
+			<div class="row">
+				<h3>by-pass ( overloading )</h3>
+				<ul>
+					<li>Deklarasyon&rsquo;ların birbirini ezmesi konusu.</li>
+					<li>Direktifler lineer olarak ( yukarıdan aşşağı ) işlendiği için, aktüel deklarasyon sonuncusu olur.</li>
+				</ul>
+				<div>
+					<div class="flt">
+						<strong>CSS</strong>
+						<ol class="code">
+							<li><span class="h">h1</span></li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">color:</span> #f00;</li>
+							<li>}</li>
+							<li>#canvas <span class="h">h1</span></li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">color:</span> #0f0;</li>
+							<li>}</li>
+						</ol>
+					</div>
+					<div class="flt">
+						<strong>HTML</strong>
+						<ol class="code">
+							<li><span class="h">&lt;h1&gt;</span>Hello World<span class="h">&lt;/h1&gt;</span></li>
+							<li><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">canvas</span>"<span class="h">&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;h1&gt;</span>Hello World<span class="h">&lt;/h1&gt;</span></li>
+							<li><span class="h">&lt;/div&gt;</span></li>
+						</ol>
+					</div>
+					<div class="flt">
+						<strong>Sonuç</strong>
+						<p><img src="files/h1-h1.gif" alt="Overloading"/></p>
+						<p>h1 dışarıda <strong>kırmızı</strong> iken, #canvas&rsquo;ın içinde <strong>yeşil</strong> oldu.</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<h3>Centering ( ortalama ) Teknikleri</h3>
+				<h4>Genel Mantık</h4>
+				<div class="iflt">
+					<div>
+						<p><img src="files/centering.jpg" alt="Matematiksel açıklama"/></p>
+						<p>Geometri&rsquo;de ortalama hesabı</p>
+					</div>
+					<div style="width: 50%;">
+						<ul>
+							<li>HTML nesnesi içine ortalama yapmak için, dıştaki nesnenin mutlaka block-level yada önceden belirlenmiş bir <strong>width:</strong> ve <strong>height:</strong> ( genişlik / yükseklik ) bilgisi olmalıdır.</li>
+							<li>Ortalama işlemi yapmak için, 2 nesne gerekir.</li>
+							<li>Nesnenin birini, diğerine göre ortalayabiliriz.</li>
+							<li>Genişliği : 500px ( <em>width</em> ) , Yüksekliği : 500px ( <em>height</em> ) olan kutunun içine, 200x100 px&rsquo;lik bir kutu ortalıyoruz.</li>
+							<li><strong>left:</strong> ( genişlik_büyük - genişlik_küçük ) / 2</li>
+							<li><strong>top:</strong> ( yükseklik_büyük - yükseklik_küçük ) / 2</li>
+							<li>( 500 - 200 ) / 2 = 150</li>
+							<li>( 500 - 100 ) / 2 = 200</li>
+						</ul>
+					</div>
+				</div>
+
+				<h4>Negatif Marjin</h4>
+				<div class="iflt">
+					<div>
+						<p><img src="files/neg-margin-cnt.jpg" alt="Negatif Marjin"/></p>
+						<p>Negatif marjin ile oratalama tekniği.</p>
+					</div>
+					<div style="width: 50%;">
+						<ul>
+							<li>BODY&rsquo;ye göre bir div&rsquo;i ortalamak için, önce div&rsquo;in <strong>left:</strong> ve <strong>top:</strong> bilgisini <strong>50%</strong> yaparız.</li>
+							<li>Böylece div&rsquo;in sol üst köşesi, <strong>BODY</strong>&rsquo;ye göre tam orta noktaya gelir.</li>
+							<li>div&rsquo;in genişliği / 2 kadar - marjin vererek x eksenini düzenleriz. ( <em>300px ise, 300/2 = 150 yani -150</em> )</li>
+							<li>div&rsquo;in yüksekliği / 2 kadar - marjin vererek y eksenini düzenleriz. ( <em>200px ise, 200/2 = 100 yani -100</em> )</li>
+						</ul>
+						<ol class="code">
+							<li><span class="h">div</span></li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">absolute</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 50%;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 50%;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">margin-left:</span> -150px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">margin-top:</span> -100px;</li>
+							<li>}</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<h3>Kullanmadığımız TAG&rsquo;ler</h3>
+				<p>Belkide bugüne kadar haberimiz bile olmayan, aslında çok işimize yarayabilecek, istediğimiz gibi modifiye edebileceğimiz tag&rsquo;ler :</p>
+				<p>Genelde bu komutlar Semantik ( <em>Anlam Bilimi</em> ) ifadeler için kullanılır.</p>
+				<ul>
+					<li>&lt;strong&gt; : BOLD yerine ( &lt;b&gt; ) artık bunu kullanıyoruz.</li>
+					<li>&lt;em&gt; : ITALIC yerine ( &lt;i&gt; ) artık bunu kullanıyoruz.</li>
+					<li>&lt;q&gt; : In-line, Quotation için kullanılır.</li>
+					<li>&lt;abbr&gt; : In-line, Kıslatmalar için kullanılır.</li>
+					<li>&lt;address&gt; : In-line, Adres bilgisi vermek için kullanılır.</li>
+					<li>&lt;s&gt; : In-line, Strike-out ( <em>üzerini çizmek</em> ) için kullanılır.</li>
+					<li>&lt;blockquote&gt; : Block-level, Quotation için kullanılır. Her browser kendine göre margin/padding uygular.</li>
+					<li>&lt;caption&gt; : &lt;table&gt;&rsquo;da kullanılır.</li>
+					<li>&lt;label&gt; : In-line, form elemanları için etiket olarak kullanılır.</li>
+					<li>&lt;cite&gt; : In-line, Phrase ( <em>deyim / ibare</em> ) elements grubundandır.</li>
+					<li>&lt;kbd&gt; : In-line, Keyboard Entry anlamındadır, yani kullanıcı tarafından girilmiş text için...</li>
+					<li>&lt;fieldset&gt; | &lt;legend&gt; : Block-level, &lt;legend&gt; ile kullanılır, formlar&rsquo;la beraber kullanılır.</li>
+					<li>&lt;pre&gt; : Block-level, Pre-Formated Text anlamındadır. TAB , LINEBREAK gibi şeyler çalışır.</li>
+					<li>&lt;sub&gt; | &lt;sup&gt; : In-line, Sub-Script, Super Script anlamındadır.</li>
+				</ul>
+				<h4>&lt;q&gt;</h4>
+				<div>
+					<div class="flt">
+						<strong>HTML</strong>
+						<ol class="code">
+							<li>Merhaba benim adım <span class="h">&lt;q&gt;</span>vigo<span class="h">&lt;/q&gt;</span></li>
+						</ol>
+					</div>
+					<div class="flt">
+						<p><strong>SONUÇ</strong></p>
+						<p>Merhaba benim adım <q>vigo</q></p>
+					</div>
+				</div>
+				<h4>&lt;abbr&gt;</h4>
+				<div>
+					<div class="flt">
+						<strong>HTML</strong>
+						<ol class="code">
+							<li><span class="h">&lt;abbr</span> <span class="ha">title</span>="<span class="hv">World Wide Web</span>"&gt;WWW<span class="h">&lt;/abbr&gt;</span> aslında World Wide Web&rsquo;dir</li>
+						</ol>
+					</div>
+					<div class="flt">
+						<p><strong>SONUÇ</strong></p>
+						<p><abbr title="World Wide Web">WWW</abbr> aslında World Wide Web&rsquo;dir</p>
+					</div>
+				</div>
+				<h4>&lt;s&gt; | &lt;sub&gt; | &lt;sup&gt; | &lt;small&gt; | &lt;big&gt;</h4>
+				<div>
+					<div class="flt">
+						<strong>HTML</strong>
+						<ol class="code">
+							<li>Bana olan borcun <span class="h">&lt;s&gt;</span>1.000 YTL<span class="h">&lt;/s&gt;</span>&rsquo;den 500 YTL&rsquo;ye düştü</li>
+							<li>Suyun kimyasal formülü, H<span class="h">&lt;sub&gt;</span>2<span class="h">&lt;/sub&gt;</span>O ve 2<span class="h">&lt;sup&gt;</span>2<span class="h">&lt;/sup&gt;</span> = 4</li>
+							<li>Yazı içinde birden <span class="h">&lt;big&gt;</span>büyük<span class="h">&lt;/big&gt;</span> yazarken birden de <span class="h">&lt;small&gt;</span>küçük<span class="h">&lt;/small&gt;</span> yazabilirim.</li>
+						</ol>
+					</div>
+					<div class="flt">
+						<p><strong>SONUÇ</strong></p>
+						<p>Bana olan borcun <s>1.000 YTL</s>&rsquo;den 500 YTL&rsquo;ye düştü</p>
+						<p>Suyun kimyasal formülü, H<sub>2</sub>O ve 2<sup>2</sup> = 4</p>
+						<p>Yazı içinde birden <big>büyük</big> yazarken birden de <small>küçük</small> yazabilirim.</p>
+					</div>
+				</div>
+				<h4>&lt;blockquote&gt;</h4>
+				<div>
+					<div class="flt">
+						<strong>HTML</strong>
+						<ol class="code">
+							<li><span class="h">&lt;blockquote&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;p&gt;</span>Merhaba<span class="h">&lt;/p&gt;</span></li>
+							<li><span class="h">&lt;/blockquote&gt;</span></li>
+						</ol>
+					</div>
+					<div class="flt">
+						<strong>SONUÇ</strong>
+						<blockquote>
+							<p>Merhaba</p>
+						</blockquote>
+					</div>
+					<div class="flt">
+						<strong>ÖNEMLİ!</strong>
+						<p>Mutlaka içinde bir <strong>paragraf</strong> olmalı!</p>
+					</div>
+				</div>
+				<h4>&lt;fieldset&gt; | &lt;legend&gt; | &lt;label&gt;</h4>
+				<div>
+					<div class="flt">
+						<strong>HTML</strong>
+						<ol class="code">
+							<li><span class="h">&lt;fieldset&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;legend&gt;</span>Üyelik Formu<span class="h">&lt;/legend&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;label</span> <span class="ha">for</span>="<span class="hv">user_email</span>"<span class="h">&gt;</span>E-Posta<span class="h">&lt;/label&gt;</span><span class="h">&lt;input</span> <span class="ha">type</span>="<span class="hv">text</span>" <span class="ha">id</span>="<span class="hv">user_email</span>" <span class="ha">name</span>="<span class="hv">user_email</span>"<span class="h">/&gt;</span></li>
+							<li><span class="h">&lt;/fieldset&gt;</span></li>
+						</ol>
+					</div>
+					<div class="flt">
+						<p><strong>SONUÇ</strong></p>
+						<fieldset>
+							<legend>Üyelik Formu</legend>
+							<label for="user_email">E-Posta</label><input type="text" id="user_email" name="user_email"/>
+						</fieldset>
+					</div>
+				</div>
+				<h4>&lt;pre&gt;</h4>
+				<div>
+					<div class="flt">
+						<strong>HTML</strong>
+						<ol class="code">
+							<li><span class="h">&lt;pre&gt;</span></li>
+							<li><span class="tab">&nbsp;</span>tab var!<span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>2 tab</li>
+							<li><span class="h">&lt;/pre&gt;</span></li>
+						</ol>
+					</div>
+					<div class="flt">
+						<strong>SONUÇ</strong>
+						<pre style="background: #fff; margin: none; padding: none; line-height: 1em; border:none;">tab var!		2 tab</pre>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<h3>Semantik Yapı ve Web 2.0</h3>
+				<ul>
+					<li>Web 2.0, ilk kez O&rsquo;Reilly tarafından telaffuz edilmiştir. Son yıllarda Mac OS X tarzı grafikler, RSS-Feed&rsquo;ler ve A.J.A.X ( <em>Asynchron Javascript and XML</em> ) / Javascript ağırlıklı web uygulamaları <strong>WEB 2.0</strong> olarak tanımlanmaktadır.</li>
+					<li>1999 yılından beri varolan, sadece Internet Explorer tarafından kullanılan <strong>xmlHttp</strong> nesnesi, günümüz modern browser&rsquo;lar tarafından da desteklenince ortaya o meşhur <strong>AJAX</strong> çıkmıştır.</li>
+					<li>Önceleri tüm işlemler sunucu tarafında ( <em>SERVER SIDE</em> ) işlenip Client&rsquo;a sadece işlenmiş HTML gönderilirken, artık pek çok iş Client&rsquo;a yüklenmiştir. ( <em>Javascript ile</em> )</li>
+					<li>AJAX ile siteler arası entegrasyon kolaylaşmış, SOCIAL-NETWORKING kavramları, BLOG&rsquo;lar ve PAYLAŞIM siteleri çok popüler duruma gelmiştir.</li>
+					<li>Yazdığımız HTML&rsquo;in anlam olarak da birşeyler ifade etmesi olayı</li>
+					<li>Başlıklar için uygun tag&rsquo;leri kullanmak, metinleri paragraflardan oluşturmak gibi...</li>
+					<li>Gereksiz yere &lt;br/&gt; kullanmamak!</li>
+					<li>Örneğin, blog siteniz var, başlıkları &lt;h1&gt; içinde yazmak, postları da &lt;p&gt; yada &lt;div&gt; içinde yazmak</li>
+				</ul>
+				<div>
+					<div class="flt">
+						<strong>ESKİ TARZ KÖTÜ YAZIM</strong>
+						<ol class="code">
+							<li><span class="h">&lt;b&gt;</span>Başlık<span class="h">&lt;/b&gt;</span><span class="h">&lt;br&gt;</span><span class="h">&lt;br&gt;</span></li>
+							<li>paragraf 1<span class="h">&lt;br&gt;</span><span class="h">&lt;br&gt;</span>paragraf 2</li>
+						</ol>
+					</div>
+					<div class="flt">
+						<strong>WEB 2.0 / Semantik Yazım</strong>
+						<ol class="code">
+							<li><span class="h">&lt;h1&gt;</span>Başlık<span class="h">&lt;/h1&gt;</span></li>
+							<li><span class="h">&lt;p&gt;</span>Paragraf 1<span class="h">&lt;/p&gt;</span></li>
+							<li><span class="h">&lt;p&gt;</span>Paragraf 2<span class="h">&lt;/p&gt;</span></li>
+						</ol>
+					</div>
+					<div class="flt">
+						<strong>yada</strong>
+						<ol class="code">
+							<li><span class="h">&lt;h1&gt;</span>Başlık<span class="h">&lt;/h1&gt;</span></li>
+							<li><span class="h">&lt;div</span> <span class="ha">class</span>="<span class="hv">paragraph</span>"<span class="h">&gt;</span><span class="h">&lt;p&gt;</span>Paragraf 1<span class="h">&lt;/p&gt;</span><span class="h">&lt;/div&gt;</span></li>
+							<li><span class="h">&lt;div</span> <span class="ha">class</span>="<span class="hv">paragraph</span>"<span class="h">&gt;</span><span class="h">&lt;p&gt;</span>Paragraf 2<span class="h">&lt;/p&gt;</span><span class="h">&lt;/div&gt;</span></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+
+			<div id="nav">
+				Tercihler : <span><a href="../index.html">İndeks</a> </span><span><a href="../009/index.html">&lt; Önceki</a> </span><a href="../011/index.html">Sonraki &gt;</a>
+			</div>
+
+			<div id="footer">
+				<span>&copy; 2007</span><span>Uğur &ldquo;vigo&rdquo; Özyılmazel</span><span>vigo@bilgi.edu.tr</span>http://ugur.ozyilmazel.com
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Web Geliştirme Eğitimi Dersleri, 009 , 14 Ocak 2008, Pazartesi</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta http-equiv="Content-Style-Type" content="text/css"/>
+			<meta name="author" content="Uğur 'vigo' Özyılmazel"/>
+			<meta name="keywords" content="html xhtml css javascript web php database mysql svn development code coding programming"/>
+			<meta name="description" content="Web uygulama / geliştirme ile ilgili eğitim. ul, dl numaraları"/>
+			<meta name="copyright" content="2007 - Uğur Özyılmazel"/>
+			<meta name="date" content="2008-01-04T09:00:00+02:00"/>
+			<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+			<meta http-equiv="Last-Modified" content="Thu, 03 Jan 2008 21:50:46 GMT"/>
+			<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+			<meta http-equiv="Pragma" content="no-cache"/>
+			<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	</head>
+	<body>
+		<div id="canvas">
+			<div id="info">
+				<h1>Web Geliştirme Eğitimi Dersleri, 009</h1>
+				<h2>14 Ocak 2008, Pazartesi</h2>
+			</div>
+			
+			<div class="row">
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS1/">css 1.0</a> , <a target="_blank" href="http://www.w3.org/TR/CSS21/">css 2.1</a></p>
+					<p><a target="_blank" href="http://www.w3.org/Style/CSS/current-work/">css 3.0</a></p>
+					<p><a target="_blank" href="http://www.css3.info/preview/">css3.0 preview</a></p>
+				</div>
+				<h3>CSS 1.0 ,CSS 2.1 ve CSS 3.0</h3>
+				<h4>css 1.0</h4>
+				<ul>
+					<li>En çok kullandığımız komutlar css 1.0&rsquo;dır.</li>
+					<li>background, border, float, display, font, width , height, list-style, margin, padding, text-align gibi ( <em>ve türevleri.</em> )</li>
+				</ul>
+
+				<h4>css 2.1</h4>
+				<ul>
+					<li>clear, clip, cursor, left, right, min-width, min-height, overflow, position, visibility gibi komutlar ... ( <em>ve türevleri.</em> )</li>
+				</ul>
+
+				<h4>css 3.0</h4>
+				<ul>
+					<li>Henüz kullanamadığımız komutlar :) border-image , border-radius , box-shadow , background-origin , text-shadow , multi-column layout ve dahası...</li>
+				</ul>
+			</div>
+			
+			<div class="row">
+				<h3>&lt;ul&gt; ( &lt;ol&gt; ) ve &lt;dl&gt; kullanımı</h3>
+				<ul>
+					<li><strong>ul</strong> : un-ordered list ( <em>sırasız liste</em> )</li>
+					<li><strong>ol</strong> : ordered list ( <em>sıralı liste</em> )</li>
+					<li><strong>dl</strong> : definition list ( <em>tanımlama listesi</em> )</li>
+				</ul>
+				<div>
+					<div class="flt">
+						<h4>Standart &lt;ul&gt;</h4>
+						<p><img src="files/ul.gif" alt="Standart ul"/></p>
+					</div>
+					<div class="flt">
+						<h4>Modifiyeli &lt;ul&gt;</h4>
+						<p><img src="files/ul2.gif" alt="Modifiyeli ul"/></p>
+						<p><img src="files/ul3.gif" alt="Modifiyeli ul"/></p>
+					</div>
+				</div>
+				<div>
+					<div class="flt">
+						<strong>CSS</strong>
+						<ol class="code">
+							<li><span class="h">ul</span></li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">list-style:</span> <span class="crv">none</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">margin:</span> 0px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">padding:</span> 0px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">overflow:</span> <span class="crv">hidden</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 30em;</li>
+							<li>}</li>
+							<li><span class="h">li</span></li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">display:</span> <span class="crv">inline</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">float:</span> <span class="crv">left</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 10em;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">border-bottom:</span> 1px <span class="crv">dotted</span> #555;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background:</span> #fafafa;</li>
+							<li>}</li>
+							<li><span class="h">li</span>.h</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">font-weight:</span> <span class="crv">bold</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background:</span> #eee;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">border-bottom:</span> 1px <span class="crv">dotted</span> #000;</li>
+							<li>}</li>
+						</ol>
+					</div>
+					<div class="flt">
+						<strong>HTML</strong>
+						<ol class="code">
+							<li><span class="h">&lt;ul&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;li</span> <span class="ha">class</span>="<span class="hv">h</span>"<span class="h">&gt;</span>Kullanıcı Adı<span class="h">&lt;/li&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;li</span> <span class="ha">class</span>="<span class="hv">h</span>"<span class="h">&gt;</span>Şifre<span class="h">&lt;/li&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;li</span> <span class="ha">class</span>="<span class="hv">h</span>"<span class="h">&gt;</span>E-Mail<span class="h">&lt;/li&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;li&gt;</span>vigo<span class="h">&lt;/li&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;li&gt;</span>1234<span class="h">&lt;/li&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;li&gt;</span>vigo@bilgi.edu.tr<span class="h">&lt;/li&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;li&gt;</span>comozor<span class="h">&lt;/li&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;li&gt;</span>axxeed11<span class="h">&lt;/li&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;li&gt;</span>comoz@zor.edu.tr<span class="h">&lt;/li&gt;</span></li>
+							<li><span class="h">&lt;/ul&gt;</span></li>
+						</ol>
+					</div>
+					<div class="flt">
+						<strong>AÇIKLAMA</strong>
+						<ul>
+							<li><strong>display:</strong> ile oynayarak li&rsquo;leri modifiye ettik.</li>
+							<li>3 kolon istediğimiz için <strong>ul</strong>&rsquo;nin <strong>width:</strong>&rsquo;i ni 3&rsquo;ün katı verdik ( <em>10*3em = 30em</em> )</li>
+							<li>Her <strong>li</strong> için <strong>width:</strong> 10em verdik!</li>
+							<li>Header yapmak için ayrı bir class tanımladık. ( <em>h</em> )</li>
+							<li>** <strong>ul</strong> için geçerli herşey <strong>ol</strong> için de geçerlidir!</li>
+						</ul>
+					</div>
+				</div>
+
+				<div>
+					<div class="flt">
+						<h4>Standart &lt;dl&gt;</h4>
+						<p><img src="files/dl.gif" alt="Standart dl"/></p>
+					</div>
+					<div class="flt">
+						<h4>Modifiyeli &lt;dl&gt;</h4>
+						<p><img src="files/dl2.gif" alt="Modifiyeli dl"/></p>
+					</div>
+				</div>
+				<div>
+					<div class="flt">
+						<strong>HTML</strong>
+						<ol class="code">
+							<li><span class="h">&lt;dl&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;dt&gt;</span>Kullanıcı Adı<span class="h">&lt;/dt&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;dd&gt;</span>vigo<span class="h">&lt;/dd&gt;</span></li>
+							<li><span class="h">&lt;/dl&gt;</span></li>
+							<li><span class="h">&lt;dl&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;dt&gt;</span>E-Posta<span class="h">&lt;/dt&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;dd&gt;</span>vigo@bilgi.edu.tr<span class="h">&lt;/dd&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;dd&gt;</span>vigo2@bilgi.edu.tr<span class="h">&lt;/dd&gt;</span></li>
+							<li><span class="h">&lt;/dl&gt;</span></li>
+							<li><span class="h">&lt;dl&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;dt&gt;</span>Telefon<span class="h">&lt;/dt&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;dd&gt;</span>+90 212 123 44 55<span class="h">&lt;/dd&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;dd&gt;</span>+90 212 222 44 55<span class="h">&lt;/dd&gt;</span></li>
+							<li><span class="h">&lt;/dl&gt;</span></li>
+						</ol>
+					</div>
+					<div class="flt">
+						<strong>CSS</strong>
+						<ol class="code">
+							<li><span class="h">dl</span></li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">overflow:</span> <span class="crv">hidden</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">margin:</span> 0px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">padding:</span> 0px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background:</span> #eee;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">border-bottom:</span> 1px <span class="crv">solid</span> #ccc;</li>
+							<li>}</li>
+							<li><span class="h">dt</span></li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">margin:</span> 0px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">padding:</span> 0px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">display:</span> <span class="crv">inline</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">float:</span> <span class="crv">left</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">font-weight:</span> <span class="crv">bold</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">border-right:</span> 1px <span class="crv">dotted</span> #000;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">margin-right:</span> 10px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background:</span> #ddd;</li>
+							<li>}</li>
+							<li><span class="h">dd</span></li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">margin:</span> 0px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">padding:</span> 0px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">display:</span> <span class="crv">inline</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">float:</span> <span class="crv">left</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 250px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">margin-right:</span> 10px;</li>
+							<li>}</li>
+						</ol>
+					</div>
+					<div class="flt">
+						<strong>AÇIKLAMA ve NOT</strong>
+						<ul>
+							<li><strong>&lt;dt&gt;</strong> HTML taşıyamaz!</li>
+							<li><strong>&lt;dd&gt;</strong> yada <strong>&lt;li&gt;</strong> HTML taşır ( <em>p , h1 , span gibi</em> )</li>
+							<li><strong>&lt;dl&gt;</strong> içinde N tane <strong>&lt;dt&gt;</strong> yada <strong>&lt;dd&gt;</strong> olabilir.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="nav">
+				Tercihler : <span><a href="../index.html">İndeks</a> </span><span><a href="../008/index.html">&lt; Önceki</a> </span><a href="../010/index.html">Sonraki &gt;</a>
+			</div>
+
+			<div id="footer">
+				<span>&copy; 2007</span><span>Uğur &ldquo;vigo&rdquo; Özyılmazel</span><span>vigo@bilgi.edu.tr</span>http://ugur.ozyilmazel.com
+			</div>
+		</div>
+	</body>
+</html>

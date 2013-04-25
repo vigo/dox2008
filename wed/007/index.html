@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Web Geliştirme Eğitimi Dersleri, 007 , 3 Ocak 2008, Perşembe</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta http-equiv="Content-Style-Type" content="text/css"/>
+			<meta name="author" content="Uğur 'vigo' Özyılmazel"/>
+			<meta name="keywords" content="html xhtml css javascript web php database mysql svn development code coding programming"/>
+			<meta name="description" content="Web uygulama / geliştirme ile ilgili eğitim. Floating"/>
+			<meta name="copyright" content="2007 - Uğur Özyılmazel"/>
+			<meta name="date" content="2008-01-03T09:00:00+02:00"/>
+			<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+			<meta http-equiv="Last-Modified" content="Thu, 03 Jan 2008 21:50:46 GMT"/>
+			<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+			<meta http-equiv="Pragma" content="no-cache"/>
+			<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	</head>
+	<body>
+		<div id="canvas">
+			<div id="info">
+				<h1>Web Geliştirme Eğitimi Dersleri, 007</h1>
+				<h2>3 Ocak 2008, Perşembe</h2>
+			</div>
+			
+			<div class="row">
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS21/visuren.html#propdef-float">Positioning the float:</a></p>
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS21/propidx.html">CSS2.1 Properties</a></p>
+					<p><a target="_blank" href="http://css.maxdesign.com.au/floatutorial/">Tutorial</a></p>
+				</div>
+				<h3>FLOATING</h3>
+				<ul>
+					<li>Elementlerin havada uçması anlamındadır!</li>
+					<li>Parametre olarak : <strong>left</strong> | <strong>right</strong> | <strong>none</strong> değerlerini alır.</li>
+					<li>Floating başladığı zaman, element <strong>IN-LINE</strong> duruma geçer!</li>
+					<li>IE 6 için float eden elemetin <strong>display: inline;</strong> şeklinde ekstradan tanımlanması gerekir, aksi takdirde <strong>DOUBLE-MARGIN BUG</strong> oluşur.</li>
+					<li><strong>DOUBLE-MARGIN BUG</strong> margin bilgilerini etkiler. Sağdan yada soldan verilen margin kaç ise, out-put&rsquo;da tam <strong>2 katı margin</strong> halini alır.</li>
+				</ul>
+				<ol class="code">
+					<li><span class="cco">/* DOUBLE-MARGIN BUG örnek ( Sadece IE6 ) */</span></li>
+					<li>#box</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">float:</span> left;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">margin-right:</span> 10px; <span class="cco">/* Çıktıda bu değer 20px olarak render edilir. */</span></li>
+					<li>}</li>
+				</ol>
+				<ol class="code">
+					<li><span class="cco">/* DOUBLE-MARGIN BUG FIX ( Sadece IE6 ) */</span></li>
+					<li>#box</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">float:</span> left;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">margin-right:</span> 10px;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">display:</span> inline; <span class="cco">/* Fix için */</span></li>
+					<li>}</li>
+				</ol>
+				<ul>
+					<li>Float eden elementin içinde olduğu element&rsquo;in <strong>overflow</strong>&rsquo;u hidden olmalıdır. Aksi takdirde float eden element, içindi bulunduğu element&rsquo;in üzerinde görünür!</li>
+					<li>IE6&rsquo;da, float eden elementin içinde olduğu element mutlaka <strong>width:</strong> değerine sahip olmalıdır.</li>
+				</ul>
+				<ol class="code">
+					<li>#middle_area</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">overflow:</span> hidden;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> #ccc;</li>
+					<li>}</li>
+					<li>#left</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">float:</span> left;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> #ff0;</li>
+					<li>}</li>
+					<li>HTML</li>
+					<li><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">middle_area</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">left</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="h">&lt;p&gt;</span>Bu Sol kutu!<span class="h">&lt;/p&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;/div&gt;</span></li>
+					<li><span class="h">&lt;/div&gt;</span></li>
+				</ol>
+				<div class="iflt">
+					<div><p><img src="files/of-ie6.gif" alt="Hatalı Overflow IE6"/></p><p>Hatalı Overflow IE6 - A</p></div>
+					<div><p><img src="files/of-ff.gif" alt="W3C Uyumlu Overflow"/></p><p>W3C Uyumlu Overflow - B</p></div>
+					<div>
+						<ul>
+						<li>Resim A&rsquo; gri background görünmüyor!</li>
+						<li>Resim A&rsquo;da #left , <strong>#middle_area</strong>&rsquo;nın dışında gibi duruyor!</li>
+						</ul>
+					</div>
+				</div>
+				<p>Ya <strong>#middle_area</strong>&rsquo;dan sonra bir <strong>div</strong> daha olsaydı?</p>
+				<ol class="code">
+					<li>#middle_area</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">overflow:</span> hidden;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> #ccc;</li>
+					<li>}</li>
+					<li>#left</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">float:</span> left;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> #ff0;</li>
+					<li>}</li>
+					<li>HTML</li>
+					<li><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">middle_area</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">left</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="h">&lt;p&gt;</span>Bu Sol kutu!<span class="h">&lt;/p&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;/div&gt;</span></li>
+					<li><span class="h">&lt;/div&gt;</span></li>
+					<li><span class="h">&lt;div&gt;</span>Bu div, teorik olarak <span class="h">&lt;strong&gt;</span>clear: left<span class="h">&lt;/strong&gt;</span> yapmış gibidir!<span class="h">&lt;/div&gt;</span></li>
+				</ol>
+				<div class="iflt">
+					<div><p><img src="files/of2-ie6.gif" alt="Hatalı Overflow IE6"/></p><p>Hatalı Overflow IE6 - A</p></div>
+					<div><p><img src="files/of2-ff.gif" alt="W3C Uyumlu Overflow"/></p><p>W3C Uyumlu Overflow - B</p></div>
+				</div>
+				<ul>
+					<li>IE6&rsquo;da, float eden div, <strong>width: tanımı olmayan bir div içinde</strong> olduğu için <strong>floating</strong> devam eder, sonra gelen div <strong>yanlış render</strong> edilir!</li>
+				</ul>
+				<div class="iflt">
+					<div><p><img src="files/of2-ie7.gif" alt="IE7 de sorunsuz!"/></p><p>IE7&rsquo;de sorunsuz!</p></div>
+				</div>
+				<p>Bazen bu durum canımızı çok sıkabilir. <strong>width:</strong> vermeden bazı şeyleri kolayca halletmek isterken, 
+				<strong>IE6</strong> yüzünden, mecburen bu durumu çözmek için, dıştaki <strong>div</strong>&rsquo;e
+				( <em>bu örnekte #middle_area</em> ) <strong>overflow:</strong> dışında ilave olarak
+				<strong>width:</strong> de vermek durumunda kalırız.</p>
+				<ol class="code">
+					<li>#middle_area</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">overflow:</span> hidden;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> #ccc;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 100%;</li>
+					<li>}</li>
+					<li>#left</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">float:</span> left;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> #ff0;</li>
+					<li>}</li>
+				</ol>
+				<div class="iflt">
+					<div><p><img src="files/of3-ie6.gif" alt="IE6 fixlenmiş hali"/></p><p>IE6 fixlenmiş hali</p></div>
+				</div>
+				<h4>clear: left | right | both</h4>
+				<p>Floating&rsquo;i bitirmek için kullanılır. <strong>both</strong> hem <strong>left</strong> hem de <strong>right</strong> floatları bitirir.</p>
+				<ol class="code">
+					<li>#middle_area</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">overflow:</span> hidden;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 100%;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> #ccc;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">padding:</span> 10px;</li>
+					<li>}</li>
+					<li>#left</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">float:</span> left;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> #cc0;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">margin-right:</span> 20px;</li>
+					<li>}</li>
+					<li>#right</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background:</span> #ff0;</li>
+					<li>}</li>
+				</ol>
+				HTML
+				<ol class="code">
+					<li><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">middle_area</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">left</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="h">&lt;p&gt;</span>Bu Sol kutu!<span class="h">&lt;/p&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;/div&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">right</span>"<span class="h">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="h">&lt;p&gt;</span>Bu Sağ kutu!<span class="h">&lt;/p&gt;</span></li>
+					<li><span class="tab">&nbsp;</span>&lt;/div&gt;</li>
+					<li><span class="h">&lt;/div&gt;</span></li>
+				</ol>
+				<div class="iflt">
+					<div><p><img src="files/buggy-float.gif" alt="Garip Floating!"/></p><p>Garip Floating!</p></div>
+					<div>
+						<h4>Analiz</h4>
+						<ul>
+							<li><strong>#left</strong> sola float ediyor.</li>
+							<li><strong>#left</strong> sağında 20px marjin var.</li>
+							<li>Beklentimiz sağ&rsquo;daki gibi</li>
+							<li><strong>#right</strong> için herhangi bir float durumu verilmemiş!</li>
+							<li><strong>#right</strong> için default durum sözkonusu<br/>yani : <strong>display: block;</strong></li>
+							<li>IN-LINE&rsquo;a dönen BLOCK-LEVEL ( <em>#left</em> )<br/>sağına marjin veremiyor.<br/>Browser aptallaşıyor!</li>
+							<li>Aslında <strong>#right</strong>, kendini 100% olarak<br/><strong>#middle_area</strong> içine yerleştiriyor.</li>
+							<li><strong>#left</strong>&rsquo;de float etmeye çalışıyor kendini <strong>sola</strong> yerleştiriyor.</li>
+							<li><strong>#left</strong>&rsquo;de <strong>#right</strong>&rsquo;da aynı katmanda kalıyorlar.</li>
+							<li><strong>#left</strong>, <strong>#right</strong>&rsquo;ı iterek kendini sola yapıştırıyor.</li>
+							<li><strong>margin-right: 20px;</strong>&rsquo;de saçma bir şekilde render ediliyor.</li>
+						</ul>
+					</div>
+					<div><p><img src="files/buggy-float-c.gif" alt="Hayal ettiğimiz görüntü"/></p><p>Hayal ettiğimiz görüntü</p></div>
+				</div>
+				Çözüm :
+				<ol class="code">
+					<li>#middle_area</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">overflow:</span> hidden;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 100%;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> #ccc;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">padding:</span> 10px;</li>
+					<li>}</li>
+					<li>#left</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">float:</span> left;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> #cc0;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">margin-right:</span> 20px;</li>
+					<li>}</li>
+					<li>#right</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">background:</span> #ff0;</li>
+					<li class="hl"><span class="tab">&nbsp;</span><span class="cc">float:</span> left; <span class="cco">/* Fix */</span></li>
+					<li>}</li>
+				</ol>
+				<div class="iflt">
+					<div><p><img src="files/buggy-float-fix.gif" alt="Olması Gereken Durum"/></p><p>Olması Gereken Durum</p></div>
+					<div style="width: 320px;">
+						<h5>Konteyner içinde, <strong>floating</strong> var ise, peşi sıra gelicek elementlerde de ya <strong>floating:</strong> durumu olacak, yada floating kesilecek. ( <em>clear:</em> )</h5>
+						<h5>Eğer 15.satır yerine;</h5>
+						<h5><strong>clear:</strong> left; <em>yada</em> <strong>clear: both;</strong> yazsaydık???</h5>
+					</div>
+					<div>
+						<p><img src="files/buggy-float-fixc.gif" alt="clear: left;"/></p><p>clear: left;</p>
+						<ul>
+							<li>Floating bitecek</li>
+							<li><strong>#right</strong>&rsquo;ın pozisyonu <strong>default</strong>&rsquo;a dönecek.</li>
+							<li>Öncesindeki html elementi ne ise ( &lt;div id="left"&gt; )<br/>onun altına kendini <strong>block</strong> yapacak.</li>
+						</ul>
+					</div>
+				</div>
+				<p><strong>clear:</strong> ile, öncesinde bulunan floating durumunu temizleriz!</p>
+			</div>
+			
+			<div class="row">
+				<h3>display:</h3>
+				<p>Bu komut ile <strong>BLOCK-LEVEL</strong> elementi <strong>IN-LINE</strong> haline getirebiliriz.</p>
+				<p>Elementleri <strong>show</strong> / <strong>hide</strong> ( <em>göster / gizle</em> ) yapabiliriz.</p>
+				<p><strong>div</strong>&rsquo;leri <strong>table</strong> gibi kullanabiliriz.</p>
+				<p>Herhangi bir elementi <strong>li</strong> ( <em>list-item</em> ) gibi kullanabiliriz.</p>
+				<p>Parametreleri</p>
+				<ul>
+					<li>inline</li>
+					<li>block</li>
+					<li>list-item</li>
+					<li>run-in</li>
+					<li>inline-block</li>
+					<li>table</li>
+					<li>inline-table</li>
+					<li>table-row-group</li>
+					<li>table-header-group</li>
+					<li>table-footer-group</li>
+					<li>table-row</li>
+					<li>table-column-group</li>
+					<li>table-column</li>
+					<li>table-cell</li>
+					<li>table-caption</li>
+					<li>none</li>
+				</ul>
+
+				<p>
+					<strong>display:</strong> ve <strong>position:</strong> detayları bölüm 008&rsquo;de...
+				</p>
+
+			</div>
+
+			<div id="nav">
+				Tercihler : <span><a href="../index.html">İndeks</a> </span><span><a href="../006/index.html">&lt; Önceki</a> </span><a href="../008/index.html">Sonraki &gt;</a>
+			</div>
+			<div id="footer">
+				<span>&copy; 2007</span><span>Uğur &ldquo;vigo&rdquo; Özyılmazel</span><span>vigo@bilgi.edu.tr</span>http://ugur.ozyilmazel.com
+			</div>
+		</div>
+	</body>
+</html>

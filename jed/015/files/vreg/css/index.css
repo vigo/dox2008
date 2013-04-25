@@ -1,0 +1,148 @@
+body
+{
+	background-color: #ccc;
+	color: #000;
+	margin: 0px;
+	padding: 0px;
+	font: normal normal normal 12px/16px 'Verdana' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+}
+
+input , select , textarea , button { font: normal normal normal 12px 'Verdana' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif; }
+
+input.text:hover , textarea.text:hover { background-color: #ffd; }
+
+input.text:focus , textarea.text:focus { background-color: #ffa; }
+
+form , p
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+div
+{
+	overflow: hidden;
+}
+
+a:link , a:active , a:visited
+{
+	background: transparent;
+	color: #777;
+	text-decoration: underline;
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+h1
+{
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px;
+	line-height: 1.3em;
+	font-size: 30px;
+	background: transparent;
+	color: #555;
+}
+
+#canvas
+{
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+#header
+{
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 10px;
+	background-color: #aaa;
+	border-bottom: 2px solid #999;
+	color: #777;
+}
+
+#left
+{
+	display: inline;
+	width: 48%;
+	float: left;
+	margin: 0px 0px 0px 20px;
+}
+
+#right
+{
+	display: inline;
+	width: 48%;
+	float: right;
+	margin: 0px 20px 0px 0px;
+}
+
+fieldset
+{
+	margin: 0px 0px 10px 0px;
+	padding: 10px 10px 0px 10px;
+}
+
+fieldset legend { font-size: 22px; }
+
+fieldset p { margin-bottom: 10px; }
+
+p span { margin-right: 10px; }
+
+input.text , textarea.text
+{
+	padding: 5px;
+	width: 560px;
+}
+
+select.text
+{
+	padding: 5px;
+	width: 400px;
+	font-family: 'Courier New';
+}
+
+input.checkbox
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+input.button
+{
+	cursor: pointer;
+	padding: 5px;
+}
+
+p#appLibraryDescriptionArea
+{
+	height: 28px;
+	overflow: auto;
+	font-size: 11px;
+	line-height: 2em;
+	background-color: #ddd;
+	border: 1px dotted #bbb;
+	padding: 10px;
+}
+
+p#appLibraryDescriptionArea u
+{
+	text-decoration: none;
+	border: 1px dotted #007;
+	background: transparent;
+	color: #007;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.mono
+{
+	font-family: 'Courier New';
+	font-size: 12px;
+	line-height: 1.5em;
+	height: 312px;
+}
+
