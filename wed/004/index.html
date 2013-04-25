@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Web Geliştirme Eğitimi Dersleri, 004 , 27 Aralık 2007, Perşembe</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta http-equiv="Content-Style-Type" content="text/css"/>
+			<meta name="author" content="Uğur 'vigo' Özyılmazel"/>
+			<meta name="keywords" content="html xhtml css javascript web php database mysql svn development code coding programming"/>
+			<meta name="description" content="Web uygulama / geliştirme ile ilgili eğitim. CSS Selektörler, CSS 2.1 Selektörleri, Shorthand CSS komutları, Sayı sistemleri."/>
+			<meta name="copyright" content="2007 - Uğur Özyılmazel"/>
+			<meta name="date" content="2007-12-27T09:00:00+02:00"/>
+			<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+			<meta http-equiv="Last-Modified" content="Thu, 03 Jan 2008 21:50:46 GMT"/>
+			<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+			<meta http-equiv="Pragma" content="no-cache"/>
+			<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	</head>
+	<body>
+		<div id="canvas">
+			<div id="info">
+				<h1>Web Geliştirme Eğitimi Dersleri, 004</h1>
+				<h2>27 Aralık 2007, Perşembe</h2>
+			</div>
+
+			<div class="row">
+				<h3>CSS Selektörleri</h3>
+				<h4>Nokta</h4>
+				<ul>
+					<li>class&rsquo;ları ifade için kullanılır.</li>
+				</ul>
+				<ol class="code">
+					<li>.box {  } <span class="cco">/* class’ı box olan elementler */</span></li>
+					<li><span class="h">div</span>.news {  } <span class="cco">/* class’ı news olan divler */</span></li>
+				</ol>
+				
+				<h4>Diyez</h4>
+				<ul>
+					<li>id&rsquo;leri ifade için kullanılır.</li>
+				</ul>
+				<ol class="code">
+					<li>#box {  } <span class="cco">/* id’si box olan element */</span></li>
+					<li><span class="h">div</span>#box {  } <span class="cco">/* id’si box olan div */</span></li>
+				</ol>
+
+				<h4>HTML TAG</h4>
+				<ul>
+					<li>Tag&rsquo;i modifiye etmek içindir.</li>
+				</ul>
+				<ol class="code">
+					<li><span class="h">body</span> { <span class="cc">background-color:</span> red; }</li>
+					<li><span class="h">div</span> { <span class="cc">overflow:</span> hidden; } <span class="cco">/* tüm div elementleri etkilenir. */</span></li>
+					<li><span class="h">p</span> { <span class="cc">text-decoration:</span> underline; } <span class="cco">/* tüm p elementleri etkilenir. */</span></li>
+				</ol>
+			</div>
+			
+			<div class="row">
+				<div class="goodies">
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS21/">Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</a></p>
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS21/selector.html#pattern-matching">Pattern Matching</a></p>
+					<p><a target="_blank" href="http://westciv.com/style_master/academy/browser_support/selectors.html">Learn Web Standarts</a></p>
+					<p><a target="_blank" href="http://css.maxdesign.com.au/selectutorial/selectors_adjacent.htm">Select Tutorial</a></p>
+				</div>
+				<h3>CSS 2.1 Selektörleri</h3>
+				<table border="0">
+					<tr>
+						<th>*</th>
+						<td>Universal Selector</td>
+					</tr>
+					<tr>
+						<th>div</th>
+						<td>Tag ( <em>Element</em> ) ile ifade.</td>
+					</tr>
+					<tr>
+						<th>div p</th>
+						<td>div&rsquo;in içindeki p&rsquo;ler ** aynı</td><td><a target="_blank" href="http://www.w3.org/TR/CSS21/selector.html#descendant-selectors">Descendant selectors</a></td>
+					</tr>
+					<tr>
+						<th>div > p</th>
+						<td>div&rsquo;in child&rsquo;ı olan p&rsquo;ler ** aynı</td><td><a target="_blank" href="http://www.w3.org/TR/CSS21/selector.html#child-selectors">Child Selectors</a></td>
+					</tr>
+					<tr>
+						<th>p:first-child</th>
+						<td>p&rsquo;nin içinde olduğu elemana göre, p eğer first-child ise</td><td><a target="_blank" href="http://www.w3.org/TR/CSS21/selector.html#first-child">The :first-child pseudo-class</a></td>
+					</tr>
+					<tr>
+						<th>a:link<br/>a:visited</th>
+						<td>anchor ( <em>a yada link</em> ) için geçerlidir</td>
+					</tr>
+					<tr>
+						<th>E:active<br/>E:hover<br/>E:focus</th>
+						<td>Farklı olaylar ve elementler için geçerlidir.</td>
+					</tr>
+					<tr>
+						<th>E:lang(c)</th>
+						<td>Henüz tam desteklenmiyor.</td>
+					</tr>
+					<tr>
+						<th>h1 + p</th>
+						<td>p&rsquo;den önce h1 olursa ( <em>p&rsquo;yi takip eden h1</em> )</td><td><a target="_blank" href="http://www.w3.org/TR/CSS21/selector.html#adjacent-selectors">Adjacent sibling selectors</a></td>
+					</tr>
+					<tr>
+						<th>input[maxlength]</th>
+						<td>attribute&rsquo;ları içinde, <strong>maxlength</strong> olan <strong>input</strong>&rsquo;lar.</td><td><a target="_blank" href="http://www.w3.org/TR/CSS21/selector.html#attribute-selectors">Attribute selectors</a></td>
+					</tr>
+					<tr>
+						<th>input[type="submit"]</th>
+						<td>input&rsquo;lar içinde, attribute&rsquo;u <strong>type</strong> olan ve type&rsquo;ın value&rsquo;su <strong>submit</strong> olanlar.</td><td><a target="_blank" href="http://www.w3.org/TR/CSS21/selector.html#attribute-selectors">Attribute selectors</a></td>
+					</tr>
+					<tr>
+						<th>input[class~="warning"]</th>
+						<td>class attribute&rsquo;u bulunan input&rsquo;un, eğer <strong>class</strong>="warning text hede" ise, içlerinden en azından<br/><strong>warning</strong> olanı yakalar. <strong>class</strong> tanımlarken, bir elemente birden fazla class verebiliriz.<br/><strong>class</strong>="c1 c2 c3" gibi.</td>
+					</tr>
+					<tr>
+						<th>E[lang|="en"]</th>
+						<td>Henüz tam desteklenmiyor.</td>
+					</tr>
+					<tr>
+						<th>div.warning</th>
+						<td>class&rsquo;ı <strong>warning</strong> olan <strong>div</strong>&rsquo;ler</td>
+					</tr>
+					<tr>
+						<th>div#myid</th>
+						<td>id&rsquo;si <strong>myid</strong> olan <strong>div</strong>.</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="row">
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS21/colors.html#propdef-background">background: definition</a></p>
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS21/fonts.html#propdef-font">font: definition</a></p>
+				</div>
+				<h3>Shorthand&rsquo;lere Devam</h3>
+				<h4>font:</h4>
+				<ul>
+					<li>font-style:</li>
+					<li>font-variant:</li>
+					<li>font-weight:</li>
+					<li>font-size:</li>
+					<li>line-height:</li>
+					<li>font-family:</li>
+				</ul>
+
+				<h4>margin:</h4>
+				<p>Saat yönünde çalışır : YUKARI ( <em>margin-top:</em> ) , SAĞA ( <em>margin-right:</em> ) , AŞŞAĞI ( <em>margin-bottom:</em> ) , SOLA ( <em>margin-left:</em> )</p>
+				<p>1 ile 4 arasında parametre alır.</p>
+				<ol class="code">
+					<li>.box</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">margin:</span> 0px auto;</li>
+					<li><span class="tab">&nbsp;</span><span class="cco">/* top = 0px , right = auto , bottom = 0px , left = auto */</span></li>
+					<li><span class="tab">&nbsp;</span><span class="cco">/* sol ve sağ ( left - right ) auto demek; elementi <strong>center</strong> etmektir. */</span></li>
+					<li>}</li>
+				</ol>
+
+				<h4>padding:</h4>
+				<p>Saat yönünde çalışır : YUKARI ( <em>padding-top:</em> ) , SAĞA ( <em>padding-right:</em> ) , AŞŞAĞI ( <em>padding-bottom:</em> ) , SOLA ( <em>padding-left:</em> )</p>
+				<p>Aynen <strong>margin:</strong> gibi çalışır.</p>
+			</div>
+			
+			<div class="row">
+				<h3>Sayı Sistemleri</h3>
+
+				<h4>10&rsquo;lu Sistem</h4>
+				<p>0-9 sayılardan oluşan günlük hayatta kullandığımız sistem.</p>
+
+				<h4>2&rsquo;li Sistem ( Binary )</h4>
+				<p>Bilgisayar&rsquo;ın çalıştığı en temel sistemdir. 1 ve 0&rsquo;lardan oluşur.</p>
+<pre>
+Binary : <strong>100</strong>
+         |||_ <strong>0</strong> * ( 2^0 ) =  0
+         ||__ <strong>0</strong> * ( 2^1 ) =  0
+         |___ <strong>1</strong> * ( 2^2 ) =  4
+                           +---
+                             4 ( Bildiğimiz 10&rsquo;lu sistemdeki karşılığı )
+</pre>
+
+				<h4>16&rsquo;lı Sistem ( Hexdecimal )</h4>
+				<p>Bilgisayar dünyası için önemli bir sistemdir. Sayılar 0 - F arasından oluşur.</p>
+<pre>
+0 = 0
+1 = 1
+2 = 2
+3 = 3
+4 = 4
+5 = 5
+6 = 6
+7 = 7
+8 = 8
+9 = 9
+A = 10
+B = 11
+C = 12
+D = 13
+E = 14
+F = 15
+
+Önce gerekli değeri buluruz. FF ise sayımız, Her <strong>F</strong> aslında <strong>15</strong>&rsquo;dir bizim için.
+
+Hex : <strong>FF</strong>
+      ||_ <strong>15</strong> * ( 16^0 ) =   15
+      |__ <strong>15</strong> * ( 16^1 ) =  240
+                          +--- 
+                           255 ( Bildiğimiz 10&rsquo;lu sistemdeki karşılığı )
+</pre>
+
+			</div>
+
+			<div id="nav">
+				Tercihler : <span><a href="../index.html">İndeks</a> </span><span><a href="../003/index.html">&lt; Önceki</a> </span><a href="../005/index.html">Sonraki &gt;</a>
+			</div>
+			<div id="footer">
+				<span>&copy; 2007</span><span>Uğur &ldquo;vigo&rdquo; Özyılmazel</span><span>vigo@bilgi.edu.tr</span>http://ugur.ozyilmazel.com
+			</div>
+		</div>
+	</body>
+</html>

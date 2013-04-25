@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Web Geliştirme Eğitimi Dersleri, 008 , 4 Ocak 2008, Cuma</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta http-equiv="Content-Style-Type" content="text/css"/>
+			<meta name="author" content="Uğur 'vigo' Özyılmazel"/>
+			<meta name="keywords" content="html xhtml css javascript web php database mysql svn development code coding programming"/>
+			<meta name="description" content="Web uygulama / geliştirme ile ilgili eğitim. display: , position: , negatif marjinler"/>
+			<meta name="copyright" content="2007 - Uğur Özyılmazel"/>
+			<meta name="date" content="2008-01-04T09:00:00+02:00"/>
+			<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+			<meta http-equiv="Last-Modified" content="Thu, 03 Jan 2008 21:50:46 GMT"/>
+			<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+			<meta http-equiv="Pragma" content="no-cache"/>
+			<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	</head>
+	<body>
+		<div id="canvas">
+			<div id="info">
+				<h1>Web Geliştirme Eğitimi Dersleri, 008</h1>
+				<h2>4 Ocak 2008, Cuma</h2>
+			</div>
+			
+			<div class="row">
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS21/visuren.html#propdef-position">position:</a></p>
+				</div>
+				<h3>Positioning</h3>
+				<div class="iflt" style="margin-top: 50px;">
+					<div><p><img src="../006/files/uzay-browser.gif" alt="Koordinat Sistemi"/></p><p>Koordinat Sistemi</p></div>
+					<div>
+						<ul>
+							<li><a target="_blank" href="../006/index.html">006</a>&rsquo;ncı derste <strong>Koordinat Sistemi</strong>&rsquo;ne giriş yapmıştık.</li>
+							<li>Browser ekranında sabit bir koordinat&rsquo;da ekrana birşey bastırmak için kullanılır.</li>
+							<li>CSS&rsquo;de <strong>position:</strong> ile ifade edilir.</li>
+							<li>Her element default durumda <strong>position: static;</strong> olarak durur.</li>
+							<li>
+								position: değerine göre;<ol><li>top:</li><li>right:</li><li>bottom:</li><li>left:</li></ol>
+								komutları devreye girer. Eğer <strong>position:</strong> belirtilmemişse bu değerler çalışmaz!
+							</li>
+						</ul>
+						<ol class="code">
+							<li>#box</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 100px;</li>
+							<li>}</li>
+						</ol>
+						<ul>
+							<li>id&rsquo;si <strong>box</strong> olan element hiç bir şekilde ( 100 , 100 ) koordinatında görünmeyecek!</li>
+							<li><strong>position:</strong> tanımlanmadığı için default olarak static durumunda!</li>
+						</ul>
+						<ol class="code">
+							<li>#box</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> absolute; <span class="cco">/* doğrusu */</span></li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 100px;</li>
+							<li>}</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<h3>position: static | relative | absolute | fixed</h3>
+				<h4>position: static;</h4>
+				<ul>
+					<li>Default durumdur. <strong>top:</strong> , <strong>right:</strong> , <strong>bottom:</strong> , <strong>left:</strong> işlemez!</li>
+				</ul>
+
+				<h4>position: absolute;</h4>
+				<ul>
+					<li>Adından da anlaşılacağı gibi <strong>mutlak / kesin</strong> bir değer sözkonusudur.</li>
+					<li>Layer-Mode aktif hale geçer, aynen bir grafik çizme programındaki gibi, sol üst köşe <strong>0,0</strong> kabul edilip ekranda nesleler plot edilir.</li>
+				</ul>
+				<div class="iflt">
+					<div>
+						<p><img src="files/po001.gif" alt="position: absolute;"/></p>
+						<p>position: absolute; ( <strong>A</strong> )</p>
+					</div>
+					<div>
+						CSS
+						<ol class="code">
+							<li>#box</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">absolute</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> <span class="crv">red</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">color:</span> <span class="crv">white</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">height:</span> 200px;</li>
+							<li>}</li>
+						</ol>
+
+						HTML
+						<ol class="code">
+							<li><span class="h">&lt;body&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">box</span>"<span class="h">&gt;</span>test box<span class="h">&lt;/div&gt;</span></li>
+							<li><span class="h">&lt;/body&gt;</span></li>
+						</ol>
+					</div>
+				</div>
+				<div class="iflt">
+					<div>
+						<p><img src="files/po002.gif" alt="position: absolute; ve default layer-order durumu"/></p>
+						<p>position: absolute; ve default layer-order durumu ( <strong>B</strong> )</p>
+					</div>
+					<div>
+						CSS
+						<ol class="code">
+							<li>#box</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">absolute</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> <span class="crv">red</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">color:</span> <span class="crv">white</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">height:</span> 200px;</li>
+							<li>}</li>
+							<li>#box2</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">absolute</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 50px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 50px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">height:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> <span class="crv">gray</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">color:</span> <span class="crv">white</span>;</li>
+							<li>}</li>
+						</ol>
+					</div>
+					<div>
+						HTML
+						<ol class="code">
+							<li><span class="h">&lt;body&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">box</span>"<span class="h">&gt;</span>test box<span class="h">&lt;/div&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">box2</span>"<span class="h">&gt;</span>test box2<span class="h">&lt;/div&gt;</span></li>
+							<li><span class="h">&lt;/body&gt;</span></li>
+						</ol>
+						<strong>ANALİZ</strong>
+						<ul>
+							<li>Herhangi bir <strong>Layer-Order</strong> durumu belirtmememize rağmen<br/>Broser <strong>lineer</strong> olarak sıralama yaptı!</li>
+							<li>Html&rsquo;deki sıraya uydu, önce <strong>box1</strong>&rsquo;i sonra <strong>box2</strong>&rsquo;yi ekrana bastı.</li>
+							<li><strong>box2</strong>, box1&rsquo;den sonra ekrana basıldığı için direk<br/><strong>box1</strong>&rsquo;in üzerinde yer aldı!</li>
+						</ul>
+					</div>
+				</div>
+				<h4>z-index:</h4>
+				<div class="iflt">
+					<div>
+						<p><img src="files/zi.gif" alt="z-index: açıklaması"/></p>
+						<p><strong>z-index:</strong> açıklaması</p>
+						<p><img src="files/zif.gif" alt="z-index: layer-order"/></p>
+						<p><strong>z-index:</strong> layer-order</p>
+					</div>
+					<div>
+						<ul>
+							<li>Eğer resim ( <strong>B</strong> )&rsquo;deki durumu değiştirmek isteseydik, elementlere <strong>z-index:</strong> bilgisi vermemiz gerekecekti!</li>
+							<li>Normal-Flow&rsquo;da, browser, <strong>position:</strong> durumunu ayarlamak için, kafasına göre <strong>z-index</strong> verdi.</li>
+							<li>Bu durumda, <strong>#box</strong>&rsquo;in z-index&rsquo;i, teorik olarak <strong>#box2&rsquo;den küçük</strong> bir sayı aldı.</li>
+							<li>Kural şudur : <strong>bize en yakın elementin z-index&rsquo;i > arkadaki elementler&rsquo;in z-index&rsquo;i</strong>.</li>
+						</ul>
+						Kırmızı Kutu&rsquo;yu üste çıkarmak için iki metod uygulanır;
+						<ul>
+							<li>Ya her elemente bir <strong>z-index:</strong> tanımlayacağız,</li>
+							<li>Yada, html&rsquo;deki sırayı değiştireceğiz</li>
+						</ul>
+						<strong>#1. Yol : ( <em>CSS&rsquo;le ayar yap!</em> )</strong>
+						<ol class="code">
+							<li>#box</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">absolute</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> <span class="crv">red</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">color:</span> <span class="crv">white</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">height:</span> 200px;</li>
+							<li class="hl"><span class="tab">&nbsp;</span><span class="cc">z-index:</span> 2;</li>
+							<li>}</li>
+							<li>#box2</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">absolute</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 50px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 50px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">height:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> <span class="crv">gray</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">color:</span> <span class="crv">white</span>;</li>
+							<li class="hl"><span class="tab">&nbsp;</span><span class="cc">z-index:</span> 1;</li>
+							<li>}</li>
+						</ol>
+						<strong>#2. Yol : ( <em>html&rsquo;deki sırayı değiştir!</em> )</strong>
+						<ol class="code">
+							<li><span class="h">&lt;body&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">box2</span>"<span class="h">&gt;</span>test box2<span class="h">&lt;/div&gt;</span></li>
+							<li><span class="tab">&nbsp;</span><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">box</span>"<span class="h">&gt;</span>test box<span class="h">&lt;/div&gt;</span></li>
+							<li><span class="h">&lt;/body&gt;</span></li>
+						</ol>
+					</div>
+				</div>
+
+				<div class="iflt">
+					<div>
+						<p><img src="files/zipo.gif" alt="Uçan div"/></p>
+						<p>Havada uçan div&rsquo;ler</p>
+						<ul>
+							<li>Dikkat edilirse, <strong>#cover</strong>&rsquo;ın dışına taşar <strong>#box</strong> ve <strong>#box2</strong></li>
+							<li>#cover, normal-flow durumunda, #box ve #box2 <strong>absolute</strong> pozisyonda!</li>
+							<li><strong>position:</strong> yüzünden html hiyeraşisi bozuldu!</li>
+						</ul>
+					</div>
+					<div style="width: 35%;">
+						HTML
+						<ol class="code">
+							<li><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">cover</span>"<span class="h">&gt;</span></li>
+							<li><span class="h">&lt;p&gt;</span>Bu paragraf <span class="h">&lt;strong&gt;</span>#cover<span class="h">&lt;/strong&gt;</span>&rsquo;ın içinde.<span class="h">&lt;/p&gt;</span></li>
+							<li><span class="h">&lt;p&gt;</span><span class="h">&lt;strong&gt;</span>#cover<span class="h">&lt;/strong&gt;</span> aslında <span class="h">&lt;strong&gt;</span>#box<span class="h">&lt;/strong&gt;</span> ve <span class="h">&lt;strong&gt;</span>#box2<span class="h">&lt;/strong&gt;</span>&rsquo;yi kapsar ???&lt;/p&gt;</li>
+							<li><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">box2</span>"<span class="h">&gt;</span>test box2<span class="h">&lt;/div&gt;</span></li>
+							<li><span class="h">&lt;div</span> <span class="ha">id</span>="<span class="hv">box</span>"<span class="h">&gt;</span>test box<span class="h">&lt;/div&gt;</span></li>
+							<li><span class="h">&lt;/div&gt;</span></li>
+						</ol>
+						CSS
+						<ol class="code">
+							<li>#box</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">absolute</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">height:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> <span class="crv">red</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">color:</span> <span class="crv">white</span>;</li>
+							<li>}</li>
+							<li>#box2</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">absolute</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 50px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 50px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">height:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background-color:</span> <span class="crv">gray</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">color:</span> <span class="crv">white</span>;</li>
+							<li>}</li>
+							<li>#cover</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background:</span> #ff0;</li>
+							<li>}</li>
+							<li>#cover p</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">text-align:</span> <span class="crv">right</span>;</li>
+							<li>}</li>
+						</ol>
+					</div>
+				</div>
+
+				<h4>position: relative;</h4>
+				<div class="iflt">
+					<div>
+						<p><img src="files/rela.gif" alt="Relative Pozisyon"/></p>
+						<p>Koyu renkli kutu, açığa göre ( <em>sarı</em> ) relatif pozisyonlandırılmış.</p>
+					</div>
+					<div>
+						<ol class="code">
+							<li>#yellow</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">absolute</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">height:</span> 200px;</li>
+							<li>}</li>
+							<li>#dark</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">relative</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">left:</span> 50px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 50px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">height:</span> 100px;</li>
+							<li>}</li>
+						</ol>
+					</div>
+					<div>
+						<ul>
+							<li>Koyu kutu, sarı&rsquo;nın içinde olduğu için, pozisyonu da <strong>relative</strong> olduğu için;</li>
+							<li><strong>0,0</strong> noktası, koyu için, içinde bulunduğu kutunun <strong>sol üst</strong> köşesidir.</li>
+							<li><strong>relative</strong> olan nesne için koordinat sistemi sanki 0&rsquo;landı!</li>
+						</ul>
+					</div>
+				</div>
+
+				<h4>position: fixed;</h4>
+				<div class="iflt">
+					<div>
+						<p><img src="files/fixed.gif" alt="Fixed"/></p>
+						<p>Element, içinde bulunduğu window&rsquo;daki scroll durumundan etkilenmez, verilen yerde sabit bir şekilde durur.</p>
+					</div>
+					<div>
+						<ol class="code">
+							<li>#box</li>
+							<li>{</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 200px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">height:</span> 100px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">background:</span> #ff0;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">position:</span> <span class="crv">fixed</span>;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">right:</span> 0px;</li>
+							<li><span class="tab">&nbsp;</span><span class="cc">top:</span> 0px;</li>
+							<li>}</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			
+			<div id="nav">
+				Tercihler : <span><a href="../index.html">İndeks</a> </span><span><a href="../007/index.html">&lt; Önceki</a> </span><a href="../009/index.html">Sonraki &gt;</a>
+			</div>
+
+			<div id="footer">
+				<span>&copy; 2007</span><span>Uğur &ldquo;vigo&rdquo; Özyılmazel</span><span>vigo@bilgi.edu.tr</span>http://ugur.ozyilmazel.com
+			</div>
+		</div>
+	</body>
+</html>

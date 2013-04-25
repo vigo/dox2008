@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #012</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #012</h1>
+			<h2>3 Nisan 2008, Perşembe</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../011/index.html">&lt; Önceki ( 011 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../013/index.html">Sonraki ( 013 ) &gt;</a></span>
+		</div>
+		
+		<div class="block">
+			
+			<h4>D.O.M Modifikasyonları</h4>
+			<div class="float">
+				<p>
+					Sayfa içerisindeki her tür objeye erişebiliriz. Geçen derste bazı objelerin <strong>koleksiyon</strong> 
+					( <em>yani object</em> ) şeklinde durduğundan bahsetmiştik. İstersek tek bir hareketle, o sayfada bulunan tüm
+					linkleri ( <em>&lt;a&gt;</em> ), yada sayfa içindeki tüm <em>&lt;p&gt;</em> leri modifiye edebiliriz.
+				</p>
+				<p>
+					Button&rsquo;a tıklandığında <em>show_info();</em> fonksiyonu çağrılır. Sayfa içindeki tüm linkler ( <em>ankorlar</em> )
+					<em>document.links</em> objesindedir. Sırasıyla tüm linklere; <em>document.links[ 0 ]</em> , <em>document.links[ 1 ]</em> , 
+					<em>document.links[ n ]</em> şeklinde erişebiliriz.
+				</p>
+				<p>
+					12.satırda da görüldüğü gibi, <em>l</em> objesi aynen bir konteyner gibi çalışır. <em>l[ 0 ].innerHTML</em> aynen 
+					biraz sonra kullanacağımız <em>document.getElementById( 'result' ).innerHTML</em> gibidir aslında.
+				</p>
+				<p>
+					Loop içinde sırasıyle tüm linklere eriştik, <em>innerHTML</em>&rsquo;ini, <em>href</em>&rsquo;ini aldık...
+					Boş bir <strong>String</strong>&rsquo;in içini doldurduk ve loop bitiminde <strong>ID</strong>&rsquo;si &ldquo;result&rdquo; 
+					olan div&rsquo;in içine yazdık.
+				</p>
+				<p>
+					Gereken elementi yakaladıktan sonra, pek çok özelliği modifiye edebiliriz, hatta yeni özellikler bile ekliyebiliriz. 
+					<em>setAttribute</em> metodu ile bu işi yaparız. Eğer tüm bu linklere <em>target</em> eklememiz gerekseydi; 11 - 12 arasına 
+					yeni bir satır eklememiz gerekecekti :
+				</p>
+				<ol class="code">
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>l[ i ].<span class="jso">setAttribute</span>( 'target' , <em>"_blank"</em> );</li>
+				</ol>
+				<div class="syn">
+					<p><em>object</em>.<strong>setAttribute</strong>( strAttributeName , strAttributeValue )</p>
+					<dl>
+						<dt>strAttributeName</dt>
+						<dd>Özellik adı. Örneğin <em>class</em> , <em>style</em> gibi...</dd>
+					</dl>
+					<dl>
+						<dt>strAttributeValue</dt>
+						<dd>Özellik değeri. Eğer attribute olarak <strong>style</strong> verdiysek, değer olarak : <em>font-weight: bold;</em> gibi...</dd>
+					</dl>
+				</div>
+				<p>
+					D.O.M elementlerinin ne tür metodları olduğunu öğrenmek için ya <strong>Firebug</strong> ile <em>console.dir( OBJE )</em> 
+					yapacaksınız yada dökümanlara göz atıcaksınız.
+				</p>
+				<p>
+					Derste yaptığımız diğer bir örnek için <a target="_blank" href="files/ders12-ornek2.html">tıklayın</a>.
+				</p>
+			</div>
+			<div class="float">
+				<ol class="code">
+					<li><span class="jsr">&lt;div</span> <span class="jsc">id</span>="<em>canvas</em>"<span class="jsr">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;h1</span><span class="jsr">&gt;</span>Linkler<span class="jsr">&lt;/h1</span><span class="jsr">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;p</span><span class="jsr">&gt;</span><span class="jsr">&lt;a</span> <span class="jsc">href</span>="<em>http://www.google.com</em>"<span class="jsr">&gt;</span>Google<span class="jsr">&lt;/a</span><span class="jsr">&gt;</span><span class="jsr">&lt;/p</span><span class="jsr">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;p</span><span class="jsr">&gt;</span><span class="jsr">&lt;a</span> <span class="jsc">href</span>="<em>http://www.yahoo.com</em>"<span class="jsr">&gt;</span>Yahoo<span class="jsr">&lt;/a</span><span class="jsr">&gt;</span><span class="jsr">&lt;/p</span><span class="jsr">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;p</span><span class="jsr">&gt;</span><span class="jsr">&lt;a</span> <span class="jsc">href</span>="<em>http://www.microsoft.com</em>"<span class="jsr">&gt;</span>Microsoft<span class="jsr">&lt;/a</span><span class="jsr">&gt;</span><span class="jsr">&lt;/p</span><span class="jsr">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;hr</span><span class="jsr">/&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;p</span><span class="jsr">&gt;</span><span class="jsr">&lt;button</span> <span class="jsc">onclick</span>="<em>show_info();</em>"<span class="jsr">&gt;</span>Link Bilgisi<span class="jsr">&lt;/button</span><span class="jsr">&gt;</span><span class="jsr">&lt;/p</span><span class="jsr">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;hr</span><span class="jsr">/&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;div</span> <span class="jsc">id</span>="<em>result</em>"<span class="jsr">&gt;</span><span class="jsr">&lt;/div</span><span class="jsr">&gt;</span></li>
+					<li><span class="jsr">&lt;/div</span><span class="jsr">&gt;</span></li>
+				</ol>
+				<ol class="code">
+					<li><span class="jsr">function</span> show_info()</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> d = <span class="jsc">document</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> l = d.<span class="jsr">links</span>;</li>
+					<li><span class="tab">&nbsp;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> <em>strHtml</em> = '';</li>
+					<li><span class="tab">&nbsp;</span><em>strHtml</em>+= '&lt;p&gt;Bu sayfada toplam : &lt;strong&gt;'</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>+ l.<span class="jso">length</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>+ '&lt;\/strong&gt; tane link bulunuyor&lt;\/p&gt;';</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">for</span>( <span class="jsr">var</span> i = 0; i &lt; l.<span class="jso">length</span>; i++ )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">var</span> strLinkTitle = l[ i ].<span class="jso">innerHTML</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">var</span> strLinkURL = l[ i ].<span class="jso">href</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><em>strHtml</em>+= '&lt;p&gt;Sayfa : '</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>+ strLinkTitle + ' , Link : '</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>+ strLinkURL + '&lt;\/p&gt;';</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">document</span>.<span class="jsr">getElementById</span>( 'result' ).<span class="jso">innerHTML</span> = <em>strHtml</em>;</li>
+					<li>}</li>
+				</ol>
+				<p>Örnek kod için <a target="_blank" href="files/ders12-ornek1.html">tıklayın</a>.</p>
+			</div>
+
+		</div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #009</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #009</h1>
+			<h2>31 Mart 2008, Pazartesi</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../008/index.html">&lt; Önceki ( 008 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../010/index.html">Sonraki ( 010 ) &gt;</a></span>
+		</div>
+
+		<div class="block">
+			<h4>Numerik Sıralama ( Sort )</h4>
+			<div class="float">
+				<p>
+					<strong>Array.sort</strong>&rsquo;un en güzel özelliği, sort işlemini yaparken <strong>callBack</strong> fonksiyon
+					çağırabilmekti. Default olarak sıralama işlemi ASCII tablosuna göre <strong>lexicographical</strong> olarak yapılır.
+					Yani 1,11,12,2,3 gibi... <strong>callBack</strong> kullanıldığında, fonksiyon 2 parametre alır. Yani birbiriyle
+					mukayese ( <strong>compare</strong> ) edilecek iki şey... 3 adet sonuç oluşur;
+				</p>
+				<ul>
+					<li>Eğer A > B ise; <strong>1</strong></li>
+					<li>A > B ise; <strong>-1</strong></li>
+					<li>A = B ise; <strong>0</strong></li>
+				</ul>
+				<ol class="code">
+					<li><span class="jsr">function</span> sortNumericAscending( a , b )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">if</span>( a > b )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> 1;</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">if</span>( a < b )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> -1;</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">return</span> 0;</li>
+					<li>}</li>
+					<li>&nbsp;</li>
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 1 , 5 , 2 , 11 , 3 , 8 , 12 );</li>
+					<li><em>myArray</em>.<span class="jso">sort</span>( sortNumericAscending );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> );</li>
+					<li><span class="cmt">// 1,2,3,5,8,11,12</span></li>
+				</ol>
+
+
+			</div>
+			<div class="float">
+				<p>
+					Keza, numerik olarak sort ettiğimiz bu array&rsquo;de, <strong>Array.reverse</strong> kullanırsak da,
+					tersten sıralama yapmış oluruz.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">function</span> sortNumericAscending( a , b )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">if</span>( a > b )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> 1;</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">if</span>( a < b )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> -1;</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">return</span> 0;</li>
+					<li>}</li>
+					<li>&nbsp;</li>
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 1 , 5 , 2 , 11 , 3 , 8 , 12 );</li>
+					<li><em>myArray</em>.<span class="jso">sort</span>( sortNumericAscending );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> );</li>
+					<li><span class="cmt">// 1,2,3,5,8,11,12</span></li>
+					<li><em>myArray</em>.<span class="jso">reverse</span>();</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> );</li>
+					<li><span class="cmt">// 12,11,8,5,3,2,1</span></li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="block">
+			<h4>Object Detay...</h4>
+			<div class="float">
+				<p>
+					Obje&rsquo;ler ( <strong>nesneler</strong> ) içerisinde pek çok değişik tipi barından bir container ( <strong>taşıyıcı</strong> )
+					gibidir. Daha önceki örneklerimizde, herşeyin <strong>key : value</strong> zincirlerinden oluştuğunu belirtmiştik.
+					Tüm datalarımız <strong>String</strong> lerden oluşmuştu. ( <strong>key&rsquo;ler ve value&rsquo;ler</strong> )
+					Şimdi ise, <strong>mixed</strong> dediğimiz, içinde Array, String, Object bulunan bir <strong>OBJE</strong> yapalım!
+				</p>
+				<p><a target="_blank" href="ornek/ders_009_object_demo.html">Source Download</a></p>
+				<p>
+					Gördüğünüz gibi, objemizin <strong>key</strong>&rsquo;leri, <strong>String</strong> değil. Bu bakımdan,
+					<em>objUsers[ 'aryUsers' ]</em> yerine, <em><strong>objUsers.aryUsers</strong></em> şeklinde bir kullanım var.
+				</p>
+				<p>
+					<em>this</em> şeklinde bir tanım var. Bu, bağlı olduğu obje&rsquo;yi temsil ediyor. <em>this.aryUsers</em> diyerek,
+					<em>objUsers</em> objesinden, <strong>key&rsquo;i</strong> <em>aryUsers</em> olanı çağırdık! <em>aryUsers</em>&rsquo;ın
+					value&rsquo;su ise bir <strong>Array</strong>.
+				</p>
+				<p>
+					Eğer <em>objUsers[ 'aryUsers' ]</em> desek ne olurdu?
+				</p>
+				<ol class="code">
+					<li><span class="jsc">document</span>.<span class="jso">write</span>( '&lt;p&gt;' + <em>objUsers</em>[ 'aryUsers' ] + '&lt;\/p&gt;' );</li>
+				</ol>
+				<p>
+					Ekranda;
+				</p>
+				<ol class="code">
+					<li>[object Object] , [object Object] , [object Object] , [object Object]</li>
+				</ol>
+				<p>
+					yazacaktı. Çünki init ederken demo için 4 adet <strong>user</strong> tanımlıydı :) Kullanıcıları, <em>aryUsers</em>
+					objesine ( <em>keza bunun karşışığı bir Array</em> ) <strong>Array.push</strong> ile ekledik. Kullanıcıyı silerken,
+					array içindeki <strong>index</strong>&rsquo;i kullandık. Buffer yaptık, silmemiz gereken <strong>index</strong>
+					dışındaki user&rsquo;ları bu Buffer Array&rsquo;e push ettik. İşimiz bitince, bu Buffer Array, artık bizim esas
+					kullandığımız Array haline geldi. <em>this.aryUsers = aryBuffer</em>
+				</p>
+
+			</div>
+			<div class="float">
+				<p>
+					Sort işlemi sırasında, dikkat ettiyseniz, sort&rsquo;a parametre geçtik. Eğer parametre gelmiş ise sıralamayı
+					<strong>DESCENDING</strong> ( <em>yani Z&rsquo;den A&rsquo;ya</em> ), değil ise <strong>ASCENDING</strong>
+					( <em>yani A&rsquo;dan Z&rsquo;ye</em> ) yaptık. Callback fonksiyonuna baktığımızda;
+				</p>
+				<ol class="code">
+					<li><span class="jsr">return</span> a.<strong>user_name</strong>.<span class="jso">localeCompare</span>( b.<strong>user_name</strong> );</li>
+				</ol>
+				<p>
+					Şeklinde bir ifade var. Çünki sort etmeye çalıştığımız Array içinde <strong>OBJE</strong> var, ve bu <strong>OBJE</strong>&rsquo;nin
+					key&rsquo;leri ile uğraşıyoruz. Yani <em>a</em> ve <em>b</em> dediğimiz şeyler, aslında <em><strong>a.user_name</strong></em> ve
+					<em><strong>b.user_name</strong></em>. Demekki bu sort işini, kullanıcı şifresine göre yapsaydık; <strong>a.user_password</strong> ve <strong>b.user_password</strong>
+					kullanacaktık.
+				</p>
+				<h4>Bonus</h4>
+				<p>
+					Bonus olarak, sizlere 2 güzel döküman;
+				</p>
+				<ul>
+					<li><a href="bonus/javascript_cheat_sheet.pdf">Javascript Cheat-Sheet</a></li>
+					<li><a href="bonus/css_cheat_sheet.pdf">CSS Cheat-Sheet</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

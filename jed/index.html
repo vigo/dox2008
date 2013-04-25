@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="print.css" media="print"/>
+	<script type="text/javascript">
+	//<![CDATA[
+	
+		var myCourses = Array(
+			 { 'd' : "20 Şubat 2008, Çarşamba" , 't' : "Javascript&rsquo;e giriş, <strong>variable<\/strong> ( <em>değişken<\/em> ) tanımlama, d.o.m&rsquo;a giriş, window.alert / window.prompt, aritmetik işlemler ( <em>Toplama<\/em> ), veri tipleri ( <em>data types / typeof<\/em> )" }
+			,{ 'd' : "21 Şubat 2008, Perşembe" , 't' : "Fonksiyon&rsquo;a giriş, Flow Control ( <em>switch<\/em> ), Loop ( <em>for / while<\/em> ), fonksiyon&rsquo;a parametre geçme, değer döndürme" }
+			,{ 'd' : "22 Şubat 2008, Cuma" , 't' : "Array&rsquo;e giriş ( <em>length<\/em> | <em>arguments<\/em> ) , Mini-ödev" }
+			,{ 'd' : "20 Mart 2008, Perşembe" , 't' : "Array , Date objesi , run-time javascript out" }
+			,{ 'd' : "24 Mart 2008, Pazartesi" , 't' : "Object ve JSON&rsquo;a giriş" }
+			,{ 'd' : "25 Mart 2008, Salı" , 't' : "Object ve JSON&rsquo;a devam" }
+			,{ 'd' : "27 Mart 2008, Perşembe" , 't' : "String&rsquo;lere giriş, prototype&rsquo;a giriş. Public / Private değişlenler, toCapitalise metodumuz!" }
+			,{ 'd' : "28 Mart 2008, Cuma" , 't' : "Array metodları" }
+			,{ 'd' : "31 Mart 2008, Pazartesi" , 't' : "Numerik sort işlemi, Object detaylar..." }
+			,{ 'd' : "1 Nisan 2008, Salı" , 't' : "Obje / Alış-Veriş sepeti" }
+			,{ 'd' : "2 Nisan 2008, Çarşamba" , 't' : "try/catch, Browser Obje&rsquo;lerine giriş..." }
+			,{ 'd' : "3 Nisan 2008, Perşembe" , 't' : "D.O.M Modifikaysonlarına devam..." }
+			,{ 'd' : "9 Nisan 2008, Çarşamba" , 't' : "Object ve Dom ( Tabbed Menü ve Sayfa )" }
+			,{ 'd' : "10 Nisan 2008, Perşembe" , 't' : "Recursive fonksiyon" }
+			,{ 'd' : "21 Nisan 2008, Pazartesi" , 't' : "Regular Expression" }
+			//,{ 'd' : "xxxx" , 't' : "xxxxxx" }
+		);
+		
+		function setDigits( numNumber , numDigitCount )
+		{
+			var strNumber = numNumber.toString();
+			if( strNumber.length >= numDigitCount )
+			{
+				return strNumber*1;
+			}
+			var strExtraDigits = '';
+			for( var i = strNumber.length; i < numDigitCount; i++ )
+			{
+				strExtraDigits+= '0';
+			}
+			return strExtraDigits + strNumber;
+		}
+
+		function getPart( numStart , numEnd )
+		{
+			var strOut= '<ul>';
+			for( var i = numStart; i <numEnd ; i++ )
+			{
+				var nNum = setDigits( ( i + 1) , 3 );
+				strOut+= ''
+					+ '<li>'
+						+ '<h1><span>' + nNum + '<\/span><span>' + myCourses[ i ][ 'd' ] + '<\/span><a href="' + nNum + '/index.html">Detaylar<\/a><\/h1>'
+						+ '<p>' + myCourses[ i ][ 't' ] + '<\/p>'
+					+ '<\/li>';
+			}
+			strOut+= '<\/ul>';
+			return strOut;
+		}
+
+
+		window.onload = function ()
+		{
+			var numHalf = Math.round( myCourses.length / 2 );
+			var strLeftPart = getPart( 0 , numHalf );
+			var strRightPart = getPart( numHalf , myCourses.length );
+			
+			document.getElementById( 'courses' ).innerHTML = '<h1>Dersler<\/h1>' + strLeftPart + strRightPart;
+		}
+
+	//]]>
+	</script>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri</h1>
+			<h2>Uğur Özyılmazel - vigo@bilgi.edu.tr</h2>
+		</div>
+		<div id="courses">
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #005</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #005</h1>
+			<h2>24 Mart 2008, Pazartesi</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../004/index.html">&lt; Önceki ( 004 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../006/index.html">Sonraki ( 006 ) &gt;</a></span>
+		</div>
+		
+		<div class="block">
+			<div class="float">
+				<h4>Object ( Nesne ) giriş...</h4>
+				<p>Metodları, özellikleri olan çok yönlü bir tipdir. D.O.M&rsquo;da pek çok şey <em>object</em> olarak bulunur.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myObject</em> = <span class="jso">new</span> <span class="jsc">Object</span>();</li>
+					<li><em>myObject</em>.<strong>UserNick</strong> = 'vigo';</li>
+					<li><span class="jso">console</span>.<span class="jsc">dir</span>( <em>myObject</em> ); <span class="cmt">// FireFox, FireBug Extension için</span></li>
+				</ol>
+				<p>yada aynı işi yapan;</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myObject</em> = <span class="jso">new</span> <span class="jsc">Object</span>();</li>
+					<li><em>myObject</em>[ '<strong>UserNick</strong>' ] = "vigo";</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myObject</em>.<strong>UserNick</strong> ); <span class="cmt">// vigo</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myObject</em>[ '<strong>UserNick</strong>' ] ); <span class="cmt">// vigo</span></li>
+				</ol>
+				<p>yada;</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myObject</em> = {</li>
+					<li><span class="tab">&nbsp;</span>'<strong>UserNick</strong>' : "vigo"</li>
+					<li>}</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myObject</em>.<strong>UserNick</strong> ); <span class="cmt">// vigo</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myObject</em>[ '<strong>UserNick</strong>' ] ); <span class="cmt">// vigo</span></li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>J.S.O.N - JSON ( JavaScript Object Notation ) giriş...</h4>
+				<p>
+					Nesne içinde herşey <strong>KEY : VALUE</strong> şeklinde durur. <strong>VALUE</strong> string / number / array / object
+					yada <strong>function</strong> olabilir... <strong>RECURSIVE</strong> bir şekilde iç içe sonsuz derinlikte olabilir.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>objUsers</em> = {</li>
+					<li><span class="tab">&nbsp;</span>'<strong>id_01</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'<strong>user_name</strong>' : "vigo"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>, '<strong>user_email</strong>' : "vigo@hede.com"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>, '<strong>user_phones</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'<strong>home</strong>' : "1234567890"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>, '<strong>work</strong>' : "2224567890"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li>}</li>
+				</ol>
+				<p>objUsers&rsquo;ın ilk <strong>key</strong>&rsquo;, <strong>id_01</strong>, id_01&rsquo;in <strong>value</strong>&rsquo;su ise bir <strong>object</strong>&rsquo;dir. <strong>id_01</strong> olan kayıt detaylarını almak için;</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>objSelectedUser</em> = objUsers[ 'id_01' ];</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>objSelectedUser</em>[ 'user_name' ] );</li>
+					<li><span class="cmt">// yada</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>objSelectedUser</em>.user_name );</li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="block">
+			<div class="float">
+				<h4>Yeni bir loop daha : for / in</h4>
+				<p>Nesnelerin içinde dolaşmak için kullanırız.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>objUserPhones</em> = {</li>
+					<li><span class="tab">&nbsp;</span>'<strong>Home</strong>' : "0216 123 45 67"</li>
+					<li><span class="tab">&nbsp;</span>, '<strong>Office</strong>' : "0212 123 45 67"</li>
+					<li>}</li>
+					<li><span class="jsr">for</span>( <span class="jsr">var</span> <strong>strPhoneType</strong> <span class="jsr">in</span> <em>objUserPhones</em> )</li>
+					<li><span class="cmt">// objUserPhones içindeki her <strong>key</strong>, yani Home ve Office benim için <strong>strPhoneType</strong> olsun!</span></li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> <em>strPhoneValue</em> = <em>objUserPhones</em>[ <strong>strPhoneType</strong> ];</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( strPhoneType + ':' + strPhoneValue );</li>
+					<li>}</li>
+				</ol>
+				<p>Eğer sadece <strong>Home</strong> telefonu gerekseydi;</p>
+				<ol class="code">
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>objUserPhones</em>[ '<strong>Home</strong>' ] ); <span class="cmt">// yada</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>objUserPhones</em>.<strong>Home</strong> );</li>
+				</ol>
+				<div class="syn">
+					<p>for( var key in Object )</p>
+					<dl>
+						<dt>key</dt>
+						<dd>Object içindeki key</dd>
+					</dl>
+					<dl>
+						<dt>value</dt>
+						<dd>Object[ key ] yada Object.key</dd>
+					</dl>
+				</div>
+				<div class="warning">
+					<p><strong>Sonsuz</strong> derinlik olabilir!</p>
+					key : value<br/>
+					key : { key : value }<br/>
+					key : { key : { key : value } }<br/>
+					key : { key : { key : { key : value } } }
+				</div>
+			</div>
+			<div class="float">
+				<h4>D.O.M örneği</h4>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myElement</em> = <span class="jsc">document</span>.<span class="jso">getElementById</span>( 'myDIV' );</li>
+					<li><span class="jso">console</span>.<span class="jsc">dir</span>( <em>myElement</em> );</li>
+				</ol>
+				<p>
+					İlk satırda, <em>document</em> objesinin <em>getElementById</em> metodunu çağırdık. ( Yani bu aslında bir fonksiyon )
+					Çağırırken de parametre olarak <em>string</em> tipinde <strong>myDIV</strong> diye bişi geçtik. <strong>myDIV</strong>,
+					sayfa içindeki HTML&rsquo;de duran id&rsquo;si myDIV olan DIV.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">&lt;div</span> <span class="jsc">id</span>="<span class="jso">myDIV</span>"<span class="jsr">&gt;&lt;/div&gt;</span></li>
+				</ol>
+				<p>Console çıkışına baktığımızda, DIV nesnesinin içinde tonlarca metod / özellik bulunduğunu görebiliriz. Bunların bir kısmını <strong>RUN-TIME</strong> değiştirebiliriz. Bir kısmıda sadece bilgi almak için <strong>READ-ONLY</strong>&rsquo;dir</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myElement</em> = <span class="jsc">document</span>.<span class="jso">getElementById</span>( 'myDIV' );</li>
+					<li><em>myElement</em>.<span class="jso">innerHTML</span> = 'Merhaba &lt;strong&gt;dünya&lt;/strong&gt;';</li>
+				</ol>
+				<p>DOM&rsquo;da bulunan objenin, <strong>innerHTML</strong> özelliğine değer atadık. Böylece, <strong>id</strong>&rsquo;si myDIV olan DIV&rsquo;in içine <strong>HTML</strong> metin yazmış olduk. Merhaba yazısı normal, dünya yazısı ise <strong>BOLD</strong> oldu.</p>
+				<p>html;</p>
+				<ol class="code">
+					<li><span class="jsr">&lt;p</span> <span class="jsc">id</span>="<span class="jso">test</span>" <span class="jsc">class</span>="<span class="jso">fix</span>"<span class="jsr">&gt;</span>Deneme paragrafı<span class="jsr">&lt;/p&gt;</span></li>
+					<li><span class="jsr">&lt;button</span> <span class="jsc">onclick</span>="<span class="jso">setClass( 'standart' );</span>"<span class="jsr">&gt;</span>Change<span class="jsr">&lt;/button&gt;</span></li>
+				</ol>
+				<p>css;</p>
+				<ol class="code">
+					<li>.fix</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">font-size:</span> 22px;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">font-weight:</span> <span class="jsc">bold</span>;</li>
+					<li>}</li>
+					<li>&nbsp;</li>
+					<li>.standart</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">font-size:</span> 11px;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">font-weight:</span> <span class="jsc">normal</span>;</li>
+					<li>}</li>
+				</ol>
+				<p>javascript;</p>
+				<ol class="code">
+					<li><span class="jsr">function</span> setClass( <strong>strCssClassName</strong> )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> <em>objPitem</em> = <span class="jsc">document</span>.<span class="jso">getElementById</span>( 'test' );</li>
+					<li><span class="tab">&nbsp;</span><span class="cmt">// id&rsquo;si <strong>test</strong> olan dom nesnesini yakala, ki bu bizim <strong>P</strong></span></li>
+					<li><span class="tab">&nbsp;</span><em>objPitem</em>.<span class="jsc">className</span> = <strong>strCssClassName</strong>;</li>
+					<li><span class="tab">&nbsp;</span><span class="cmt">/* P&rsquo;nin ( aslında dom&rsquo;un ) özelliklerinden className&rsquo;i set ederek</span></li>
+					<li><span class="tab">&nbsp;</span><span class="cmt"><strong>strCssClassName</strong> parametresinden gelen değeri ata. */</span></li>
+					<li>}</li>
+				</ol>
+				<p>D.O.M içinde pek çok şey var, bunları dökümantasyonlardan öğrenebilirsiniz.</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

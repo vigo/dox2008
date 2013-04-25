@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #015</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #015</h1>
+			<h2>21 Nisan 2008, Pazartesi</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../014/index.html">&lt; Önceki ( 014 )</a>&nbsp;</span><span>|</span>
+			<!--span><a href="../016/index.html">Sonraki ( 016 ) &gt;</a></span-->
+		</div>
+		
+		<div class="block">
+			<h4>Regular Expression</h4>
+			<div class="float">
+				<p>
+					Javascript&rsquo;in core objelerindendir. Pek çok yazılım dilinde Regular Expression bulunur. Çoğu zaman, bizde, bilerek yada
+					bilmeyerek <strong>Regular Expression</strong> kullanırız. Örneğin <em>delete *.*</em> dediğimizde, bulunduğumuz folder&rsquo;ın 
+					altındaki tüm dosyalar silinir. İlk * <strong>Wildcard</strong> yani hangi karakter olursa olsun anlamındadır. Sistem içinde <strong>. ( NOKTA )</strong> 
+					geçen de dahil, DOSYA_ADI.EXTENSION&rsquo;a bakar. Böyle adı <em>grafik_01.jpg</em> olan da <em>logolar.001.gif</em> olan da silinir.
+				</p>
+				<p>
+					RegExp objesini 2 farklı çağırma şekli vardır.
+				</p>
+				<div class="syn">
+					<p><em>objReg</em> = <strong>/Pattern/</strong><small>[ flags ]</small>;</p>
+					<dl>
+						<dt>Pattern</dt>
+						<dd>Slash ( / ) ler arasında alan kısımdır. Syntax&rsquo;a uygun şekilde yazılır.</dd>
+					</dl>
+					<dl>
+						<dt>flags</dt>
+						<dd>Opsiyonel. Alabileceği değerler g , i , m</dd>
+					</dl>
+				</div>
+				<p>yada;</p>
+				<div class="syn">
+					<p><em>objReg</em> = new <strong>RegExp</strong>( "Pattern" , <small>"flags"</small> );</p>
+					<dl>
+						<dt>Pattern</dt>
+						<dd>Slash kullanılmadan yazılır. Eğer patern içinde <em>\w</em> gibi bir direktif varsa bu <em>\\w</em> şeklinde yazılır.</dd>
+					</dl>
+					<dl>
+						<dt>flags</dt>
+						<dd>Opsiyonel. Alabileceği değerler g , i , m</dd>
+					</dl>
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> myRegPattern = "(vigo)";</li>
+					<li><span class="jsr">var</span> myReg = <span class="jsr">new</span> <span class="jsc">RegExp</span>( myRegPattern , "gim" );</li>
+					<li>&nbsp;</li>
+					<li><span class="cmt">// yada</span></li>
+					<li>&nbsp;</li>
+					<li><span class="jsr">var</span> myReg = /(vigo)/gim;</li>
+				</ol>
+
+
+				<h4>Flag&rsquo;ler nelerdir?</h4>
+				<div class="syn">
+					<dl>
+						<dt>g</dt>
+						<dd>Global ( <small>Genel</small> )</dd>
+					</dl>
+					<dl>
+						<dt>i</dt>
+						<dd>Ingnore Case ( <small>Büyük/Küçük harfe Duyarsız</small> )</dd>
+					</dl>
+					<dl>
+						<dt>m</dt>
+						<dd>Multi-Line ( <small>Eğer \n yada \r\n -line break- varsa bunlarıda hesaba kat tüm satırları işle.</small> )</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="float">
+				<h4>Global ( g )</h4>
+				<p>
+					Eğer <em>benim adım vigo. senin adın da vigo mu?</em> cümlesinde geçen <strong>vigo</strong> kelimesini arıyorsak ve <em>g</em> 
+					flag kapalıysa, sadece ilk yakalan vigo yani <em>benim adım <strong>vigo</strong></em> bize sonuç olarak döner.
+				</p>
+
+				<h4>Ignore Case ( i )</h4>
+				<p>
+					<em>benim adım Vigo. senin adın da vigo mu?</em> cümlesinde geçen <strong>vigo</strong>&rsquo;yu ararken, eğer <em>i</em> flag 
+					kapalıysa, sonuç sadece küçük harfle yazılan vigo yani <em>senin adın da <strong>vigo</strong> mu?</em> döner. Tam tersi de 
+					olabilir. Eğer biz <strong>Vigo</strong> arıyorsak bize <em>benim adım <strong>Vigo</strong>.</em>&rsquo;daki Vigo döner.
+				</p>
+
+				<h4>Multi-Line ( m )</h4>
+				<p>
+					Elimizde şu metin olsun :
+				</p>
+				<p>
+					<em>kullanıcı adı: vigo	şifre: 1234<br/>
+					kullanıcı adı: lego	şifre: xxx123</em>
+				</p>
+				<p>
+					Amacımız <strong>kullanıcı adı</strong>&rsquo;nı yakalamak. Biliyoruz ki <strong>kullanıcı</strong> kelimesi hep satırın ilk 
+					kelimesi. bunun için paterni yazarken <em>^kulllanıcı</em> şeklinde yazıyoruz. Eğer <em>m</em> flag kapalıysa, ikinci satırda
+					bulunan <strong>kullanıcı</strong>&rsquo;yı yakalayamayız.
+				</p>
+
+				<h4>Syntax</h4>
+				<div class="syn">
+					<dl>
+						<dt>\</dt>
+						<dd>Escape etmek için. / aramak için \/ yazmak gerekir.</dd>
+					</dl>
+					<dl>
+						<dt>^</dt>
+						<dd>Satır başı için. ( m flag&rsquo;le ilişkilidir. )</dd>
+					</dl>
+					<dl>
+						<dt>$</dt>
+						<dd>Satır sonu için. ( m flag&rsquo;le ilişkilidir. )</dd>
+					</dl>
+					<dl>
+						<dt>*</dt>
+						<dd>0 yada N defa demektir. <em>v*</em> : <strong>v</strong> , <strong>v</strong>igo yu yakalar.</dd>
+					</dl>
+					<dl>
+						<dt>+</dt>
+						<dd>1 yada N defa demektir. <em>v+</em> : sadece <strong>v</strong>igo yu yakalar. <strong>v</strong>&rsquo;yi YAKALAMAZ!</dd>
+					</dl>
+					<dl>
+						<dt>?</dt>
+						<dd>Parantez kullanımında 0 yada N defa demektir. <em>silah(tar)?</em> : hem <strong>silah</strong> eğer varsa <strong>silahtar</strong></dd>
+					</dl>
+					<dl>
+						<dt>{N}</dt>
+						<dd>N tane demektir. <em>o{2}</em> f<strong>oo</strong>d ve d<strong>oo</strong>r yakalarken p<strong>o</strong>d YAKALAMAZ!</dd>
+					</dl>
+				</div>
+				<p>
+					Daha detaylı örnek ve test için <a target="_blank" href="files/vreg/index_tr.html">tıklayın</a>.
+				</p>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

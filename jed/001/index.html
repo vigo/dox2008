@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #001</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #001</h1>
+			<h2>20 Şubat 2008, Çarşamba</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a></span>
+			<span>|</span>
+			<span><a href="../002/index.html">Sonraki ( 002 ) &gt;</a></span>
+		</div>
+
+		<h3>Javascript&rsquo;e Giriş</h3>
+		<div class="block">
+			<div class="float">
+				<p>Javascrit&rsquo;in temel özellikleri :</p>
+				<ul>
+					<li><strong>C</strong>&rsquo;den türemiş bir script dilidir.</li>
+					<li><strong>PHP</strong>&rsquo;ye çok benzer.</li>
+					<li><strong>Flash Action Script</strong>&rsquo;le neredeyse tıpa tıp aynıdır.</li>
+					<li>100% olmasa da <strong>Object Oriented Programming</strong>&rsquo;e ( <em>OOP | Nesne Yönelimli Programlama</em> ) yatkındır.</li>
+					<li><strong>JAVA</strong> ile hiç bir alakası yoktur!</li>
+					<li><strong>CSS</strong> gibi include edilebilir. ( <em>Local | Remote</em> )</li>
+					<li>Aynen <strong>CSS</strong>&rsquo;de olduğu gibi <strong>IN-LINE</strong> yada <strong>EMBEDDED</strong> olarak kullanılabilir.</li>
+					<li>Web sayfaları için kullanıldığı gibi, başka alanlarda da kullanılabilir. ( <em>Firefox Chorome API</em> )</li>
+					<li>Büyük / Küçük Harf&rsquo;e duyarlıdır. ( <em>Case-Sensitive</em> ). Değişken tanımlarken; <strong>userName</strong> ile <strong>UserName</strong> FARKLI değişlenlerdir.</li>
+					<li>Önceden tanımlı kelimeleri vardır. ( <em>Reserved Keywords</em> ). Tanımlayacağınız değişkenler bu kelimelerden olamaz.</li>
+				</ul>
+				<p>Web için kullanıldığında <strong>Client-Side</strong> yani istemci-tarafı&rsquo;nda çalışan, html ile birlikte istemcinin makinesine inen ( <em>browser javascript dosyalarını download eder ve yorumlar</em> ) ve render edilmiş html&rsquo;i kontrol etmeye yarıyan bir sistemdir.</p>
+				<p>Tavsiye edilen kullanım, html&rsquo;de <em>&lt;head&gt;</em>&rsquo;in içerisinde, <strong>CSS</strong> gibi include edilmesi, sayfa yüklendikten sonra ( <em>body&rsquo;nin onload event&rsquo;i</em> ) tetiklenmesidir.</p>
+				
+				<h4>Veri Tipleri ( Data Types )</h4>
+				<p>
+					Tüm bilgisayar dillerinde olduğu gibi, komutlar&rsquo;dan ve değişkenlerden oluşan bir yapı bulunur.
+					Değişkenlerin tipleri vardır. Bunlar :
+				</p>
+				<ul>
+					<li><strong>String</strong> : Yazı / Text ( <em>Alfanumerik</em> )</li>
+					<li><strong>Number</strong> : Sayısal ( <em>Numerik</em> )</li>
+					<li><strong>Boolean</strong> : Mantıksal ( <em>true / false</em> )</li>
+					<li><strong>Object</strong> : Nesne</li>
+					<li><strong>Array</strong> :  Dizi</li>
+					<li><strong>Null</strong> : Boş</li>
+					<li><strong>Undefined</strong> : Tanımsız / Bilinmeyen</li>
+				</ul>
+
+				<h4>Variables ( Değişkenler )</h4>
+				<p>
+					İşlem yapabilmek için elimizdeki bilgiyi atadağımız şey&rsquo;e <strong>değişken</strong> deriz.
+					Adından da anlaşılacağı gibi bu şey, daha sonra işlem yaparak, içinde bulunan değerin değiştirilmesine izin verir.
+					Bu bakımdan da adı <em>değişebilen</em> anlamına gelen Değişken yani <strong>Variable</strong>&rsquo;dır.
+				</p>
+				<p>
+					Kuralına uygun kod yazmak için, kod içinde kullanıcağımız değişkenleri deklare etmemiz ( <em>tanımlamamız</em> )
+					gerekir. Bunun için <em>var</em> anahtar kelimesini kullanırız.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> myNumber = 5; <span class="cmt">// tipi Number olan değişken</span></li>
+					<li><span class="jsr">var</span> myText = 'Hello'; <span class="cmt">// tipi String olan değişken</span></li>
+					<li><span class="jsr">var</span> userLogin = <span class="jsr">true</span>; <span class="cmt">// tipi Boolean olan değişken</span></li>
+				</ol>
+				<div class="warning">
+					Görüldüğü gibi adı <strong>var</strong> olan yada <strong>true</strong> olan değişken tanımlayamayız. Çünki bunlar reserved-keywords&rsquo;dür.
+				</div>
+				
+				<p>
+					Bir yazılım dilini öğrenmenin en kolay yolu, önce ekrana birşeyler yazdırmaktan geçer.
+					<strong>B.A.S.I.C</strong> dilindeki <em>print</em> komutunu hatırlayalım.
+					Bu işi Html/Javascript dünyasında yapmak için Browser&rsquo;ın bazı özel komutlarını kullanmamız gerekiyor;
+				</p>
+			</div>
+			<div class="float">
+				<div class="pic">
+					<p><img src="files/include.gif" alt="Örnek Include..."/></p>
+					<p>Javascript&rsquo;in <em>&lt;head&gt;</em> içinde <strong>include</strong> edilmesi</p>
+				</div>
+				<div class="pic">
+					<p><img src="files/embed.gif" alt="Örnek Embed..."/></p>
+					<p>Javascript&rsquo;in <em>&lt;head&gt;</em> içinde <strong>embed</strong> edilmesi</p>
+				</div>
+				<div class="pic">
+					<p><img src="files/in-line.gif" alt="Örnek In-Line..."/></p>
+					<p>Javascript&rsquo;in <strong>in-line</strong> yazılması</p>
+				</div>
+			</div>
+		</div>
+
+		<h3>D.O.M ( Document Object Modelling ) : Intro</h3>
+		<div class="block">
+			<div class="float">
+				<p>
+					Bundan sonra pek çok kez bu kelimeyi göreceğiz. DOM hayatımızın bir parçası olacak!!!. Html / Css derslerinde,
+					Html sayfasının ana yapısından bahsetmiştik. <em>&lt;head&gt;</em> ve <em>&lt;body&gt;</em>&rsquo;nin önemini
+					görmüştük.
+				</p>
+				<p>
+					Bezer yapı <strong>DOM</strong>&rsquo;da da var. En dışta <em>window</em> bulunuyor. Bu aslında kodun çalıştığı pencere.
+					Yani browser&rsquo;ın ta kendisi. DOM&rsquo;la ilgili çok detaylı konularımız olacak. Şuan için kabaca ne olduğuna dair
+					bir ipucu veriyorum. Keza asıl amacımız ekrana birşeyler yazdırmak. Bu bakımdan, DOM&rsquo;un çok küçük bir parçası
+					ile ilgiliyiz şuanda.
+				</p>
+				
+				<h4>window.alert ( metod )</h4>
+				<p>
+					En basit haliyle ekrana birşey yazdırmak için bunu kullanırız. Bu aslında adın da anlaşılacağı gibi, bir uyarı mesajı
+					yani <strong>alert</strong>&rsquo;dir. Çalıştıktan sonra sizden geri cevap bekler. Bu cevap işide &ldquo;OK&rdquo;
+					düğmesine tıklanarak yapılır.
+				</p>
+				<div class="syn">
+					<em>window</em>.<strong>alert</strong>( <small>String</small> );
+				</div>
+				<ol class="code">
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Hello World' );</li>
+					<li>&nbsp;</li>
+					<li><span class="jsr">var</span> myText = 'Merhaba';</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( myText );</li>
+				</ol>
+
+				<h4>typeof ( operatör )</h4>
+				<p>
+					Elimizdeki değişkenin / nesnenin tipini anlamımızı sağlar. Bize tip bilgisi döner. String , Number , Object gibi...
+				</p>
+				<div class="syn">
+					stringVariableType = <strong>typeof</strong>( <small>VARIABLE</small> );
+				</div>
+				<ol class="code">
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <span class="jso">typeof</span>( 'Hello World' ) ); <span class="cmt">// string</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <span class="jso">typeof</span>( 5 ) ); <span class="cmt">// number</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <span class="jso">typeof</span>( <span class="jso">new</span> <span class="jsc">Image</span>() ) ); <span class="cmt">// object</span></li>
+				</ol>
+			</div>
+			<div class="float">
+				<div class="pic">
+					<p><img src="files/html-dom.gif" alt="HTML ve D.O.M Yapısı"/></p>
+					<p>HTML ve D.O.M Yapısı</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="block">
+			<h4>window.prompt ( metod )</h4>
+			<p>
+				Browser yardımı ile kullanıcıdan text bilgi girişi ( <em>text input</em> ) almak için kullanılır.
+				Eğer kullanıcı herhangi bir şey girmiş ise ( <em>sayı yada text</em> ) geriye girilmiş olan değer <strong>string</strong> olarak döner.
+				Eğer &ldquo;Cancel&rdquo; düğmesine basılırsa yada &ldquo;ESC&rdquo; tuşuna basılırsa <strong>false</strong> döner!
+			</p>
+			<div class="syn">
+				<p>objectVariable = <em>window</em>.<strong>prompt</strong>( <small>[stringMessage]</small> <small>[, stringDefaultValue]</small> );</p>
+				<dl>
+					<dt>stringMessage</dt>
+					<dd>Mesaj</dd>
+				</dl>
+				<dl>
+					<dt>stringDefaultValue</dt>
+					<dd>( Opsiyonel ) Gerekiyorsa varsayılan değer ( Eğer tanımlanmazsa IE&rsquo;de &ldquo;undefined&rdquo; yazar. )</dd>
+				</dl>
+			</div>
+			<ol class="code">
+				<li><span class="jsr">var</span> userInput = <span class="jsc">window</span>.<span class="jsr">prompt</span>( 'Bir sayı girin' , 5 );</li>
+				<li><span class="jsr">if</span>( userInput ) <span class="cmt">// Eğer giriş varsa</span></li>
+				<li>{</li>
+				<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( userInput ); <span class="cmt">// Girilen sayı yada ne girildiyse</span></li>
+				<li>}</li>
+			</ol>
+
+			<h4>window.confirm ( metod )</h4>
+			<p>
+				Doğrulamak / oynaylamak anlamındadır. Browser, kullanıcıya &ldquo;OK&rdquo; / &ldquo;CANCEL&rdquo; sorusunu sorar. OK&rsquo;e tıklandığında bu TRUE,
+				CANCEL&rsquo;a tıklandığında da bu FALSE anlamındadır.
+			</p>
+			<div class="syn">
+				<p>booleanConfirmed = <em>window</em>.<strong>confirm</strong>( <small>[stringMessage]</small> )</p>
+				<dl>
+					<dt>stringMessage</dt>
+					<dd>( Opsiyonel ) Eğer bir mesajla birlikte sormak isterseniz.</dd>
+				</dl>
+			</div>
+			<ol class="code">
+				<li><span class="jsr">var</span> blnContinue = <span class="jsc">window</span>.<span class="jsr">confirm</span>( 'Devam etmek için tıklayın' );</li>
+				<li><span class="jsr">if</span>( blnContinue ) // Eğer OK&rsquo;e tıklandıysa...</li>
+				<li>{</li>
+				<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Devam ediyoruz!' );</li>
+				<li>}</li>
+			</ol>
+		</div>
+
+		<h3>Aritmetik İşlemler</h3>
+		<div class="block">
+			<div class="float">
+				<h4>4 İşlem : Toplama / Çıkartma / Çarpma / Bölme</h4>
+				<p>
+					+ , - , * , / işaretleri ile aritmetik işlemleri yaparız. Parantezli işlem yaparken sırasıyla,
+					Çarpma ( * ) , Bölme ( / ) , Toplama ( + ) ve Çıkartma ( - ) şeklindedir. Matematik işlemlerinin yapılabilmesi için
+					numeric değerlerle ( <em>integer / float gibi</em> ) işlem yapmak gerekir. Sayısal bir değerle yazısal ( <em>string</em> )
+					bir değeri topladığınızda sonuç <strong>string</strong> olur! İşlemleri parantezlerle gruplarsanız önce parantez içindeki
+					ifade işlenir, daha sonra işlem üstünlüğüne göre sıradaki işlem yapılır.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> result = 5 + 4; <span class="cmt">// 5+4 = 9</span></li>
+					<li><span class="jsr">var</span> result = 5 * 4; <span class="cmt">// 5*4 = 20</span></li>
+					<li><span class="jsr">var</span> result = 5 - 4; <span class="cmt">// 5-4 = 1</span></li>
+					<li><span class="jsr">var</span> result = 10 / 2; <span class="cmt">// 10/2 = 5</span></li>
+					<li>&nbsp;</li>
+					<li><span class="jsr">var</span> a = 5;</li>
+					<li><span class="jsr">var</span> b = 'ali';</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( a + b ); // 5ali</li>
+				</ol>
+				<div class="warning">
+					<strong>+</strong> işareti aynı zamanda <strong>concatenation</strong> için de kullanılır.
+					<strong>string</strong>&rsquo;leri birbirne eklemek bir <strong>concatenation</strong> işlemidir.
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>stringUserName</strong> = 'vigo';</li>
+					<li><span class="jsr">var</span> stringEmail = <strong>stringUserName</strong> + '@bilgi.edu.tr';</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( stringEmail ); <span class="cmt">// vigo@bilgi.edu.tr</span></li>
+				</ol>
+				<h4>isNaN ( metod )</h4>
+				<p>
+					<strong>is Not a Number</strong> yani &ldquo;Eğer sayı değilse&rdquo; anlamındadır.
+					Eğer <em>string</em> ise <strong>TRUE</strong> döner. Eğer girilen şeyin sayı olmasını istersek,
+					isNaN bize <strong>FALSE</strong> dönmelidir.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> x = 5;</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <span class="jso">isNaN</span>( x ) ); <span class="cmt">// false yani bu bir sayı</span></li>
+				</ol>
+				<p>
+					İşimizi garantiye almak için, sadece numerik değerlerle çalıştığımıza emin olmak için bu fonksiyonu kullanırız.
+					İleriki derslerde <em>prototype</em> konusuna geldiğimizde, <em>string</em> objesine <strong>isNumber</strong> diye bir metod ekleyip
+					bu işi daha kolay yapacağız.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> x = 'vigo';</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <span class="jso">isNaN</span>( x ) ); <span class="cmt">// true yani bu bir string</span></li>
+				</ol>
+				<p>Keza, herzaman <strong>typeof</strong>&rsquo;u kullanarak, elimizdeki şeyin cinsini öğrenebiliriz.</p>
+			</div>
+			<div class="float">
+				<h4>Diğer İşlemler</h4>
+				<p>Arttırma ( ++ ) , azalttırma ( -- ) , Mod ( % )</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> x = 5;</li>
+					<li>x++; <span class="cmt">// x&rsquo;in değerini 1 arttır.</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( x ); <span class="cmt">// 6</span></li>
+				</ol>
+				<ol class="code">
+					<li><span class="jsr">var</span> x = 5;</li>
+					<li>x+= 4; // <span class="cmt">x&rsquo;in değerini 4 arttır.</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( x ); <span class="cmt">// 9</span></li>
+				</ol>
+				<div class="warning">
+					<strong>x++;</strong> ile <strong>x+= 1;</strong> aynı şeydir.
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> x = 5;</li>
+					<li>x--; <span class="cmt">// x&rsquo;in değerini 1 azalt.</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( x ); <span class="cmt">// 4</span></li>
+				</ol>
+				<ol class="code">
+					<li><span class="jsr">var</span> x = 5;</li>
+					<li>x-= 4; // <span class="cmt">x&rsquo;in değerini 4 azalt.</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( x ); <span class="cmt">// 1</span></li>
+				</ol>
+				<p>+= , *= , /= , -= aynı mantıkta işler.</p>
+				<div class="pic">
+					<p><img src="files/modulus.gif" alt="Modülo"/></p>
+					<p><strong>mod</strong> kalanı verir bize. Örneğin 5&rsquo;i 3&rsquo;e böldüğümüzde 1 sonuç, 2 ise kalandır.</p>
+				</div>
+				<p>Kullanıcı bir sayı girsin, sayı eğer 5&rsquo;in katı ise ekranda bir mesaj çıkartalım! Bunun için modulo ( <em>yani mod</em> ) kullanırız.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> intUserInput = <span class="jsc">window</span>.<span class="jsr">prompt</span>( 'Bir sayı girin' );</li>
+					<li><span class="jsr">if</span>( intUserInput % 5 == 0 )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Sayı 5\'in katı ' );</li>
+					<li>}</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

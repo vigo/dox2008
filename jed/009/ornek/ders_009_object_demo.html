@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Object Demo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<style type="text/css" media="screen">
+		body
+		{
+			color: #000;
+			background: #fff;
+			margin: 0px;
+			padding: 0px;
+			font: normal normal normal 1em/1.5em 'Lucida Grande' , 'Lucida Sans Unicode' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+		}
+		
+		form , p
+		{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		div
+		{
+			overflow: hidden;
+		}
+
+		a:link , a:active , a:visited
+		{
+			background: transparent;
+			color: #007;
+			text-decoration: underline;
+		}
+
+		a:hover
+		{
+			text-decoration: none;
+		}
+
+		h1 , h2 , h3 , h4 , h5 , h6
+		{
+			font-weight: normal;
+			margin: 0px 0px 1px 0px;
+			padding: 0px;
+			line-height: 1.3em;
+		}
+		
+		h1
+		{
+			font-size: 3em;
+		}
+		
+		h2
+		{
+			font-size: 2.8em;
+		}
+		
+		h3
+		{
+			font-size: 2.6em;
+		}
+		
+		h4
+		{
+			font-size: 2.4em;
+		}
+		
+		h5
+		{
+			font-size: 2.2em;
+		}
+		
+		h6
+		{
+			font-size: 2em;
+		}
+		
+		#canvas
+		{
+			width: 768px;
+			margin: 0px auto;
+		}
+
+		button
+		{
+			font: normal normal normal 1em 'Lucida Grande' , 'Lucida Console' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+		}
+
+		dl
+		{
+			width: 100%;
+			overflow: hidden;
+			margin: 0px 0px 10px 0px;
+			padding: 0px 0px 10px 0px;
+			border-bottom: 1px solid #eee;
+		}
+
+		dt
+		{
+			width: 100px;
+			margin: 0px;
+			padding: 0px;
+			display: inline;
+			float: left;
+			font-weight: bold;
+		}
+		
+		dd
+		{
+			width: 300px;
+			margin: 0px;
+			padding: 0px;
+			display: inline;
+			float: left;
+		}
+	</style>
+	<script type="text/javascript">
+	//<![CDATA[
+	
+	var objUsers = {
+		 aryUsers : new Array()
+		,setUser : function ( strUserName , strUserPassword )
+		{
+			this.aryUsers.push( {
+								  'user_name' : strUserName
+								, 'user_password' : strUserPassword
+								}
+			);
+		}
+		,getUser : function ( strUserName )
+		{
+			for( var intUserIndex in this.aryUsers )
+			{
+				if( this.aryUsers[ intUserIndex ].user_name == strUserName )
+				{
+					return '<p><strong>Kullanıcı Adı<\/strong> : ' + this.aryUsers[ intUserIndex ].user_name + '<\/p>'
+							+ '<p><strong>Şifre</strong> : ' + this.aryUsers[ intUserIndex ].user_password + '<\/p>';
+				}
+			}
+			return '<p>Kullanıcı bulunamadı! ( <strong>' + strUserName + '<\/strong> )<\/p>';
+		}
+		,addUser : function ()
+		{
+			var strUserName = window.prompt( 'Kullanıcı Adı ?' , '' );
+			if( !strUserName )
+			{
+				return;
+			}
+			var strUserPassword = window.prompt( 'Şifre ?' , '' );
+			if( !strUserPassword )
+			{
+				return;
+			}
+			this.setUser( strUserName , strUserPassword );
+			this.printUsers();
+		}
+		,printUsers : function ()
+		{
+			var strHtmlOut = '';
+			strHtmlOut+= '<h2>Kullanıcılar<\/h2>';
+			for( var intUserIndex in this.aryUsers )
+			{
+				var strUserName = this.aryUsers[ intUserIndex ].user_name;
+				var strUserPassword = this.aryUsers[ intUserIndex ].user_password;
+				
+				strHtmlOut+= ''
+					+ '<dl>'
+						+ '<dt>' + strUserName + '<\/dt>'
+						+ '<dd>' + strUserPassword + '<\/dd>'
+						+ '<dd><a href="javascript:void(0);" onclick="if(confirm(\'Eminmisiniz?\')){ objUsers.deleteUser( ' + intUserIndex + ' ); }">Sil</a><\/dd>'
+					+ '<\/dl>';
+			}
+			if( this.aryUsers.length == 0 )
+			{
+				strHtmlOut+= '<p>Hiç kullanıcı yok!<\/p>';
+			}
+			document.getElementById( 'queryResult' ).innerHTML = strHtmlOut;
+		}
+		,deleteUser : function ( intUserDeleteIndex )
+		{
+			var aryBuffer = new Array();
+			for( var intUserIndex in this.aryUsers )
+			{
+				if( intUserIndex != intUserDeleteIndex )
+				{
+					aryBuffer.push( this.aryUsers[ intUserIndex ] );
+				}
+			}
+			this.aryUsers = aryBuffer;
+			this.printUsers();
+		}
+		,sortUsers : function ( blnDesc )
+		{
+			if( blnDesc )
+			{
+				this.aryUsers.sort( this.sortUtfDesc );
+			}
+			else
+			{
+				this.aryUsers.sort( this.sortUtfAsc );
+			}
+			this.printUsers();
+		}
+		,sortUtfAsc : function ( a , b )
+		{
+			return a.user_name.localeCompare( b.user_name );
+		}
+		,sortUtfDesc : function ( a , b )
+		{
+			return b.user_name.localeCompare( a.user_name );
+		}
+	}
+	
+	objUsers.setUser( 'vigo' , '123456' );
+	objUsers.setUser( 'perper' , 'xxx222' );
+	objUsers.setUser( 'derek' , 'tartar' );
+	objUsers.setUser( 'hyper' , 'leopar' );
+				
+	//]]>
+	</script>
+
+</head>
+<body onload="objUsers.printUsers();">
+	<div id="canvas">
+		<p>
+			<button onclick="objUsers.addUser();">Kullanıcı Ekle</button>&nbsp;
+			<button onclick="objUsers.sortUsers();">Kullanıcıları Sırala ( A - Z )</button>
+			<button onclick="objUsers.sortUsers( true );">Kullanıcıları Sırala ( Z - A )</button>
+		</p>
+		<div id="queryResult"></div>
+	</div>
+</body>
+</html>

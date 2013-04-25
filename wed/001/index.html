@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Web Geliştirme Eğitimi Dersleri, 001 , 24 Aralık 2007, Pazartesi</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta http-equiv="Content-Style-Type" content="text/css"/>
+			<meta name="author" content="Uğur 'vigo' Özyılmazel"/>
+			<meta name="keywords" content="html xhtml css javascript web php database mysql svn development code coding programming"/>
+			<meta name="description" content="Web uygulama / geliştirme ile ilgili eğitim. IDE nedir? , IDE seçimi, DOCTYPE , DTD , Render Engine, File Encoding, XHTML sayfa yapısı, HEAD yapısı."/>
+			<meta name="copyright" content="2007 - Uğur Özyılmazel"/>
+			<meta name="date" content="2007-12-24T09:00:00+02:00"/>
+			<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+			<meta http-equiv="Last-Modified" content="Thu, 03 Jan 2008 21:50:46 GMT"/>
+			<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+			<meta http-equiv="Pragma" content="no-cache"/>
+			<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	</head>
+	<body>
+		<div id="canvas">
+			<div id="info">
+				<h1>Web Geliştirme Eğitimi Dersleri, 001</h1>
+				<h2>24 Aralık 2007, Pazartesi</h2>
+			</div>
+
+			<div class="row">
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="http://www.editplus.com/">Editplus</a></p>
+				</div>
+				<h3>IDE Seçimi</h3>
+				<ul>
+					<li>Yapılacak işe uygun IDE seçmek!</li>
+					<li>Hafızada fazla yer işgal etmeyen, <strong>syntax-hightlighting</strong> ve <strong>code-complation</strong> özellikleri olan programlar kullanmak.</li>
+				</ul>
+			</div>
+
+			<div class="row">
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="files/xhtml1-transitional.dtd.txt">xhtml1-transitional</a></p>
+					<p><a target="_blank" href="http://www.w3c.org/">w3c.org</a></p>
+				</div>
+				<h3>DOCTYPE</h3>
+				<ul>
+					<li><strong>doctype</strong> nedir?</li>
+					<li>Browser nasıl işler, <strong>render-engine</strong> nedir?</li>
+				</ul>
+			</div>
+			
+			<div class="row">
+				<h3>File encoding</h3>
+				<ul>
+					<li><strong>ASCII</strong> nedir?</li>
+					<li><strong>ANSI</strong> / <strong>UTF-8</strong> nedir?</li>
+					<li><strong>file-encoding</strong> , <strong>html-meta</strong> ilişkişi</li>
+				</ul>
+			</div>
+		
+			<div class="row">
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="files/ornek-xhtml.txt">Örnek sayfa</a></p>
+				</div>
+				<h3>BASIC XHTML Sayfa</h3>
+				<ul>
+					<li>3 temel öğe : <strong>doctype</strong> , <strong>head</strong> ve <strong>body</strong></li>
+					<li><strong>head</strong> içinde mutlaka <strong>title</strong> olmalı!</li>
+					<li><strong>head</strong> içinde mutlaka <strong>karakter-seti</strong> ve <strong>encoding-bilgisi</strong> olmalı.</li>
+				</ul>
+				<ol>
+					<li>DOCTYPE</li>
+					<li>
+						HEAD
+						<ol>
+							<li>TITLE</li>
+							<li>META</li>
+							<li>varsa LINK&rsquo;ler</li>
+							<li>varsa JAVASCRIPT&rsquo;ler</li>
+						</ol>
+					</li>
+					<li>BODY</li>
+				</ol>
+			</div>
+
+			<div class="row">
+				<h3>HEAD &gt; META</h3>
+				<ul>
+					<li>Content-Type</li>
+					<li>Content-Style-Type</li>
+					<li>mime-type&rsquo;lar : <strong>text/html</strong> , <strong>text/css</strong> , <strong>text/javascript</strong></li>
+				</ul>
+			</div>
+
+			<div class="row">
+				<h3>HEAD &gt; LINK</h3>
+				<ul>
+					<li><strong>media</strong> türleri : <strong>screen</strong> , <strong>print</strong> , <strong>all</strong> ...</li>
+					<li><strong>rel</strong>, <strong>rev</strong>, <strong>media</strong> attribute&rsquo;ları.</li>
+					<li>external-css, <strong>@media screen</strong> , <strong>@media print</strong> direktifleri</li>
+				</ul>
+
+				<ol class="code">
+					<li>@media screen</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cco">/* Bilgisayar monitörleri için */</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">body</span></li>
+					<li><span class="tab">&nbsp;</span><span>{</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="cc">background-color:</span> <span>red;</span></li>
+					<li><span class="tab">&nbsp;</span><span>}</span></li>
+					<li>}</li>
+				</ol>
+
+				<ol class="code">
+					<li>@media print</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cco">/* Printer için */</span></li>
+					<li><span class="tab">&nbsp;</span><span class="h">body</span></li>
+					<li><span class="tab">&nbsp;</span><span>{</span></li>
+					<li><span class="tab">&nbsp;</span><span>&nbsp;</span><span class="cc">background-color:</span> <span>blue;</span></li>
+					<li><span class="tab">&nbsp;</span><span>}</span></li>
+					<li>}</li>
+				</ol>
+
+			</div>
+
+
+
+
+			<div id="nav">
+				Tercihler : <span><a href="../index.html">İndeks</a> </span><a href="../002/index.html">Sonraki &gt;</a>
+			</div>
+			<div id="footer">
+				<span>&copy; 2007</span><span>Uğur &ldquo;vigo&rdquo; Özyılmazel</span><span>vigo@bilgi.edu.tr</span>http://ugur.ozyilmazel.com
+			</div>
+		</div>
+	</body>
+</html>

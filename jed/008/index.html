@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #008</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #008</h1>
+			<h2>28 Mart 2008, Cuma</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../007/index.html">&lt; Önceki ( 007 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../009/index.html">Sonraki ( 009 ) &gt;</a></span>
+		</div>
+
+		<h4>Array Metodları</h4>
+		<div class="syn">
+			concat, join, pop, push, reverse, shift, slice, sort, splice, toLocaleString, toString, unshift, valueOf
+		</div>
+
+		<div class="block">
+			<div class="float">
+				<h4>Array.concat ( metod )</h4>
+				<div class="syn">
+					<p><em>aryArray</em>.<strong>concat</strong>( <small>[objItem1] [,objItem2][,objItem2]...[,objItemN]</small> )</p>
+					<dl>
+						<dt>objItem1</dt>
+						<dd>Herhangi bir obje. String / Array / Object / Number vs... <strong>N tane</strong> ekleyebilirsiniz.</dd>
+					</dl>
+				</div>
+				
+				<p>Aynen string&rsquo;lerdeki <strong>concatenation</strong> gibi, array&rsquo;lerde de ( hatta objelerde ) ekleme / toplama / birleştirme yapılabilir.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> aryMyArray1 = <span class="jsc">Array</span>( 'Ali' , 'Veli' , 'Selami' );</li>
+					<li><span class="jsr">var</span> aryMyArray2 = <span class="jsc">Array</span>( 20 , 30 , 40 );</li>
+					<li><span class="jsr">var</span> strMyString = 'Bu ise bir string!!!';</li>
+					<li><span class="jsr">var</span> intNumber = 45;</li>
+					<li><span class="jsr">var</span> objImage = <span class="jso">new</span> <span class="jsc">Image</span>();</li>
+					<li>&nbsp;</li>
+					<li><span class="jsr">var</span> aryNewOne = aryMyArray1.<span class="jso">concat</span>( aryMyArray2 , strMyString , intNumber , objImage );</li>
+					<li>&nbsp;</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <span class="jso">typeof</span>( aryNewOne ) );</li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>Array.join ( metod )</h4>
+				<div class="syn">
+					<p><em>aryArray</em>.<strong>join</strong>( <small>strSeparator</small> )</p>
+					<dl>
+						<dt>strSeparator</dt>
+						<dd>Ayraç</dd>
+					</dl>
+				</div>
+				
+				<p>Array içindeki elemanları, belirtilen delimiter ( ayraç ) ile bağlayarak birleştirip, Array&rsquo;i String&rsquo;e çevirir.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'Ali' , 'Veli' , 'Selami' );</li>
+					<li><span class="jsr">var</span> <strong>myString</strong> = <em>myArray</em>.<span class="jso">join</span>( '-' );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>myString</strong> );<span class="cmt">// Ali-Veli-Selami</span></li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="block">
+			<div class="float">
+				<h4>Array.pop ( metod )</h4>
+				<p>Array&rsquo;in son elemanını, Array&rsquo;den yok eder.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'Ali' , 'Veli' , 'Selami' );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// Ali,Veli,Selami</span></li>
+					<li><em>myArray</em>.<span class="jso">pop</span>();</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// Ali,Veli</span></li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>Array.push ( metod )</h4>
+				<p>Array&rsquo;in sonuna yeni eleman ekler</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'Ali' , 'Veli' , 'Selami' );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// Ali,Veli,Selami</span></li>
+					<li><em>myArray</em>.<span class="jso">push</span>( 'Vigo' );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// Ali,Veli,Selami,Vigo</span></li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="block">
+			<div class="float">
+				<h4>Array.reverse ( metod )</h4>
+				<p>Array&rsquo;i terse çevirir, bir tür <strong>mirror</strong> efekti.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'Ali' , 'Veli' , 'Selami' , 'Nuri' );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// Ali,Veli,Selami,Nuri</span></li>
+					<li><em>myArray</em>.<span class="jso">reverse</span>();</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// Nuri,Selami,Veli,Ali</span></li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>Array.shift ( metod )</h4>
+				<p>İlk elemanı yok eder ( Array.pop&rsquo;un tersi gibi )</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'Ali' , 'Veli' , 'Selami' );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> );</li>
+					<li><em>myArray</em>.<span class="jso">shift</span>();</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// Veli,Selami</span></li>
+				</ol>
+			</div>
+		</div>
+		
+		<div class="block">
+			<div class="float">
+				<h4>Array.slice ( metod )</h4>
+				<div class="syn">
+					<p><em>aryArray</em>.<strong>slice</strong>( <small>[intStart] [,intEnd]</small> )</p>
+					<dl>
+						<dt>intStart</dt>
+						<dd>Başlangıç indeksi</dd>
+					</dl>
+					<dl>
+						<dt>intEnd</dt>
+						<dd>( Opsiyonel ) Bitiş indeksi. Negatif olursa, tersten işler.</dd>
+					</dl>
+				</div>
+				
+				<p>Array içinde bir bölümü yine Array olarak almak için kullanılır.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'Ali' , 'Veli' , 'Selami' , 'Tarık' , 'İsmail' , 'Cihangir' , 'Burak' );</li>
+					<li><span class="jsr">var</span> <em>myArraySliced</em> = <em>myArray</em>.<span class="jso">slice</span>( 2 , 5 );</li>
+					<li><span class="cmt">// Yani 0 indeksli olmak üzere, 2.elemandan ( Selami ) itibaren 5.elemana kadar ( Cihangir ) al. Yani 5.elemanı işleme katma ( İsmail&rsquo;de bitir )</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArraySliced</em> ); <span class="cmt">// Selami,Tarık,İsmail</span></li>
+				</ol>
+				<p>
+					Daha kolay bir anlatımla, 0 indeksli olmak üzere ( yani ilk elemanımız 0.eleman ), 2.elemandan itibaren, ( 2.de dahil ) toplam <strong>3</strong> eleman getir. ( 2 + <strong>3</strong> = 5 )
+					Bunun için <em>slice( 2 , 5 )</em> dedik.
+				</p>
+				<p>
+					Eğer <em>slice( 0 , -1 )</em> dersek, Array&rsquo;in son elemanını atmış oluruz!
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'Ali' , 'Veli' , 'Selami' , 'Tarık' , 'İsmail' , 'Cihangir' , 'Burak' );</li>
+					<li><span class="jsr">var</span> <em>myArraySliced</em> = <em>myArray</em>.<span class="jso">slice</span>( 0 , -1 );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArraySliced</em> ); <span class="cmt">// Ali,Veli,Selami,Tarık,İsmail,Cihangir</span></li>
+				</ol>
+
+
+			</div>
+			<div class="float">
+				<h4>Array.sort ( metod )</h4>
+				<div class="syn">
+					<p><em>aryArray</em>.<strong>sort</strong>( <small>[fncCallBack]</small> )</p>
+					<dl>
+						<dt>fncCallBack</dt>
+						<dd>( Opsiyonel ) Fonksiyon üzerinden sıralama yapmak için. *</dd>
+					</dl>
+				</div>
+				
+				<p>Dizi içindeki elemanları sıralamak için kullanılır. Default olarak <strong>Ascending</strong> yani A&rsquo;dan Z&rsquo;ye çalışır.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'veli' , 'ali' , 'selami' );</li>
+					<li><em>myArray</em>.<span class="jso">sort</span>();</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// ali,selami,veli</span></li>
+				</ol>
+				
+				<p>Peki, sıralama yapmak istediğim elemanlar, <strong>TÜRKÇE</strong> olursa? İşte bu noktada <em>fncCallBack</em> devreye girer.</p>
+				<ol class="code">
+					<li><span class="jsr">function</span> <strong>utfSort</strong>( a , b )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">return</span> a.<span class="jso">localeCompare</span>( b ); <span class="cmt">// sihirli komut!</span></li>
+					<li>}</li>
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'uğur' , 'çetin' , 'ömer' , 'ali' , 'ilhan' , 'cemal' , 'ılgın' , 'deniz' , 'Burak' , 'ğu' , 'ümit' , 'üzeyir' , 'xacvi' , 'yozi' );</li>
+					<li><em>myArray</em>.<span class="jso">sort</span>( <strong>utfSort</strong> );</li>
+					<li>&nbsp;</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> );</li>
+					<li><span class="cmt">// ali,Burak,cemal,çetin,deniz,ğu,ılgın,ilhan,ömer,uğur</span></li>
+				</ol>
+			</div>
+		</div>
+		
+		<div class="block">
+			<div class="float">
+				<h4>Array.splice ( metod )</h4>
+				<div class="syn">
+					<p><em>aryArray</em>.<strong>splice</strong>( <small>[intStart], [intDeleteCount], [item1[, item2[, . . . [,itemN]]]]</small> )</p>
+					<dl>
+						<dt>intStart</dt>
+						<dd>O indeksli element başlangıç</dd>
+					</dl>
+					<dl>
+						<dt>intDeleteCount</dt>
+						<dd>Başlangıçtan itibaren kaç element silinecek</dd>
+					</dl>
+					<dl>
+						<dt>item1 ...</dt>
+						<dd>( Opsiyonel ) İsteniyorsa, silinenlerin yerine yerleşecek element(ler)</dd>
+					</dl>
+				</div>
+				<p>Array&rsquo;den parça almak, içinden birşeyleri silip yerine başka elementler koymak için kullanılır.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'veli' , 'ali' , 'selami' );</li>
+					<li><em>myArray</em>.<span class="jso">splice</span>( 0 ,1 );</li>
+					<li><span class="cmt">// 0.dan itibaren ( veli ) bir tane uçur...</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// ali,selami</span></li>
+				</ol>
+				<p>yada;</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'veli' , 'ali' , 'selami' );</li>
+					<li><em>myArray</em>.<span class="jso">splice</span>( 0 ,1 , 'vigo' );</li>
+					<li><span class="cmt">// 0.dan itibaren ( veli ) bir tane uçur ve yerine 'vigo' koy!</span></li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// vigo,ali,selami</span></li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>Array.unshift ( metod )</h4>
+				<div class="syn">
+					<p><em>aryArray</em>.<strong>unshift</strong>( <small>[item1] [, item2 [, . . . [, itemN]]]]</small> )</p>
+					<dl>
+						<dt>item1</dt>
+						<dd>Eklenecek element</dd>
+					</dl>
+					<dl>
+						<dt>item2...</dt>
+						<dd>( Opsiyonel ) N tane element ekler.</dd>
+					</dl>
+				</div>
+				<p>Array&rsquo;in başına element(ler) ekler.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myArray</em> = <span class="jsc">Array</span>( 'veli' , 'ali' , 'selami' );</li>
+					<li><em>myArray</em>.<span class="jso">unshift</span>( 'vigo' );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( <em>myArray</em> ); <span class="cmt">// vigo,veli,ali,selami</span></li>
+				</ol>
+			</div>
+		</div>
+		
+		<div class="block">
+			<h4>Diğer Metodlar</h4>
+			<p>
+				<em>toLocaleString</em>, <em>toString</em> ve <em>valueOf</em> diğer konularla ilgilidir.
+				Bunları ileriki derslerde göreceğiz. keza <em>toLocaleString</em> <strong>dateObject</strong> ile ilgilidir.
+			</p>
+		</div>
+
+	</div>
+</body>
+</html>

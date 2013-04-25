@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #002</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #002</h1>
+			<h2>21 Şubat 2008, Perşembe</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../001/index.html">&lt; Önceki ( 001 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../003/index.html">Sonraki ( 003 ) &gt;</a></span>
+		</div>
+		
+		<h3>Fonksiyon&rsquo;a Giriş</h3>
+		<div class="block">
+			<div class="float">
+				<p>
+					Aynen lise yıllarında, matematik dersinde gördüğümüz şeydir fonksiyon. Sıkca yaptığımız rutin işlemleri
+					fonksiyonlar yardımıyla çözümleriz. Fonksiyona parametre yada parametreler geçebilir, gerekiyorsa
+					fonksiyondan geriye değer dönebiliriz.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">function</span> addNumber( input )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">return</span> input + 5;</li>
+					<li>}</li>
+				</ol>
+				<p>
+					Yukarıdaki <strong>addNumber</strong> fonksiyonu, tek parametre alır. Geçtiğimiz sayı kaç ise o sayıya
+					5 ekler ve geri döner.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> a = <strong>addNumber</strong>( 20 );</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( a ); <span class="cmt">// 25</span></li>
+				</ol>
+				<p>
+					Fonksiyon&rsquo;a parametre olarak <strong>20</strong> geçtik. Fonksiyon, gelen değere <strong>5</strong>
+					ekledi ve geri döndü. Bu bakımdan <strong>a</strong> değişkeninin değeri, fonksiyondan gelen değer oldu.
+				</p>
+				<p>
+					Ufak bir değişiklik yapıp, eğer gelen şey <strong>sayı</strong> ise işlem yapılsın, değilse hata dönsün.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">function</span> addNumber( input )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">if</span>( <span class="jso">isNaN</span>( input ) )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> 'Hata';</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">else</span></li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> input + 5;</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li>}</li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>function.arguments ( nesne )</h4>
+				<p>
+					Fonksiyona geçilen parametre / parametreler <em>arguments</em> nesnesi içinde olurlar. <em>Array</em>
+					şeklinde sıralanmışlardır. Eğer <em>arguments[ 0 ]</em> dersek ilk geçilen parametreye ulaşabiliriz. Yani;
+				</p>
+				<ol class="code">
+					<li><span class="jsr">function</span> addNumber()</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">if</span>( <span class="jso">isNaN</span>( arguments[ 0 ] ) )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> 'Hata';</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">else</span></li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> arguments[ 0 ] + 5;</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li>}</li>
+				</ol>
+				<p>
+					Dikkat ederseniz, fonsiyonu yazarken <strong>function addNumber( input )</strong> değilde direkt 
+					<strong>function addNumber()</strong> şeklinde yazıdık. İçeride işlem yaparken de <strong>arguments[ 0 ]</strong>
+					kullandık.
+				</p>
+				<p>
+					<strong>Array</strong> şeklinde durur dedikya, demekki <em>Array</em>&rsquo;lerin ortak özelliği
+					olan <em>length</em>&rsquo;i kullanarak bu fonksiyona geçilen parametre sayısını da öğrenebiliriz.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">function</span> addNumber()</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( <span class="jso">arguments</span>.<span class="jsc">length</span> );</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">if</span>( <span class="jso">isNaN</span>( arguments[ 0 ] ) )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> 'Hata';</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">else</span></li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">return</span> arguments[ 0 ] + 5;</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li>}</li>
+				</ol>
+			</div>
+		</div>
+
+		<h3>Kontrol Durumları ( if / else / switch )</h3>
+		<div class="block">
+			<div class="float">
+				<h4>if / else</h4>
+				<p>Duruma göre akışı değiştirmek için kullanılan ifadelerdir. Önemli hususlar;</p>
+				<ul>
+					<li><strong>==</strong> : Eşittir.</li>
+					<li><strong>!=</strong> : Eşit Değildir.</li>
+					<li><strong>!</strong> : false</li>
+				</ul>
+				<p>
+					anlamındadır. Eğer boolean ( <em>mantıksal</em> ) işlem yapıyorsak, yani ifade &ldquo;<strong>TRUE</strong> ise&rdquo;
+					demek için;
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> a = <span class="jsr">true</span>;</li>
+					<li><span class="jsr">if</span>( a ) <span class="cmt">// a eğer true ise</span></li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Ok!' );</li>
+					<li>}</li>
+				</ol>
+				<p>Eğer &ldquo;<strong>FALSE</strong> ise&rdquo; demek için;</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> a = <span class="jsr">true</span>;</li>
+					<li><span class="jsr">if</span>( <strong>!</strong>a ) <span class="cmt">// a false ise</span></li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Ok!' );</li>
+					<li>}</li>
+				</ol>
+				<p>Eşitlikler için;</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> a = 5;</li>
+					<li><span class="jsr">if</span>( a == 5 ) <span class="cmt">// a, 5&rsquo;e eşit ise</span></li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Ok!' );</li>
+					<li>}</li>
+				</ol>
+				<ol class="code">
+					<li><span class="jsr">var</span> a = 4;</li>
+					<li><span class="jsr">if</span>( a != 5 ) <span class="cmt">// a, 5&rsquo;e eşit değil ise</span></li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Ok!' );</li>
+					<li>}</li>
+				</ol>
+				<p>
+					<strong>else</strong> ifadesi &ldquo;DEĞİLSE&rdquo; anlamındadır. Aşağıdaki örnek:
+					eğer, strUsername lego ise işlem yap, değilse bak, eğer vigo ise başka bir işlem yap, eğer herikisi de değilse
+					bambaşka bişi yap ve bitir.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> strUsername = 'vigo';</li>
+					<li><span class="jsr">if</span>( strUsername == 'lego' )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Kullanıcı adı : lego...' );</li>
+					<li>}</li>
+					<li><span class="jsr">else</span> <span class="jsr">if</span>( strUsername == 'vigo' )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Kullanıcı adı : vigo' );</li>
+					<li>}</li>
+					<li><span class="jsr">else</span></li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Kullanıcı adı : lego değildir!..' );</li>
+					<li>}</li>
+				</ol>
+			</div>
+			<div class="float">
+				<h4>switch / case</h4>
+				<p>Çok faydalı bir kontrol sistemidir. <strong>if / else</strong>&rsquo;e göre daha az kaynak kullanır. Pek çok js uzmanı if / else yerine bunu kullanmayı önerir.</p>
+				<p>Amacımız şu; kullanıcı seviyelerine göre farklı menü göstermek istiyoruz. 3 tip kullanıcı olsun; admin - moderatör ve standart kullanıcı. Admin = 0, Moderatör = 1 ve Standart = 2 olsun</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> intUserLevel = 0;</li>
+					<li><span class="jsr">switch</span>( intUserLevel )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">case</span> 0 :</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>print_admin_menu();</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">break</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">case</span> 1 :</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>print_moderator_menu();</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">break</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">case</span> 2 :</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>print_standart_menu();</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">break</span>;</li>
+					<li>}</li>
+				</ol>
+				<p>Peki, <em>intUserLevel</em> 0,1,2 dışında bir değer ise?</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> intUserLevel = 0;</li>
+					<li><span class="jsr">switch</span>( intUserLevel )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">case</span> 0 :</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>print_admin_menu();</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">break</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">case</span> 1 :</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>print_moderator_menu();</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">break</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">case</span> 2 :</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>print_standart_menu();</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">break</span>;</li>
+					<li><span class="tab">&nbsp;</span><span class="cmt">// Eğer hiç biri değilse</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr"><strong>default</strong></span>:</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( 'Hatalı Kullanıcı!' );</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">break</span>;</li>
+					<li>}</li>
+				</ol>
+				
+				<h4>Conditional (Ternary)</h4>
+				<div class="syn">
+					koşul <strong>?</strong> <em>true ise</em> <strong>:</strong> <u>false ise</u>
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> a = 5;</li>
+					<li><span class="jsr">var</span> b = ( a > 4 ) ? 'büyük' : 'küçük';</li>
+					<li><span class="jsc">window</span>.<span class="jsr">alert</span>( b ); <span class="cmt">// büyük</span></li>
+				</ol>
+				<p>
+					Eğer <strong>a</strong> 4&rsquo;ten büyük ise <strong>b</strong>&rsquo;nin değeri <strong>büyük</strong>,
+					değil ise <strong>küçük</strong> olacaktır.
+				</p>
+			</div>
+		</div>
+
+		<h3>Döngüler ( for / while )</h3>
+		<div class="block">
+			<div class="float">
+				<h4>for</h4>
+				<p>Döngü yapmak için kullanılır. 3 parametre belirlenir. Başlangıç , koşul, koşul true ise ne olacağı</p>
+				<ol class="code">
+					<li><span class="jsr">for</span>( <span class="jsr">var</span> i = 0; i < 5 ; i++ )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cmt">// döngü içindeki alan</span></li>
+					<li>}</li>
+				</ol>
+				<p><strong>Başlangıç</strong> : 0 ( <em>var i = 0</em> )</p>
+				<p><strong>Koşul</strong> : i, 5&rsquo;ten küçük olduğu sürece ( <em>i < 5</em> )</p>
+				<p><strong>Koşul true ise</strong> : i&rsquo;yi arttır. ( <em>i++</em> )</p>
+				<p>
+					i, 5&rsquo;ten küçük olduğu sürece <strong>i++</strong> işleyecek ve her defasında i, birer birer artacak.
+					Eğer i&rsquo;nin 2şer 2şer artmasını isteseydik, <strong>i+=2</strong> yazmamız gerekecekti.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">for</span>( <span class="jsr">var</span> i = 0; i < 5 ; i++ )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( i );</li>
+					<li>}</li>
+				</ol>
+				<p>i, 5&rsquo;ten küçük olduğu sürece alert olacak. 0,1,2,3 ve son olarak 4 alert edecek.</p>
+			</div>
+			<div class="float">
+				<h4>while</h4>
+				<p>for gibi kullanılır. Bazen duruma göre tercih edilebilir.</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> i = 0;</li>
+					<li><span class="jsr">while</span>( i < 10 ) <span class="cmt">// Aşağıdaki durum, i 10&rsquo;dan küçük olduğu sürece işler</span></li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( i );</li>
+					<li><span class="tab">&nbsp;</span>i++;<span class="cmt">// eğer bunu satır olmazsa sonsuz döngü olur.</span></li>
+					<li>}</li>
+				</ol>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

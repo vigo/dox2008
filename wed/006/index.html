@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Web Geliştirme Eğitimi Dersleri, 006 , 2 Ocak 2008, Çarşamba</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta http-equiv="Content-Style-Type" content="text/css"/>
+			<meta name="author" content="Uğur 'vigo' Özyılmazel"/>
+			<meta name="keywords" content="html xhtml css javascript web php database mysql svn development code coding programming"/>
+			<meta name="description" content="Web uygulama / geliştirme ile ilgili eğitim. BOX Model, Positioning, Hesaplamalar, Floating"/>
+			<meta name="copyright" content="2007 - Uğur Özyılmazel"/>
+			<meta name="date" content="2008-01-02T09:00:00+02:00"/>
+			<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+			<meta http-equiv="Last-Modified" content="Thu, 03 Jan 2008 21:50:46 GMT"/>
+			<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+			<meta http-equiv="Pragma" content="no-cache"/>
+			<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	</head>
+	<body>
+		<div id="canvas">
+			<div id="info">
+				<h1>Web Geliştirme Eğitimi Dersleri, 006</h1>
+				<h2>2 Ocak 2008, Çarşamba</h2>
+			</div>
+			
+			<div class="row">
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="http://www.w3.org/TR/REC-CSS2/box.html">Box Model</a></p>
+					<p><a target="_blank" href="http://www.w3.org/TR/REC-CSS2/visudet.html#Computing_widths_and_margins">Computing Widths and Margins</a></p>
+				</div>
+				<h3>BOX MODEL</h3>
+				<p>XHTML için kutu model sistemi.</p>
+				<div class="iflt">
+					<div><p><img src="files/w3c-box-dimensions.gif" alt="W3C Box Model Şeması"/></p><p>W3C Box Model Şeması</p></div>
+					<div>
+						<h4>İlgili CSS Komutları</h4>
+						<ul>
+							<li>width:<ol><li>max-width:</li><li>min-width:</li></ol></li>
+							<li>height:<ol><li>max-height:</li><li>min-height:</li></ol></li>
+							<li>padding:<ol><li>padding-top:</li><li>padding-right:</li><li>padding-bottom:</li><li>padding-left:</li></ol></li>
+							<li>margin:<ol><li>margin-top:</li><li>margin-right:</li><li>margin-bottom:</li><li>margin-left:</li></ol></li>
+							<li>border:<ol><li>border-top:</li><li>border-right:</li><li>border-bottom:</li><li>border-left:</li></ol></li>
+						</ul>
+					</div>
+				</div>
+
+				<h4>max-width: | min-width:</h4>
+				<p>Yeni bir komuttur. Modern browser&rsquo;lar içindir. Herzaman olduğu gibi IE6&rsquo;da çalışmaz. Render&rsquo;dan sonra, elementin width&rsquo;i istenilenden <strong>büyük</strong> yada <strong>küçük</strong> çıkarsa burada yazan değerler devreye girer.</p>
+			
+				<h4>max-height: | min-height:</h4>
+				<p>Yeni bir komuttur. Modern browser&rsquo;lar içindir. Herzaman olduğu gibi IE6&rsquo;da çalışmaz. Render&rsquo;dan sonra, elementin height&rsquo;ı istenilenden <strong>büyük</strong> yada <strong>küçük</strong> çıkarsa burada yazan değerler devreye girer.</p>
+				<ol class="code">
+					<li><span class="h">div</span>#box</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">max-width:</span> 300px;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">max-height:</span> 400px;</li>
+					<li>}</li>
+					<li><span class="cco">/* Ne olursa olsun width 300px’i, height da 400px’i geçemez! */</span></li>
+					<li><span class="cco">/* Scroll-Bar durumu elementin overflow:&rsquo;una bağlıdır. */</span></li>
+				</ol>
+				<p>
+					Sizin istediğiniz, <strong>id</strong>&rsquo;si <strong>box</strong> olan element&rsquo;in
+					( <em>muhtemelen bu bir <strong>div</strong></em> ) genişliği <strong>300px</strong>&rsquo;li geçmesin.
+					Yada yükseklik en fazla <strong>400px</strong> olsun. asp yada php gibi dinamik programlama dilleri ile
+					çalışırken bu özellik çok işe yarar.
+				</p>
+				<p>
+					 Düşününki veritabanı&rsquo;ndan <strong>30 kayıt</strong> çektiniz ve bir div için alt alta
+					 ( <em><strong>p</strong> içinde</em> ) basıyorsunuz. Gelen kayıtta yazan text&rsquo;in ekranda ne kadarlık
+					 bir genişlik / yükseklik kaplayacağını kestiremezseniz bunu css ile fixlemek için
+					 <strong>max-width:</strong> / <strong>max-height:</strong> kullanabilirsiniz.
+				</p>
+
+				<h4>border:</h4>
+				<p>Shorthand kullanımdır. Aldığı parametreler ; <strong>border-width:</strong>, <strong>border-style:</strong> ve <strong>border-color:</strong> &rsquo;dır.</p>
+				
+				<h4>border-width:</h4>
+				<p>Ölçü sistemindeki değerlerden alır. ( px , em , cm ... ) Ekstra olarak : <strong>thin</strong> | <strong>medium</strong> | <strong>thick</strong> şeklinde, browser&rsquo;a bağlı kalınlıklarda border da olabilir. Bu çok tercih edilen bir <strong>metod değildir</strong>.</p>
+				<p>Bu tarz kullanımda tüm border&rsquo;lara değer atanmış olur. <strong>border-width:</strong> 5px; dendiğinde <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong>, <strong>left</strong> border&rsquo;ların hepsinin <strong>width&rsquo;i 5px</strong> olur.</p>
+				
+				<h4>border-style:</h4>
+				<p>Parametreleri : <strong>none</strong> | <strong>hidden</strong> | <strong>dotted</strong> | <strong>dashed</strong> | <strong>solid</strong> | <strong>double</strong> | <strong>groove</strong> | <strong>ridge</strong> | <strong>inset</strong> | <strong>outset</strong> şeklindedir.</p>
+				<p>Border tanımlamalarında genelde <strong>solid</strong> kullanılır. IE7 ve diğer modern browser&rsquo;larda <strong>dotted</strong> ve <strong>dashed</strong> sağlıklı çalışırken, IE6&rsquo;da dotted özelliği <strong>dashed</strong> olarak çalışır.</p>
+				<p>Bu tarz kullanımda tüm border&rsquo;lara değer atanmış olur. <strong>border-style:</strong> solid; dendiğinde <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong>, <strong>left</strong> border&rsquo;ların hepsinin <strong>stil&rsquo;i solid</strong> olur.</p>
+				
+				<h4>border-color:</h4>
+				<p>Renk sistemindeki değerleri alır.</p>
+				<p>Bu tarz kullanımda tüm border&rsquo;lara değer atanmış olur. <strong>border-color:</strong> red; dendiğinde <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong>, <strong>left</strong> border&rsquo;ların hepsinin <strong>rengi&rsquo;i kırmızı</strong> olur.</p>
+				
+				<h4>border-top: | border-right: | border-bottom: | border-top:</h4>
+				<p>Her border&rsquo;a tek tek ulaşmayı sağlar. Shorthand şeklinde çalışır. 3 parametre alır. <strong>border-width</strong>, <strong>border-style</strong> ve <strong>border-color</strong>. Aynen border: gibi çalışır sadece ilgili border&rsquo;a müdahale eder.</p>
+				
+				<h4>Hesap</h4>
+				<ol class="code">
+					<li><span class="cco">/*</span></li>
+					<li><span class="cco">KUTU_GENİŞLİK = ( width + ( left padding + right padding ) ) + ( left border + right border )</span></li>
+					<li><span class="cco">KUTU_YÜKSEKLİK = ( height + ( top padding + bottom padding ) ) + ( top border + bottom border )</span></li>
+					<li><span class="cco">*/</span></li>
+					<li>#box</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 300px;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">padding:</span> 10px;</li>
+					<li><span class="tab">&nbsp;</span><span class="cco">/* Oluşacak kutu’nun genişliği : 300 + ( 10 + 10 ) = 320px, kutu içinde kalan CONTENT ise width değeri yani 300px olacaktır. */</span></li>
+					<li>}</li>
+					<li>#box2</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">width:</span> 300px;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">padding:</span> 10px;</li>
+					<li><span class="tab">&nbsp;</span><span class="cc">border:</span> 5px;</li>
+					<li><span class="tab">&nbsp;</span><span class="cco">/* Oluşacak kutu’nun genişliği : 300 + ( 10 + 10 ) + ( 5 + 5 ) = 330px, kutu içinde kalan CONTENT ise width değeri yani 300px olacaktır. */</span></li>
+					<li>}</li>
+				</ol>
+
+				<h4>Not</h4>
+				<p>
+					*** Marjin bilgisi, box&rsquo;ın görsel ölçüsünü bozmaz. Sadece içinde bulunduğu elemente göre pozisyon almasını sağlar ( <strong>parentNode</strong>&rsquo;una göre ).
+					Herzaman olduğu gibi, IE6&rsquo;da <strong>double margin-bug</strong> adında bir hata vardır. Float eden elementler&rsquo;de olur. <span class="cs">margin-right:</span> 20px; dediğinizde
+					IE6 x2 yani sağda <strong>40px</strong> marjin bırakır.
+				</p>
+			</div>
+
+			<div class="row">
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS1#floating-elements">Floating elements CSS1</a></p>
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS21/visuren.html#positioning-scheme">Positioning schemes CSS 2.1</a></p>
+				</div>
+				<h3>Positioning</h3>
+				<p>
+					Görsel yerleşim için kullanılır. Tüm elementler default olarak <strong>relative</strong> pozisyon&rsquo;dadırlar.
+					En basit yerleşim elemanı olarak <strong>margin:</strong> kullanılabilir.
+				</p>
+
+				<h4>Koordinat Sistemi</h4>
+				<div class="iflt" style="margin-top: 40px;">
+					<div><p><img src="files/uzay-browser.gif" alt="Uzay - Bilgisayar Koordinatları"/></p><p>Uzay - Bilgisayar Koordinatları</p></div>
+					<div style="width: 40%;">
+						<ul>
+							<li>Bilgisayar ekranının sol üst köşesi <strong>0,0</strong>&rsquo;dır.</li>
+							<li>Eksi değerlerle ( <em>0&rsquo;dan küçük</em> ) ekranın dışına ( <em>yada görünmeyen</em> ) çıkılabilir!</li>
+							<li><strong>body</strong>&rsquo;nin yüksekliğinden yada genişliğinden büyük değerler de ekran dışına çıkabilir!</li>
+							<li><strong>position:</strong> ve <strong>margin:</strong> için negatif sayılar ( <strong>-100px gibi</strong> ) kullanılabilir.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="nav">
+				Tercihler : <span><a href="../index.html">İndeks</a> </span><span><a href="../005/index.html">&lt; Önceki</a> </span><a href="../007/index.html">Sonraki &gt;</a>
+			</div>
+			<div id="footer">
+				<span>&copy; 2007</span><span>Uğur &ldquo;vigo&rdquo; Özyılmazel</span><span>vigo@bilgi.edu.tr</span>http://ugur.ozyilmazel.com
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #013</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #013</h1>
+			<h2>9 Nisan 2008, Çarşamba</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../012/index.html">&lt; Önceki ( 012 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../014/index.html">Sonraki ( 014 ) &gt;</a></span>
+		</div>
+		
+		<div class="block">
+			<h4>Tabbed Menü Sistemi</h4>
+			<div class="float">
+				<p>
+					Amacımız, client-side&rsquo;a çalışacak, dinamik <strong>TABBED</strong> Menü sistemi yapmak. 
+					Elimizde <strong>menü</strong> ve <strong>sayfalar</strong> var. Yapmamız gereken, menü ile sayfa arasında bir bağ kurmak.
+				</p>
+				<p>
+					<em>myPages</em> adında bir obje üretiyoruz. Metodları ve özellikleri :
+				</p>
+				<ul>
+					<li><strong>menu</strong> : <span class="jsc">Array</span></li>
+					<li><strong>contents</strong> : <span class="jsc">Array</span></li>
+					<li><strong>addPageItem</strong> : <span class="jsr">function</span>( pageID , htmlContent )</li>
+					<li><strong>addMenuItem</strong> : <span class="jsr">function</span>( pageID , menuTitle )</li>
+					<li><strong>publish</strong> : <span class="jsr">function</span>( pageID )</li>
+				</ul>
+				<p>
+					<strong>menu</strong> array&rsquo;ine, <strong>obje</strong> olarak; 
+					{ '<strong>page_id</strong>' : <em>pageID</em> , '<strong>html_content</strong>' : <em>htmlContent</em> } yerleştiriyoruz. 
+					Aynı şekilde, <strong>contents</strong> array&rsquo;ine de <strong>obje</strong> olarak; 
+					{ '<strong>page_id</strong>' : <em>pageID</em> , '<strong>title</strong>' : <em>menuTitle</em> } yerleştiriyoruz. 
+					menu ve contents arasında ortak olan şey : <em>pageID</em>
+				</p>
+				<p>
+					<em>myPages.<strong>addMenuItem</strong>( 'SAYFA_NO' , 'MENÜ_ADI' );</em><br/>
+					<em>myPages.<strong>addPageItem</strong>( 'SAYFA_NO' , 'HTML_İÇERİK' );</em><br/>
+					şeklinde gerekli array&rsquo;lerin içlerini dolduruyoruz.
+				</p>
+				<p>
+					Çalışan örneği görmek için <a target="_blank" href="files/ders13.html">tıklayın</a>.
+				</p>
+			</div>
+			<div class="float">
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myPages</em> = {</li>
+					<li><span class="tab">&nbsp;</span>menu : []</li>
+					<li><span class="tab">&nbsp;</span>,</li>
+					<li><span class="tab">&nbsp;</span>contents : []</li>
+					<li><span class="tab">&nbsp;</span>,</li>
+					<li><span class="tab">&nbsp;</span>addPageItem : <span class="jsr">function</span> ( pageID , htmlContent )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">this</span>.contents.<span class="jso">push</span>( { 'page_id' : pageID , 'html_content' : htmlContent } );</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>,</li>
+					<li><span class="tab">&nbsp;</span>addMenuItem : <span class="jsr">function</span> ( pageID , menuTitle )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">this</span>.menu.<span class="jso">push</span>( { 'page_id' : pageID , 'title' : menuTitle } );</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>,</li>
+					<li><span class="tab">&nbsp;</span>publish : <span class="jsr">function</span> ( pageID )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">var</span> strMenuOut = '&lt;ul id="menu"&gt;';</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">for</span>( <span class="jsr">var</span> index <span class="jsr">in</span> <span class="jsr">this</span>.menu )</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">var</span> strMenuPageID = <span class="jsr">this</span>.menu[ index ][ 'page_id' ];</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">var</span> strMenuTitle = <span class="jsr">this</span>.menu[ index ][ 'title' ];</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">var</span> li_css = ' class="current"';</li>
+					<li>&nbsp;</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">if</span>( pageID != strMenuPageID )</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>li_css = '';</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>strMenuTitle = '&lt;a <span class="jso">href</span>="javascript:void(0);" onclick="<em>myPages</em>.publish( \''</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>+ strMenuPageID + '\' );<span class="jsr">return</span> <span class="jso">false</span>;"&gt;'</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>+ strMenuTitle + '&lt;\/a&gt;';</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li>&nbsp;</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>strMenuOut+= '&lt;li' + li_css + '&gt;' + strMenuTitle + '&lt;\/li&gt;';</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>strMenuOut+= '&lt;\/ul&gt;';</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">var</span> strContentOut = '';</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">for</span>( <span class="jsr">var</span> index <span class="jsr">in</span> <span class="jsr">this</span>.contents )</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">var</span> strPageID = <span class="jsr">this</span>.contents[ index ][ 'page_id' ];</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">var</span> strHTMLContent = <span class="jsr">this</span>.contents[ index ][ 'html_content' ];</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">if</span>( strPageID == pageID )</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>strContentOut = '&lt;div class="text"&gt;' + strHTMLContent + '&lt;\/div&gt;';</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsc">document</span>.<span class="jsr">getElementById</span>( 'canvas' ).<span class="jso">innerHTML</span> = strMenuOut + strContentOut;</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li>};</li>
+					<li>&nbsp;</li>
+					<li><span class="jsc">window</span>.onload = <span class="jsr">function</span> ()</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><em>myPages</em>.addMenuItem( 'SAYFA1' , 'Ana Sayfa' );</li>
+					<li><span class="tab">&nbsp;</span><em>myPages</em>.addMenuItem( 'SAYFA2' , 'Hakkımızda' );</li>
+					<li><span class="tab">&nbsp;</span><em>myPages</em>.addMenuItem( 'SAYFA3' , 'İletişim' );</li>
+					<li>&nbsp;</li>
+					<li><span class="tab">&nbsp;</span><em>myPages</em>.addPageItem( 'SAYFA1' , '&lt;h1&gt;Merhaba!&lt;\/h1&gt;&lt;p&gt;Ana Sayfa yazısı...&lt;\/p&gt;' );</li>
+					<li><span class="tab">&nbsp;</span><em>myPages</em>.addPageItem( 'SAYFA2' , '&lt;h1&gt;Biz Kimiz?&lt;\/h1&gt;&lt;p&gt;Hakkımızda yazısı...&lt;\/p&gt;' );</li>
+					<li><span class="tab">&nbsp;</span><em>myPages</em>.addPageItem( 'SAYFA3' , '&lt;h1&gt;Adreslerimiz&lt;\/h1&gt;&lt;p&gt;Telefon : 123 456&lt;\/p&gt;' );</li>
+					<li>&nbsp;</li>
+					<li><span class="tab">&nbsp;</span><em>myPages</em>.publish( 'SAYFA1' );</li>
+					<li>}</li>
+				</ol>
+				<ol class="code">
+					<li><span class="jsr">&lt;body</span><span class="jsr">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;div</span> <span class="jsc">id</span>="<em>canvas</em>"<span class="jsr">&gt;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">&lt;/div</span><span class="jsr">&gt;</span></li>
+					<li><span class="jsr">&lt;/body</span><span class="jsr">&gt;</span></li>
+				</ol>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

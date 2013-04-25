@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Ders 006, Örnek 03</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<style type="text/css" media="screen">
+		body
+		{
+			color: #000;
+			background: #fff;
+			margin: 0px;
+			padding: 0px;
+			font: normal normal normal 1em/1.5em 'Lucida Grande' , 'Lucida Sans Unicode' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+		}
+		
+		form , p
+		{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		div
+		{
+			overflow: hidden;
+		}
+
+		a:link , a:active , a:visited
+		{
+			background: transparent;
+			color: #007;
+			text-decoration: underline;
+		}
+
+		a:hover
+		{
+			text-decoration: none;
+		}
+
+		h1 , h2 , h3 , h4 , h5 , h6
+		{
+			font-weight: normal;
+			margin: 0px 0px 1px 0px;
+			padding: 0px;
+			line-height: 1.3em;
+		}
+		
+		h1
+		{
+			font-size: 3em;
+		}
+		
+		h2
+		{
+			font-size: 2.8em;
+		}
+		
+		h3
+		{
+			font-size: 2.6em;
+		}
+		
+		h4
+		{
+			font-size: 2.4em;
+		}
+		
+		h5
+		{
+			font-size: 2.2em;
+		}
+		
+		h6
+		{
+			font-size: 2em;
+		}
+		
+		#canvas
+		{
+			width: 768px;
+			margin: 0px auto;
+		}
+
+		#category_items dl
+		{
+			width: 100%;
+			overflow: hidden;
+			margin: 0px;
+			padding: 0px;
+			border-bottom: 1px dotted #000;
+		}
+
+		#category_items dt
+		{
+			margin: 0px;
+			padding: 0px;
+			width: 150px;
+			display: inline;
+			float: left;
+			font-weight: bold;
+		}
+		
+		#category_items dd
+		{
+			margin: 0px;
+			padding: 0px;
+			display: inline;
+			float: left;
+		}
+		
+		#category_items .block
+		{
+			width: 100%;
+			overflow: hidden;
+			margin-bottom: 10px;
+		}
+
+	</style>
+	<script type="text/javascript">
+	//<![CDATA[
+		var myShop = {
+			'Klasik' : {
+				 '001' : {
+					 'title' : "Mozart ve Sevgi"
+					,'artist' : "Mozart"
+					,'year' : 1911
+				}
+				,'002' : {
+					 'title' : "9.Senfoni"
+					,'artist' : "Betofın"
+					,'year' : 1913
+				}
+			}
+			,'Hip Hop' : {
+				'006' : {
+					 'title' : "Down with the King"
+					,'artist' : "Run DMC"
+					,'year' : 1993
+				}
+				,'005' : {
+					 'title' : "Touch This"
+					,'artist' : "Mc Hammer"
+					,'year' : 1992
+				}
+			}
+			,'Rock' : {
+				'003' : {
+					 'title' : "Justice for all"
+					,'artist' : "Metallica"
+					,'year' : 1991
+				}
+				,'004' : {
+					 'title' : "Loaded into it"
+					,'artist' : "Rage Against the Machine"
+					,'year' : 1998
+				}
+			}
+		}
+
+		var myDictinary = {
+			 'title' : "Albüm Adı"
+			,'artist' : "Sanatçı"
+			,'year' : "Yıl"
+		}
+
+		function getObjectLength( objObject )
+		{
+			// objede length kavramı yoktur. kendimiz hesaplamalıyız !!!
+			var i = 0;
+			for( var key in objObject )
+			{
+				i++;
+			}
+			return i;
+		}
+
+		
+		function printCategories()
+		{
+			var strHtmlOut = '';
+			var myObjectLength = getObjectLength( myShop );
+			var i = 0;
+			strHtmlOut+= '<p>';
+			for( var strCategoryTitle in myShop )
+			{
+				strHtmlOut+= '<a href="javascript:void(0);" onclick="showSelectedCategory(\'' + strCategoryTitle + '\');">' + strCategoryTitle + '<\/a>'
+				i++;
+				strHtmlOut+= ( i < myObjectLength ) ? ' | ' : '';
+			}
+			strHtmlOut+= '<\/p>';
+			document.getElementById( 'categories' ).innerHTML = strHtmlOut;
+		}
+		
+		function showSelectedCategory( strCategoryTitle )
+		{
+			var mySelectedCategory = myShop[ strCategoryTitle ];
+			var strHtmlOut = '';
+			strHtmlOut+= '<h1>' + strCategoryTitle + '<\/h1>';
+			for( var strItemID in mySelectedCategory )
+			{
+				strHtmlOut+= '<div class="block">';
+					for( var strDetails in mySelectedCategory[ strItemID ] )
+					{
+						strHtmlOut+= ''
+							+ '<dl>'
+								+ '<dt>' + myDictinary[ strDetails ] + '<\/dt>'
+								+ '<dd>' + mySelectedCategory[ strItemID ][ strDetails ] + '<\/dd>'
+							+ '<\/dl>';
+					}
+					strHtmlOut+= ''
+							+ '<dl>'
+								+ '<dt>&nbsp;<\/dt>'
+								+ '<dd><a href="buy.php?id=' + strItemID + '">Satın Al<\/a><\/dd>'
+							+ '<\/dl>'
+					+ '<\/div>';	
+			}
+			document.getElementById( 'category_items' ).innerHTML = strHtmlOut;
+		}
+		
+		function init()
+		{
+			printCategories();
+		}
+
+	//]]>
+	</script>
+</head>
+<body onload="init();">
+	<div id="canvas">
+		<div id="categories"></div>
+		<div id="category_items"></div>
+	</div>
+</body>
+</html>

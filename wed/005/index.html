@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Web Geliştirme Eğitimi Dersleri, 005 , 28 Aralık 2007, Cuma</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta http-equiv="Content-Style-Type" content="text/css"/>
+			<meta name="author" content="Uğur 'vigo' Özyılmazel"/>
+			<meta name="keywords" content="html xhtml css javascript web php database mysql svn development code coding programming"/>
+			<meta name="description" content="Web uygulama / geliştirme ile ilgili eğitim. CSS Renk tanımlamaları, CSS Renk sistemleri, CSS Ölçü birimleri."/>
+			<meta name="copyright" content="2007 - Uğur Özyılmazel"/>
+			<meta name="date" content="2007-12-28T09:00:00+02:00"/>
+			<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+			<meta http-equiv="Last-Modified" content="Thu, 03 Jan 2008 21:50:46 GMT"/>
+			<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+			<meta http-equiv="Pragma" content="no-cache"/>
+			<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	</head>
+	<body>
+		<div id="canvas">
+			<div id="info">
+				<h1>Web Geliştirme Eğitimi Dersleri, 005</h1>
+				<h2>28 Aralık 2007, Cuma</h2>
+			</div>
+			
+			<div class="row">
+				<h3>Renk Tanımlamaları ve Sistemleri</h3>
+				<p>
+					Renkler <strong>R - G - B</strong> ( RED/KIRMIZI , GREEN/YEŞİL , BLUE/MAVİ ) sisteminden oluşur. 
+					Her renk elektronu için maksimum 256 ( 0 - 255 arası ) ton tanımladığımız için, toplamda <strong>3 BYTE</strong> kullanırız. 
+					Her byte = <strong>8 BIT</strong> olduğu için, 3 x 8 = <strong>24 BIT</strong> olur.
+				</p>
+				<pre>1 BYTE = 8 BIT = 11111111 = 255 ( 0 ile beraber = 256 renk )&#10;3 BYTE = 24 BIT = 111111111111111111111111 = 16.777.215 ( 0 ile beraber = 16.777.216 renk )&#10;4 BIT = 1111 = 15 = F&#10;3 TANE 4 BIT = 12 BIT</pre>
+				<p>3 tür&rsquo;de renk tanımlanır;</p>
+				
+				<h4>24bit Hex</h4>
+				<p>Renk değeri, 0-255 arası ifade edilir. Rengin 256 tane tonu olur. 0 = 00 , 255 = FF. Her renk elektronu 8 BIT ile ifade edilir.</p>
+				<ol class="code">
+					<li><span class="h">span</span> { <span class="cc">color:</span> #ff0000; } <span class="cco">/* KIRMIZI = 255 , YEŞİL = 0 , MAVİ = 0 */</span></li>
+					<li><span class="h">span</span> { <span class="cc">color:</span> #ffff00; } <span class="cco">/* KIRMIZI = 255 , YEŞİL = 255 , MAVİ = 0 sonuç = SARI*/</span></li>
+				</ol>
+				
+				<h4>12bit Hex</h4>
+				<p>Renk değeri, 0-15 arası ifade edilir. Rengin 16 tane tonu olur. 0 = 0 , 15 = F. Her renk elektronu <strong>4 BIT</strong> ile ifade edilir.</p>
+				<ol class="code">
+					<li><span class="h">span</span> { <span class="cc">color:</span> #f00; } <span class="cco">/* KIRMIZI = 15 , YEŞİL = 0 , MAVİ = 0 */</span></li>
+					<li><span class="h">span</span> { <span class="cc">color:</span> #ff0; } <span class="cco">/* KIRMIZI = 15 , YEŞİL = 15 , MAVİ = 0 sonuç = SARI*/</span></li>
+				</ol>
+
+				<h4>24bit Decimal</h4>
+				<p>Aynı 24Bit Hex gibi 0-255 arası ifade edilir sadece yazılım şekli 10&rsquo;lu sisteme göredir ve komut farklı yazılır.</p>
+				<ol class="code">
+					<li><span class="h">span</span> { <span class="cc">color:</span> rgb(255 , 0 , 0 ); } <span class="cco">/* KIRMIZI = 255 , YEŞİL = 0 , MAVİ = 0 */</span></li>
+				</ol>
+			</div>
+
+			<div class="row">
+				<h3>Ölçü Birimleri ve Ölçü Sistemi</h3>
+				<p>Uzunluk, genişlik, yükseklik gibi, boyut yada pozisyon işlemlerinde kullandığımız birimlerdir.</p>
+				<ul>
+					<li><strong>px</strong> : pixel ( <em>piksel</em> )</li>
+					<li><strong>em</strong> : font-size ( <em>varsayılan font boyuna göre</em> )</li>
+					<li><strong>ex</strong> : x-height ( <em>font yüksekliğine göre</em> ** )</li>
+					<li><strong>in</strong> : inch : ( <em>inç</em> )</li>
+					<li><strong>cm</strong> : centimeters ( <em>santimetre</em> )</li>
+					<li><strong>mm</strong> : millimeters ( <em>milimetre</em> )</li>
+					<li><strong>pt</strong> : pointes ( <em>punto, 1 punto = 1 inç&rsquo;in 1/72&rsquo;si</em> )</li>
+					<li><strong>pc</strong> : picas ( <em>1 pica = 12 punto</em> )</li>
+					<li><strong>%</strong> : percentages ( <em>Yüzde ile göreceli</em> )</li>
+				</ul>
+
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="http://www.w3.org/TR/CSS21/syndata.html#length-units">Lengths / Units</a></p>
+				</div>
+				<h4>px</h4>
+				<p>
+					PIXEL anlamındadır. ( <em>Piksel</em> ) En çok kullandığımız ve kullanacağımız ölçü birimidir.
+					Piksel büyüklüğü, görüntülenen cihaza bağlıdır. Eğer bu cihaz bir bilgisayar monitörü ise, o monitörün
+					çözünürlüğüne bağlı olarak ( <em>Desktop ölçüleri ve ekran DPI bilgisine göre</em> )
+					değişim gösterir.
+				</p>
+				<div class="iflt">
+					<div>
+						<p><img src="files/pixel1.gif" alt="Cihaza göre piksel tanımlanması" title="Cihaza göre piksel tanımlanması"/></p>
+						<p>Cihaza göre piksel tanımlanması ( w3c )</p>
+					</div>
+					<div>
+						<p><img src="files/pixel2.gif" title="Referans ve Cihaz arasındaki ilişki - dot oluşumu" alt="Referans ve Cihaz arasındaki ilişki - dot oluşumu"/></p>
+						<p>Referans ve Cihaz arasındaki ilişki - dot oluşumu ( w3c )</p>
+					</div>
+				</div>
+
+				<div class="goodies">
+					<h6>Linkler</h6>
+					<p><a target="_blank" href="http://www.w3.org/WAI/GL/css2em.htm">The amazing em unit and other best practices</a></p>
+					<p><a target="_blank" href="http://www.alistapart.com/articles/howtosizetextincss">How to Size Text in CSS</a></p>
+					<p><a target="_blank" href="http://www.alistapart.com/articles/sizematters/">Size Matters</a></p>
+					<p><a target="_blank" href="http://www.yourhtmlsource.com/stylesheets/csstext.html">http://www.yourhtmlsource.com/stylesheets/csstext.html</a></p>
+				</div>
+				<h4>em</h4>
+				<p>
+					User Agent&rsquo;ın ( <em>kısaca UA : Kullandığımız browser ne ise</em> ) <strong>default</strong> ( <em>varsayılan</em> )
+					font&rsquo;u baz alınır. Örneğin Firefox&rsquo;un ayarlarına baktığınızda aşağıdaki gibi
+					( <em>eğer daha önce siz değiştirmediyseniz</em> ) <strong>16px</strong> görebilirsiniz.
+				</p>
+				<p>Keza, browser&rsquo;dan re-size edilebilir. ( <em>IE / FF için : View &gt; Text Size</em> )</p>
+				<div class="iflt">
+					<div>
+						<p><img src="files/firefox-setup.gif" alt="Default Firefox Setup Ekranı"/></p>
+						<p>Default Firefox Setup Ekranı</p>
+					</div>
+					<div>
+						<ol class="code">
+							<li><span class="cco">/* Kullanıcının Browser’ında, default<br/>font-size’ının 14px olduğunu düşünelim. */</span></li>
+							<li><span class="h">div</span> { <span class="cc">font-size:</span> 1em; } <span class="cco">/* 1em = 1 x 14px = 14px */</span></li>
+							<li><span class="h">p</span> { <span class="cc">font-size:</span> 0.75em; } <span class="cco">/* 0.75em = 0.75 x 14px = 10.5px */</span></li>
+						</ol>
+					</div>
+				</div>
+				
+				<h4>ex</h4>
+				<p>
+					İlgili element için tanımlanan font-family&rsquo;nin ilk parametresine bağlıdır.
+					( <em>font-family: 'Arial','Tahoma'; şeklinde bir deklarasyon var ise, ilk parametre <strong>Arial</strong> fontu olur.</em> )
+				</p>
+				<p>
+					Font boyu, ilgili font tipi içindeki harflerden <strong>küçük harfle x</strong> harfine göre hesaplanır. 
+					Yani yükseklik olarak <strong>x</strong> referans seçilir. <strong>ex</strong> kullanmak için illada
+					içinde <strong>küçük x harfi</strong> geçen font-family seçme mecburiyeti yoktur.
+					( <em>Yani <strong>font-family</strong> olarak <strong>Webdings</strong> kullansanız bile
+					<strong>ex</strong>&rsquo;i ölçü olarak kullanabilirsiniz.</em> )
+				</p>
+				<div class="iflt">
+					<div>
+						<p><img src="files/ex-sample.gif" alt="ex açıklama"/></p>
+					</div>
+				</div>
+				
+				<h4>in , cm , mm</h4>
+				<p><strong>in</strong> İNÇ anlamındadır. 1 inch = 2,54 cm ( santimetre )</p>
+				<p><strong>cm</strong> bildiğimiz santimetre anlamındadır. Print-Out işlemleri için kullanılır.</p>
+				<p><strong>mm</strong> bildiğimiz milimetre anlamındadır. 10 mm = 1 cm. Print-Out işlemleri için kullanılır.</p>
+				
+				<h4>pt , pc</h4>
+				<p>1 pt = 0,138 in = 0,03 cm</p>
+				<p>Sans-Serif type için 12 pt ( punto ) default.</p>
+				<p>1 pc = 12 pt</p>
+				
+				<h4>%</h4>
+				<p>Elementin <strong>parentNode</strong>&rsquo;una göre, göreceli olarak ölçünün belirlenmesidir.</p>
+				<ol class="code">
+					<li>#canvas { <span class="cc">width:</span> 500px; }</li>
+					<li>#canvas #box { <span class="cc">width:</span> 50%; }</li>
+					<li><span class="cco">/* id’si canvas olan elementin altındaki id’si box olan elementin boyu 500px’in %50’si olur = 250px */</span></li>
+				</ol>
+
+			</div>
+
+			<div id="nav">
+				Tercihler : <span><a href="../index.html">İndeks</a> </span><span><a href="../004/index.html">&lt; Önceki</a> </span><a href="../006/index.html">Sonraki &gt;</a>
+			</div>
+			<div id="footer">
+				<span>&copy; 2007</span><span>Uğur &ldquo;vigo&rdquo; Özyılmazel</span><span>vigo@bilgi.edu.tr</span>http://ugur.ozyilmazel.com
+			</div>
+		</div>
+	</body>
+</html>

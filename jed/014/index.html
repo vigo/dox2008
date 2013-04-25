@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #014</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #014</h1>
+			<h2>10 Nisan 2008, Perşembe</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../013/index.html">&lt; Önceki ( 013 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../015/index.html">Sonraki ( 015 ) &gt;</a></span>
+		</div>
+		
+		<div class="block">
+			<h4>Recursive Fonksiyon</h4>
+			<div class="float">
+				<p>
+					<strong>Kendini çağıran</strong> fonksiyon anlamına gelir. İç-içe derinlikli menü sistemlerinde, forum / bulletin tarzı 
+					sistemlerde kullandığımız bir işlemdir. Obje konusu işlerken, <em>key : value</em> durumundan bahsetmiştik. Obje içinde 
+					duran elemanlar, <em>key : value</em> şeklinde bulunurlar, hatta bazen <em>value</em>&rsquo;da bir obje olabilirdi!
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> myObject = {</li>
+					<li><span class="tab">&nbsp;</span>'<em>key</em>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'<em>key</em>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'<em>key</em>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'<em>key</em>' : "<strong>value</strong>"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li>}</li>
+				</ol>
+				<p><em>value</em>&rsquo;ye erişmek için;</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> mVal = <em>myObject</em>[ 'key' ][ 'key' ][ 'key' ][ 'key' ];</li>
+				</ol>
+				<p>
+					yapmak gerekecekti. Çünki obje içindeki <em>value</em> de bir <em>obje</em> olabiliyordu.
+				</p>
+				<p>
+					Şimdi iç içe derinliği olan bir <strong>ürünler listesi</strong> yapalım. Amacımız tek harkette bunu ekrana basmak.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> Menu = {</li>
+					<li><span class="tab">&nbsp;</span>'Ev Eşyaları' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'Beyaz Eşya' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span> 'Arçelik' : ""</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'Beko' : ""</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'Mobilya' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'Oturma Grubu' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span> 'Bellona' : ""</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'Çilek' : ""</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>,</li>
+					<li><span class="tab">&nbsp;</span>'Elektronik' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'Bilgisayar' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span> 'HP' : ""</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'Dell' : ""</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'Acer' : ""</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'Televizyon' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'Toshiba' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span> 'LCD' : ""</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'Plazma' : ""</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}<span class="tab">&nbsp;</span></li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'Sony' : ""</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li>};</li>
+				</ol>
+				<p>
+					5.satırdaki <strong>Beko</strong>, aslında, <strong>Ev Eşyaları</strong> ana kategorisinden, <strong>Beyaz Eşya</strong>&rsquo;ya ait.
+					Eğer biz <em>Menu[ 'Ev Eşyaları' ]</em> istesek bize <em>value</em> olarak bir obje dönecek. bunun içirisinde dolaştığımız zaman; 
+					<em>key</em>&rsquo;i <strong>Beyaz Eşya</strong> olanın <em>value</em>&rsquo;su de yine bir obje olacak. Yani sonuçta biz, 
+					<strong>Beko</strong>&rsquo;a ulaşmak için iç-içe 2-3 tane <em>forin</em> döngüsü yapmak zorunda kalıcaz.
+				</p>
+				<p>
+					İşin kötü yanı, diğer ürünlerdeki derinlik farklı olabilir. Yani birinde 3 tane <em>forin</em> yaparken, başka bir ürün grubu 
+					için belki 5 tane loop yapmak gerekebilir.
+				</p>
+			</div>
+			<div class="float">
+				<p>Bunun için <strong>Recursive</strong> işlem yapmamız gerekiyor. Böylece derinlik adedinden bağımsız işlem yapabiliriz.</p>
+				<ol class="code">
+					<li><span class="jsr">function</span> print_menu( <em>objObject</em> , strDeep )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">for</span>( <span class="jsr">var</span> <span class="jso">key</span> <span class="jsr">in</span> <em>objObject</em> )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsc">document</span>.<span class="jso">write</span>( '&lt;p&gt;' + strDeep + <span class="jso">key</span> + '&lt;\/p&gt;' );</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="jsr">if</span>( <span class="jsr">typeof</span>( <em>objObject</em>[ <span class="jso">key</span> ] ) == 'object' )</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>print_menu( <em>objObject</em>[ <span class="jso">key</span> ] , strDeep+'&gt;&gt;' );</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li>}</li>
+					<li>&nbsp;</li>
+					<li>print_menu( Menu , '' );</li>
+				</ol>
+				<p>
+					<em>print_menu</em> fonksiyonuna ilk çağrılışta içinde dolaşacağımız <strong>objeyi</strong> ( <em>Menu</em> ) ve ilk derinliği ( '' ) parametre olarak geçeriz. 
+					Fonksiyona aşağıdaki aşamalardan geçerek çalışır:
+				</p>
+				<ol>
+					<li>İlk <strong>key</strong> gelir. Bu : <em>Ev Eşyaları</em>dır.</li>
+					<li>Derinlik bilgisi olarak geçilen <em>strDeep</em>&rsquo;in değeri boştur. ( <em>Yani ''</em> )</li>
+					<li><em>&lt;p&gt;</em> içine : <em>BOŞ STRING</em> ve <em>Ev Eşyaları</em> yazılır.</li>
+					<li>Value&rsquo;ya bakılır, o an için value : <em>objObject[ key ]</em> yani <strong>Menu[ 'Ev Eşyaları' ]</strong>&rsquo;dan gelen değerdir.</li>
+					<li>Eğer o değer bir obje ise fonksiyon kendini çağırır. 2 parametre geçmesi gerekir, ilk parametre obje olmalı yani <strong>objObject[ key ]</strong> ( <em>Menu[ 'Ev Eşyaları' ]</em> ), ikinci parametre olarak derinlik. O an için BOŞ olan yani '' olana ( <em>strDeep</em> ) <strong>&gt;&gt;</strong> ekliyerek geçer.</li>
+					<li>Yani şuanda sakni <em>print_menu( Menu , '' );</em> yerine, <em>print_menu( Menu[ 'Ev Eşyaları' ] , '&gt;&gt;' );</em> demiş oluruz.</li>
+					<li>1.satırdaki <strong>key</strong> artık <em>Beyaz Eşya</em> olur.</li>
+					<li>2.satırdaki Derinlik bilgisi de <em>&gt;&gt;</em> olur.</li>
+					<li>3.satır yine <em>&lt;p&gt;</em> içine : <em>&gt;&gt;</em> ve <em>Beyaz Eşya</em> yazar.</li>
+					<li>4.satır aynı kontrolü yapar ve bu iş tüm key/value çifti bitene kadar sürer.</li>
+				</ol>
+				<p>
+					Derste yaptığımız detaylı örnek için <a target="_blank" href="files/ders15-recursive.html">tıklayın</a>.
+				</p>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

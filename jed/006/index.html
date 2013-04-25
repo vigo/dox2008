@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Javascript Eğitim Dersleri #006</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<link type="text/css" rel="stylesheet" href="../index.css" media="screen"/>
+	<link type="text/css" rel="stylesheet" href="../print.css" media="print"/>
+</head>
+<body>
+	<div id="canvas">
+		<div id="heading">
+			<h1>Javascript Eğitim Dersleri #006</h1>
+			<h2>25 Mart 2008, Salı</h2>
+		</div>
+		
+		<div id="navbar">
+			<span><a href="../index.html">İndeks</a>&nbsp;</span><span>|</span>
+			<span><a href="../005/index.html">&lt; Önceki ( 005 )</a>&nbsp;</span><span>|</span>
+			<span><a href="../007/index.html">Sonraki ( 007 ) &gt;</a></span>
+		</div>
+		
+		<div class="block">
+			<div class="float">
+				<h4>Mini-Ödev</h4>
+				<p>
+					Amacımız, hayali bir müzik dükkanının veritabanını javascript ile listelemek. Dükkandaki cd&rsquo;ler türlerine göre
+					kategorize edilmiş. Üç tür kategori bulunmakta; <strong>Klasik</strong>, <strong>Hip Hop</strong> ve <strong>Rock</strong>.
+					Önce ürünlerimizi bir <strong>obje</strong> üzerine yerleştirelim.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <em>myShop</em> = {</li>
+					<li><span class="tab">&nbsp;</span>'<strong>Klasik</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'<strong>001</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span> '<strong>title</strong>' : "Mozart ve Sevgi"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>artist</strong>' : "Mozart"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>year</strong>' : 1911</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>002</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span> '<strong>title</strong>' : "9.Senfoni"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>artist</strong>' : "Betofın"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>year</strong>' : 1913</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>,'<strong>Hip Hop</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'<strong>006</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span> '<strong>title</strong>' : "Down with the King"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>artist</strong>' : "Run DMC"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>year</strong>' : 1993</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>005</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span> '<strong>title</strong>' : "Touch This"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>artist</strong>' : "Mc Hammer"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>year</strong>' : 1992</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>,'<strong>Rock</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>'<strong>003</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span> '<strong>title</strong>' : "Justice for all"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>artist</strong>' : "Metallica"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>year</strong>' : 1991</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>004</strong>' : {</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span> '<strong>title</strong>' : "Loaded into it"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>artist</strong>' : "Rage Against the Machine"</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>,'<strong>year</strong>' : 1998</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li>}</li>
+				</ol>
+			</div>
+			<div class="float">
+				<p>Kategorileri listeleyelim;</p>
+				<ol class="code">
+					<li><span class="jsr">for</span>( <span class="jsr">var</span> <strong>strCategoryTitle</strong> <span class="jsr">in</span> <em>myShop</em> )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( <strong>strCategoryTitle</strong> );</li>
+					<li>}</li>
+				</ol>
+				<p><a target="_blank" href="ornek/ders006_ornek01.html">Source Download</a></p>
+				<hr/>
+				<p>
+					İlk satırda; <strong>myShop</strong> adlı nesnenin içindeki <strong>key</strong>, benim için <strong>strCategoryTitle</strong> olsun!
+					3 adet alert olacak, Klasik, Hip Hop ve Rock. Şimdi, denemek için, <strong>Klasik</strong> kategorisine ait
+					kayıtlara bakalım.
+				</p>
+				<ol class="code">
+					<li><span class="jsr">var</span> <strong>objSelectedCategory</strong> = <em>myShop[ 'Klasik' ]</em>;</li>
+					<li><span class="jsr">for</span>( <span class="jsr">var</span> <strong>strItemID</strong> <span class="jsr">in</span> <em>objSelectedCategory</em> )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> strAlbumTitle = <em>objSelectedCategory[ strItemID ][ 'title' ];</em></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> strAlbumArtist = <em>objSelectedCategory[ strItemID ][ 'artist' ];</em></li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> strAlbumYear = <em>objSelectedCategory[ strItemID ][ 'year' ];</em></li>
+					<li><span class="tab">&nbsp;</span><span class="jsc">window</span>.<span class="jsr">alert</span>( strAlbumTitle );</li>
+					<li>}</li>
+				</ol>
+				<p><a target="_blank" href="ornek/ders006_ornek02.html">Source Download</a></p>
+				<hr/>
+				<p>Görüldüğü gibi, <strong>Klasik</strong> kategorisinin altında 2 adet ürün olduğu için , sadece 2 kez alert çıktı ve sadece <strong>strAlbumTitle</strong> yani albüm adı&rsquo;nı alert ettirdik.</p>
+				
+				<h4>Object.length ?</h4>
+				<p>Obje&rsquo;lerin <strong>length</strong>&rsquo;i yoktur! Bunun için length&rsquo;i hesaplayan bir fonksiyon yazmamız gerekiyor.</p>
+				<ol class="code">
+					<li><span class="jsr">function</span> getObjectLength( <em>objObject</em> )</li>
+					<li>{</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">var</span> i = 0;</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">for</span>( <span class="jsr">var</span> <strong>key</strong> <span class="jsr">in</span> <em>objObject</em> )</li>
+					<li><span class="tab">&nbsp;</span>{</li>
+					<li><span class="tab">&nbsp;</span><span class="tab">&nbsp;</span>i++;</li>
+					<li><span class="tab">&nbsp;</span>}</li>
+					<li><span class="tab">&nbsp;</span><span class="jsr">return</span> i;</li>
+					<li>}</li>
+				</ol>
+				<p>Aslında yaptığımız, ilk derinlikte varolan <strong>key</strong>&rsquo;leri saymak. Bu uygulama için ihtiyacımız olan bir durum.</p>
+				<div class="warning">
+					IN-LINE Javascript yazarken, / leri escape etmemiz gerekir! \/ şeklinde yazmalıyız!
+				</div>
+				<ol class="code">
+					<li><span class="jsr">var</span> strHtmlOut = '&lt;p&gt;Test&lt;\/p&gt;';</li>
+				</ol>
+				<p><a target="_blank" href="ornek/ders006_ornek03.html">Final Source Download</a></p>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

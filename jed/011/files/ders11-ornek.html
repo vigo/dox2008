@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Ders 11 : UL / LI CSS Modify</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta http-equiv="Content-Language" content="tr,en"/>
+	<meta name="robots" content="all"/>
+	<meta name="author" content="Uğur Özyılmazel - ugur@ozyilmazel.com"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="copyright" content="Uğur Özyılmazel - http://ugur.ozyilmazel.com"/>
+	<meta name="date" content="2008-02-16T13:53:52+02:00"/>
+	<meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT"/>
+	<meta http-equiv="Last-Modified" content="Sat, 16 Feb 2008 12:51:19 GMT"/>
+	<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<style type="text/css" media="screen">
+		body
+		{
+			color: #000;
+			background: #fff;
+			margin: 0px;
+			padding: 0px;
+			font: normal normal normal 12px/16px 'Lucida Grande' , 'Lucida Console' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+		}
+		
+		form , p
+		{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		div
+		{
+			overflow: hidden;
+		}
+
+		a:link , a:active , a:visited
+		{
+			background: transparent;
+			color: #007;
+			text-decoration: underline;
+		}
+
+		a:hover
+		{
+			text-decoration: none;
+		}
+
+		h1 , h2 , h3 , h4 , h5 , h6
+		{
+			font-weight: normal;
+			margin: 0px;
+			padding: 0px;
+			line-height: 1.3em;
+		}
+
+		h1 { font-size: 40px; }
+		h2 { font-size: 36px; }
+		h3 { font-size: 32px; }
+		h4 { font-size: 28px; }
+		h5 { font-size: 24px; }
+		h6 { font-size: 20px; }
+		
+		#canvas
+		{
+			width: 768px;
+			margin: 0px auto;
+		}
+
+		input , select , textarea , button
+		{
+			font: normal normal normal 0.8em 'Lucida Grande' , 'Lucida Sans Unicode' , 'Helvetica' , 'Geneva' , 'Arial' , Sans-Serif;
+		}
+	</style>
+	<script type="text/javascript">
+	//<![CDATA[
+		function add_style( cssProp , cssValue )
+		{
+			var myUL = document.getElementById( 'deneme' );
+			for( var i = 0; i < myUL.childNodes.length; i++ )
+			{
+				if( myUL.childNodes[ i ].nodeType == 1 )
+				{
+					var myLI = myUL.childNodes[ i ];
+					myLI.style[ cssProp ] = cssValue;
+				}
+			}
+		}
+	//]]>
+	</script>
+</head>
+<body>
+	<div id="canvas">
+		<ul id="deneme">
+			<li>satır 1</li>
+			<li>satır 2</li>
+			<li>satır 3</li>
+		</ul>
+		<button onclick="add_style( 'borderBottom' , '1px solid #000' );">LI border-bottom</button>
+	</div>
+</body>
+</html>
